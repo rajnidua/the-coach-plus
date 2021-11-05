@@ -2,37 +2,35 @@ const mongoose = require("mongoose");
 
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const Student = require("./Student");
-const Coach = require("./Coach");
+//const Student = require("./Student");
+//const Coach = require("./Coach");
 
 const userSchema = new Schema({
-  firstName: {
+  username: {
     type: String,
     required: true,
-    trim: true,
-  },
-  lastName: {
-    type: String,
-    required: true,
+    unique: true,
     trim: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
+    match: [/.+@.+\..+/, "Must match an email address!"],
   },
   password: {
     type: String,
     required: true,
     minlength: 5,
   },
+
   role: {
     type: String,
-    required: true,
+    required: false,
 
-    validate: {
+    /* validate: {
       isIn: [["Student", "Coach"]],
-    },
+    }, */
   },
   //orders: [Order.schema],
 });
@@ -49,7 +47,8 @@ userSchema.pre("save", async function (next) {
 
 // Compare the incoming password with the hashed password
 userSchema.methods.isCorrectPassword = async function (password) {
-  await bcrypt.compare(password, this.password);
+  console.log("password is " + password);
+  return bcrypt.compare(password, this.password);
 };
 
 const User = mongoose.model("User", userSchema);

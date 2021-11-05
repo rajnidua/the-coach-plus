@@ -1,0 +1,20 @@
+[
+  {
+    "coachname": "Kent Beck",
+    "description": "I am tennis coach",
+    "image": "image1",
+    "fees": 50
+  },
+  {
+    "coachname": "Edward V. Berard",
+    "description": "I am basketball coach",
+    "image": "image2",
+    "fees": 50
+  },
+  {
+    "coachname": "David Thomas",
+    "description": "I am soccer coach",
+    "image": "image3",
+    "fees": 50
+  }
+]
