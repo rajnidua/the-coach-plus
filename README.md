@@ -75,3 +75,51 @@ username
 }
 }
 }
+
+# me (Get user information)
+
+# Query
+
+query me {
+me {
+\_id
+username
+email
+role
+}
+}
+
+# HTTP Headers
+
+{
+"Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiZ2hnaCIsImVtYWlsIjoiZ2hnaEBnaGdoLmNvbSIsIl9pZCI6IjYxODQ5NzIwZThhNWI3NDM5ZTc2YzJjNiJ9LCJpYXQiOjE2MzYwNzk1MzAsImV4cCI6MTYzNjA4NjczMH0.Og0YBL_GcmbkgrZ-fY64lpQaWbhgzdo33Q9K6-A-bTs"
+}
+
+# Result
+
+{
+"data": {
+"me": {
+"\_id": "61849720e8a5b7439e76c2c6",
+"username": "ghgh",
+"email": "ghgh@ghgh.com",
+"role": "Coach"
+}
+}
+}
+
+# Get All Users
+
+Query : users
+This will return details of all users except from the password
+
+```md
+query users {
+users {
+\_id
+username
+email
+role
+}
+}
+```

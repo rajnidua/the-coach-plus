@@ -4,6 +4,20 @@ const { signToken } = require("../utils/auth");
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find();
+    },
+
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
+    },
+
+    me: async (_, __, context) => {
+      console.log(context.user);
+      if (context.user) {
+        return User.findOne({ _id: context.user._id });
+      }
+    },
     //students: async () => Student.find(),
     //coaches: async () => Coach.find(),
     //users: async () => User.find(),
@@ -14,7 +28,7 @@ const resolvers = {
       if (!context.user || !context.user.roles.includes("Coach")) return null;
       return context.models.Coach.getAll();
     }, */
-    users: async (parent, args, context) => {
+    /* users: async (parent, args, context) => {
       if (context.user) {
         const user = await User.findById(context.user.id);
 
@@ -22,7 +36,7 @@ const resolvers = {
       }
 
       throw new AuthenticationError("Not logged in");
-    },
+    }, */
   },
 
   Mutation: {
