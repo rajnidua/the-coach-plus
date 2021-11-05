@@ -123,3 +123,29 @@ role
 }
 }
 ```
+
+# Get One User (from username)
+
+Query
+
+```md
+query{
+user(username: "Brian Kernighan"){
+\_id
+email
+username
+}
+}
+```
+
+# Result
+
+{
+"data": {
+"user": {
+"\_id": "6184775495cef53d935b8545",
+"email": "bkernighan@techfriends.dev",
+"username": "Brian Kernighan"
+}
+}
+}
