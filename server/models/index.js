@@ -1,8 +1,7 @@
 const User = require("./User");
 //const Student = require("./Student");
-//const Coach = require("./Coach");
+const Coach = require("./Coach");
 /* const Review = require("./Review");
 const Schedule = require("./Schedule"); */
 
-//module.exports = { User, Student, Coach, Review, Schedule };
-module.exports = { User };
+module.exports = { User, Coach };

@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
-const { Schema } = mongoose;
+const { Schema, model } = mongoose;
 const bcrypt = require("bcrypt");
 //const Student = require("./Student");
-//const Coach = require("./Coach");
+const Coach = require("./Coach");
+//const coachSchema = require("./Coach");
 
 const userSchema = new Schema({
   username: {
@@ -23,16 +24,19 @@ const userSchema = new Schema({
     required: true,
     minlength: 5,
   },
-
-  role: {
-    type: String,
-    required: false,
-
-    /* validate: {
-      isIn: [["Student", "Coach"]],
-    }, */
+  isCoach: {
+    type: Boolean,
+    required: true,
+    default: false,
   },
-  //orders: [Order.schema],
+  //coachProfile: coachSchema,
+  //coachProfile: [Coach.schema],
+  coachProfile: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Coach",
+    },
+  ],
 });
 
 // Set up pre-save middleware to create password
@@ -54,3 +58,4 @@ userSchema.methods.isCorrectPassword = async function (password) {
 const User = mongoose.model("User", userSchema);
 
 module.exports = User;
+//module.exports = userSchema;
