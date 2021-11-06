@@ -3,6 +3,12 @@ const User = require("./User");
 const { Schema } = mongoose;
 
 const coachSchema = new Schema({
+  /* userProfile: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ], */
   coachname: {
     type: String,
     required: true,

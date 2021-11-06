@@ -6,38 +6,46 @@ const bcrypt = require("bcrypt");
 const Coach = require("./Coach");
 //const coachSchema = require("./Coach");
 
-const userSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
-    unique: true,
-    trim: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-    match: [/.+@.+\..+/, "Must match an email address!"],
-  },
-  password: {
-    type: String,
-    required: true,
-    minlength: 5,
-  },
-  isCoach: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
-  //coachProfile: coachSchema,
-  //coachProfile: [Coach.schema],
-  coachProfile: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Coach",
+const userSchema = new Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+      trim: true,
     },
-  ],
-});
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+      match: [/.+@.+\..+/, "Must match an email address!"],
+    },
+    password: {
+      type: String,
+      required: true,
+      minlength: 5,
+    },
+    isCoach: {
+      type: Boolean,
+      required: true,
+      default: false,
+    },
+    //coachProfile: [coachSchema],
+    //coachProfile: [Coach.schema],
+    //coachProfile: [{ type: [mongoose.Schema.Types.ObjectId], ref: "Coach" }],
+    coachProfile: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: "Coach",
+      },
+    ],
+  },
+  {
+    toJSON: {
+      virtuals: true,
+    },
+  }
+);
 
 // Set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {

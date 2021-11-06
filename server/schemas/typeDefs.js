@@ -17,6 +17,14 @@ const typeDefs = gql`
     fees: Float
   }
 
+  input coachInput {
+    _id: ID
+    coachname: String
+    description: String
+    image: String
+    fees: Float
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -25,7 +33,7 @@ const typeDefs = gql`
   type Query {
     users: [User]
     coaches: [Coach]
-    user(username: String!): User
+    user(username: String!, coachProfile: coachInput): User
     me: User
     coach(coachId: ID!): Coach
 

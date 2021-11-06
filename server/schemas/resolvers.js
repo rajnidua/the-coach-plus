@@ -1,6 +1,7 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Mongoose } = require("mongoose");
 const { User, Coach } = require("../models");
+const coachSchema = require("../models/Coach");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -11,18 +12,10 @@ const resolvers = {
     coaches: async () => {
       return Coach.find();
     },
-    /* coach: async (_, args, context) => {
-      console.log(context.user);
-      if (context.user) {
-        return Coach.findOne({ _id: context.user._id });
-      }
-    }, */
-    user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("coachProfile");
+
+    user: async (parent, { username, coachProfile }) => {
+      return User.findOne({ username: username }).populate("coachProfile");
     },
-    /* user: async (parent, { username }) => {
-      return User.findOne({ username }).populate("coachProfile");
-    }, */
 
     coachDetail: async (parent, { username }) => {
       const params = username ? { username } : {};
@@ -39,18 +32,6 @@ const resolvers = {
         return User.findOne({ _id: context.user._id }).populate("coachProfile");
       }
     },
-
-    /* coach: async (parent, { id }, context) => {
-      if (context.user) {
-        const user = await User.findById(context.user.id).populate({
-          coach,
-        });
-
-        return user.coach.id(id);
-      }
-
-      throw new AuthenticationError("Not logged in");
-    }, */
   },
 
   Mutation: {
@@ -61,45 +42,6 @@ const resolvers = {
       return { token, user };
     },
 
-    /*  addCoach: async (parent, { coachInput }, context) => {
-      console.log("context is:");
-      console.log(coachInput);
-      try {
-        if (context.user) {
-          const user = await User.findOneAndUpdate(
-            { _id: context.user._id },
-            { $addToSet: { coach: coachInput } },
-            { new: true, runValidators: true }
-          );
-          console.log(user);
-          return user;
-        }
-      } catch (err) {
-        console.log(err);
-        throw new AuthenticationError("An unexpected error occured");
-      }
-    }, */
-
-    /* addCoach: async (parent, { coachInput }, context) => {
-      console.log("context user is :");
-      console.log(context);
-      console.log("coachInput argument:");
-      console.log(coachInput);
-      if (context.user) {
-        const coach = new Coach({ coachInput });
-        console.log("coach object is ");
-        console.log(coach);
-        await User.findByIdAndUpdate(context.user.id, {
-          $push: { coach: coach },
-        });
-        console.log("coachUpdate is :");
-        console.log(coach);
-        return coach;
-      }
-
-      throw new AuthenticationError("Not logged in");
-    }, */
-
     addCoach: async (parent, { description, image, fees }, context) => {
       if (context.user) {
         const coach = await Coach.create({
@@ -107,6 +49,7 @@ const resolvers = {
           description,
           image,
           fees,
+          userProfile: context.user._id,
         });
 
         console.log("user coach is: ");
@@ -114,13 +57,14 @@ const resolvers = {
         console.log(coach._id);
         const filter = { _id: context.user._id };
         const update = { coachProfile: coach._id };
+
         const result = await User.findOneAndUpdate(filter, update, {
           returnOriginal: false,
         });
         console.log("result is:");
         console.log(result);
         console.log("result end");
-        // console.log(coach);
+
         return coach;
       }
       throw new AuthenticationError("You need to be logged in!");
