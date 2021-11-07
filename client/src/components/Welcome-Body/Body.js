@@ -6,6 +6,8 @@ import trainingImage from "../../images/training.png";
 import homePageImage from "../../images/homePage-bg.jpg";
 import testimonialImage from "../../images/testimonial.jpg";
 
+import "../../styles/welcome-body.css";
+
 import { Link } from "react-router-dom";
 
 function Body() {
