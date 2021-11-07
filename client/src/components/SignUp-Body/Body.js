@@ -28,6 +28,10 @@ function Body() {
                     placeholder="password"
                   />
                 </div>
+                <div className="col span-2-of-3">
+                  <input type="checkbox" name="isCoach" id="isCoach" />
+                  Are you registering as a Coach?
+                </div>
                 <div className="button">
                   <button type="submit">SignUp</button>
                 </div>
