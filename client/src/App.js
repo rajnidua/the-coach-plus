@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Welcome from "./pages/Welcome";
 //import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -40,6 +41,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Welcome} />
             <Route path="/Login" component={Login} />
+            <Route path="/SignUp" component={SignUp} />
 
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
