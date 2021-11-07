@@ -1,6 +1,7 @@
 import React from "react";
 import "../../styles/login.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
+import Auth from "../../utils/auth.js";
 
 function Body() {
   return (
