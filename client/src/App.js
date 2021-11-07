@@ -8,8 +8,9 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Navbar from "./components/Navbar";
-import LoginForm from "./components/LoginForm";
+import Welcome from "./pages/Welcome";
+//import Navbar from "./components/Navbar";
+//import LoginForm from "./components/LoginForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -36,10 +37,9 @@ function App() {
     <ApolloProvider client={client}>
       <Router>
         <>
-          <Navbar />
           <Switch>
-            <Route exact path="/" component={LoginForm} />
-            <Route exact path="/saved" component={Navbar} />
+            <Route exact path="/" component={Welcome} />
+
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Switch>
         </>

@@ -1,6 +1,7 @@
-import NavBar from "../components/navbar/navbar";
-import Body from "../components/welcome-body/body";
-import Footer from "../components/footer/footer";
+import React from "react";
+import NavBar from "../components/Navbar/Navbar";
+import Body from "../components/Welcome-Body/Body";
+import Footer from "../components/Footer/Footer";
 
 function Welcome() {
   return (
