@@ -140,12 +140,12 @@ function Body(props) {
                   </button>
                 </div>
               </form>
-              <p>
+              {/* <p>
                 New to the app?
                 <a href="https://www.google.com" className="sign-up-link">
                   Create an account
                 </a>
-              </p>
+              </p> */}
             </div>
           </div>
         </div>
