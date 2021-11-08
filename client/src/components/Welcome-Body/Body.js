@@ -86,6 +86,18 @@ function Body() {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Nostrum, ipsum praesentium dolorum inventore voluptas quasi.
               </p>
+              {/* {Auth.loggedIn() ? (
+                <>
+                  <Nav.Link as={Link} to="/saved">
+                    See Your Books
+                  </Nav.Link>
+                  <Nav.Link onClick={Auth.logout}>Logout</Nav.Link>
+                </>
+              ) : (
+                <Nav.Link onClick={() => setShowModal(true)}>
+                  Login/Sign Up
+                </Nav.Link>
+              )} */}
               <Link to="/StuDashboard" className="btn">
                 Get Started
               </Link>

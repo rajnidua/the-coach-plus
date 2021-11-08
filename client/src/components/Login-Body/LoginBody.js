@@ -2,8 +2,11 @@ import React from "react";
 import "../../styles/login.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
 import Auth from "../../utils/auth.js";
+import { Link } from "react-router-dom";
 
-function Body() {
+function LoginBody() {
+  const signupCoach = "coach";
+  const signupStudent = "student";
   return (
     <div>
       <section className="log-in" id="log-in">
@@ -35,9 +38,26 @@ function Body() {
               </form>
               <p>
                 New to the app?
-                <a href="https://www.google.com" className="sign-up-link">
-                  Create an account
+                {/* <Link to="/SignUp" role={true} className="btn">
+                  SignUp As a Coach
+                </Link>
+                <Link to="/SignUp" role={false} className="btn">
+                  SignUp As a Student
+                </Link> */}
+                <Link
+                  to={{
+                    pathname: "/SignUp",
+                    state: true,
+                  }}
+                >
+                  SignUp As a Coach
+                </Link>
+                {/* <a href="https://www.google.com" className="sign-up-link">
+                  SignUp As a Coach
                 </a>
+                <a href="https://www.google.com" className="sign-up-link">
+                  SignUp As a Student
+                </a> */}
               </p>
             </div>
           </div>
@@ -47,4 +67,4 @@ function Body() {
   );
 }
 
-export default Body;
+export default LoginBody;

@@ -6,14 +6,18 @@ import "../../styles/signup.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
 import Auth from "../../utils/auth.js";
 
-function Body() {
+function Body(props) {
   const [userFormData, setUserFormData] = useState({
     username: "",
     email: "",
     password: "",
   });
+  console.log("value of props.role is: ");
+  console.log(props.type);
 
-  const [isCoach, setIsCoach] = useState(true);
+  const [isCoach, setIsCoach] = useState(props.type);
+
+  console.log("value of isCoach is " + isCoach);
 
   // set state for form validation
   const [validated] = useState(false);
