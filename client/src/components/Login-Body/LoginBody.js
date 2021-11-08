@@ -38,26 +38,24 @@ function LoginBody() {
               </form>
               <p>
                 New to the app?
-                {/* <Link to="/SignUp" role={true} className="btn">
-                  SignUp As a Coach
-                </Link>
-                <Link to="/SignUp" role={false} className="btn">
-                  SignUp As a Student
-                </Link> */}
                 <Link
                   to={{
                     pathname: "/SignUp",
                     state: true,
                   }}
+                  className="btn"
                 >
                   SignUp As a Coach
                 </Link>
-                {/* <a href="https://www.google.com" className="sign-up-link">
-                  SignUp As a Coach
-                </a>
-                <a href="https://www.google.com" className="sign-up-link">
-                  SignUp As a Student
-                </a> */}
+                <Link
+                  to={{
+                    pathname: "/SignUp",
+                    state: false,
+                  }}
+                  className="btn"
+                >
+                  Signup As a Student
+                </Link>
               </p>
             </div>
           </div>
