@@ -30,9 +30,30 @@ const userSchema = new Schema(
       required: true,
       default: false,
     },
-    //coachProfile: [coachSchema],
-    //coachProfile: [Coach.schema],
-    //coachProfile: [{ type: [mongoose.Schema.Types.ObjectId], ref: "Coach" }],
+    houseNumber: {
+      type: Number,
+      required: false,
+    },
+    streetName: {
+      type: String,
+      required: false,
+    },
+    postalCode: {
+      type: Number,
+      required: true,
+      default: 5000,
+    },
+    state: { type: String, required: false },
+    country: {
+      type: String,
+      required: false,
+    },
+    address: {
+      type: String,
+      required: true,
+      default: "Adelaide",
+    },
+
     coachProfile: [
       {
         type: Schema.Types.ObjectId,

@@ -3,12 +3,12 @@ const User = require("./User");
 const { Schema } = mongoose;
 
 const coachSchema = new Schema({
-  /* userProfile: [
+  userProfile: [
     {
       type: Schema.Types.ObjectId,
       ref: "User",
     },
-  ], */
+  ],
   coachname: {
     type: String,
     required: true,
@@ -24,12 +24,25 @@ const coachSchema = new Schema({
     required: true,
     min: 0.99,
   },
-
-  //userAttached: [User.schema],
+  /* sessionStart: {
+    type: Date,
+    required: false,
+    default: Date.now,
+  },
+  classDuration: {
+    type: Number,
+    required: false,
+  },
+  classFrequency: {
+    type: String,
+    required: false,
+  },
+  frequencyNum: {
+    type: Number,
+    required: false,
+  }, */
 });
 
 const Coach = mongoose.model("Coach", coachSchema);
 
 module.exports = Coach;
-
-//module.exports = coachSchema;

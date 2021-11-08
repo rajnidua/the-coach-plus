@@ -13,17 +13,17 @@ const resolvers = {
       return Coach.find();
     },
 
-    user: async (parent, { username, coachProfile }) => {
+    user: async (parent, { username }) => {
       return User.findOne({ username: username }).populate("coachProfile");
     },
 
-    coachDetail: async (parent, { username }) => {
-      const params = username ? { username } : {};
-      return Coach.find(params);
+    coachDetail: async (parent, { coachname }) => {
+      const params = coachname ? { coachname } : {};
+      return Coach.findOne(params).populate("userProfile");
     },
 
     coach: async (parent, { coachId }) => {
-      return Coach.findOne({ _id: coachId });
+      return Coach.findOne({ _id: coachId }).populate("userProfile");
     },
 
     me: async (_, __, context) => {

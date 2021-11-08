@@ -6,7 +6,13 @@ const typeDefs = gql`
     username: String
     email: String
     isCoach: Boolean
-    coachProfile: Coach
+    houseNumber: Int
+    streetName: String
+    postalCode: Int
+    state: String
+    country: String
+    address: String
+    coachProfile: [Coach]
   }
 
   type Coach {
@@ -15,6 +21,7 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
+    userProfile: [User]
   }
 
   input coachInput {
@@ -23,6 +30,15 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
+    userProfile: userInput
+  }
+
+  input userInput {
+    _id: ID
+    username: String
+    email: String
+    isCoach: Boolean
+    coachProfile: coachInput
   }
 
   type Auth {
@@ -33,11 +49,11 @@ const typeDefs = gql`
   type Query {
     users: [User]
     coaches: [Coach]
-    user(username: String!, coachProfile: coachInput): User
+    user(username: String!): User
     me: User
     coach(coachId: ID!): Coach
 
-    coachDetail(username: String): Coach
+    coachDetail(coachname: String): Coach
   }
 
   type Mutation {
@@ -46,6 +62,12 @@ const typeDefs = gql`
       email: String!
       password: String!
       isCoach: Boolean!
+      houseNumber: Int
+      streetName: String
+      postalCode: Int
+      state: String
+      country: String
+      address: String!
     ): Auth
     addCoach(description: String, image: String, fees: String): Coach
 
