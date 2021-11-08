@@ -179,7 +179,7 @@ function Body() {
                     type="checkbox"
                     name="newsletter"
                     id="newsletter"
-                    checked
+                    default="checked"
                   />
                   Yes, Please
                 </div>
