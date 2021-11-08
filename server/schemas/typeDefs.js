@@ -5,6 +5,7 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
     isCoach: Boolean
     houseNumber: Int
     streetName: String
@@ -37,7 +38,14 @@ const typeDefs = gql`
     _id: ID
     username: String
     email: String
+    password: String
     isCoach: Boolean
+    houseNumber: Int
+    streetName: String
+    postalCode: Int
+    state: String
+    country: String
+    address: String
     coachProfile: coachInput
   }
 
@@ -57,18 +65,7 @@ const typeDefs = gql`
   }
 
   type Mutation {
-    addUser(
-      username: String!
-      email: String!
-      password: String!
-      isCoach: Boolean!
-      houseNumber: Int
-      streetName: String
-      postalCode: Int
-      state: String
-      country: String
-      address: String!
-    ): Auth
+    addUser(input: userInput!): Auth
     addCoach(description: String, image: String, fees: String): Coach
 
     login(email: String!, password: String!): Auth
