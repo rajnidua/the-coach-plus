@@ -22,7 +22,6 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
-    sessionStart: String
     classDuration: Int
     classFrequency: String
     frequencyNum: Int
@@ -35,11 +34,9 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
-    sessionStart: String
     classDuration: Int
     classFrequency: String
     frequencyNum: Int
-    userProfile: userInput
   }
 
   input userInput {
@@ -74,10 +71,11 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(input: userInput!): Auth
-    addCoach(input: coachInput!): Coach
-
+    addCoach(description: String, image: String, fees: Float): Coach
     login(email: String!, password: String!): Auth
   }
 `;
 
 module.exports = typeDefs;
+
+//addCoach(input: coachInput!): Coach

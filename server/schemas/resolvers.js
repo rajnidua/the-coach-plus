@@ -43,30 +43,15 @@ const resolvers = {
       return { token, user };
     },
 
-    addCoach: async (
-      parent,
-      {
-        description,
-        image,
-        fees,
-        sessionStart,
-        classDuration,
-        classFrequency,
-        frequencyNum,
-      },
-      context
-    ) => {
-      //console.log(args);
+    addCoach: async (parent, { description, image, fees }, context) => {
+      console.log("context in add coach is ");
+      console.log(context.user);
       if (context.user) {
         const coach = await Coach.create({
           coachname: context.user.username,
           description,
           image,
           fees,
-          sessionStart,
-          classDuration,
-          classFrequency,
-          frequencyNum,
           userProfile: context.user._id,
         });
 

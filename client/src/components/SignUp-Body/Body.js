@@ -25,7 +25,7 @@ function Body(props) {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  //const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -45,13 +45,13 @@ function Body(props) {
     }
 
     try {
-      const { data } = await addUser({
+      /*  const { data } = await addUser({
         variables: { ...userFormData, isCoach },
       });
       console.log(userFormData);
       console.log("signup data is: ");
       console.log(data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addUser.token); */
     } catch (err) {
       console.error(error);
       setShowAlert(true);

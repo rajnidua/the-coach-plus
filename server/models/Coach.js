@@ -24,11 +24,11 @@ const coachSchema = new Schema({
     required: false,
     min: 0.99,
   },
-  sessionStart: {
+  /* sessionStart: {
     type: Date,
     required: false,
     default: Date.now,
-  },
+  }, */
   classDuration: {
     type: Number,
     required: false,
