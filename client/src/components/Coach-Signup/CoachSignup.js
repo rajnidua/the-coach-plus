@@ -1,30 +1,29 @@
 import React, { useState, useEffect } from "react";
 import { Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
-import { ADD_USER } from "../../utils/mutations";
+import { ADD_COACH } from "../../utils/mutations";
 import "../../styles/signup.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
 import Auth from "../../utils/auth.js";
-import { Link } from "react-router-dom";
 
-function Body(props) {
+function CoachSignup(props) {
   const [userFormData, setUserFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    houseNumber: "",
-    streetName: "",
-    city: "",
-    postalCode: "",
-    state: "",
-    country: "",
+    description: "",
+    image: "",
+    sport: "",
+    groupSize: "",
+    duration: "",
+    fees: "",
+    sessionStart: "",
+    days: [],
+    timeSlot: [],
   });
   console.log("value of props.role is: ");
   console.log(props.type);
 
-  const [isCoach, setIsCoach] = useState(props.type);
+  //const [isCoach, setIsCoach] = useState(props.type);
 
-  console.log("value of isCoach is " + isCoach);
+  //console.log("value of isCoach is " + isCoach);
 
   // set state for form validation
   const [validated] = useState(false);
@@ -32,7 +31,7 @@ function Body(props) {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  const [addUser, { error }] = useMutation(ADD_USER);
+  const [addCoach, { error }] = useMutation(ADD_COACH);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -52,28 +51,28 @@ function Body(props) {
     }
 
     try {
-      const { data } = await addUser({
-        variables: { input: { ...userFormData, isCoach } },
+      const { data } = await addCoach({
+        variables: { input: { ...userFormData } },
       });
       console.log(userFormData);
-      console.log("signup data is: ");
+      console.log("add Coach data is: ");
       console.log(data);
-      Auth.login(data.addUser.token);
+      Auth.login(data.addCoach.token);
     } catch (err) {
       console.error(error);
       setShowAlert(true);
     }
 
     setUserFormData({
-      username: "",
-      email: "",
-      password: "",
-      houseNumber: "",
-      streetName: "",
-      city: "",
-      postalCode: "",
-      state: "",
-      country: "",
+      description: "",
+      image: "",
+      sport: "",
+      groupSize: "",
+      duration: "",
+      fees: "",
+      sessionStart: "",
+      days: [],
+      timeSlot: [],
     });
   };
 
@@ -106,10 +105,10 @@ function Body(props) {
                   <input
                     type="text"
                     className="username-feild"
-                    placeholder="username"
-                    name="username"
+                    placeholder="description"
+                    name="description"
                     onChange={handleInputChange}
-                    value={userFormData.username}
+                    value={userFormData.description}
                     required
                   />
                 </div>
@@ -118,10 +117,10 @@ function Body(props) {
                   <input
                     type="text"
                     className="email-feild"
-                    placeholder="email"
-                    name="email"
+                    placeholder="image"
+                    name="image"
                     onChange={handleInputChange}
-                    value={userFormData.email}
+                    value={userFormData.image}
                     required
                   />
                 </div>
@@ -129,10 +128,10 @@ function Body(props) {
                   <input
                     type="text"
                     className="password-feild"
-                    placeholder="password"
-                    name="password"
+                    placeholder="sport"
+                    name="sport"
                     onChange={handleInputChange}
-                    value={userFormData.password}
+                    value={userFormData.sport}
                     required
                   />
                 </div>
@@ -140,51 +139,51 @@ function Body(props) {
                 <div className="field city">
                   <input
                     type="text"
-                    placeholder="House Number"
-                    name="houseNumber"
+                    placeholder="groupSize"
+                    name="groupSize"
                     onChange={handleInputChange}
-                    value={userFormData.houseNumber}
+                    value={userFormData.groupSize}
                     required
                   />
                   <input
                     type="text"
-                    placeholder="Street"
-                    name="streetName"
+                    placeholder="duration"
+                    name="duration"
                     onChange={handleInputChange}
-                    value={userFormData.streetName}
+                    value={userFormData.duration}
                     required
                   />
                   <div class="city">
                     <input
                       type="text"
-                      placeholder="City"
-                      name="city"
+                      placeholder="fees"
+                      name="fees"
                       onChange={handleInputChange}
-                      value={userFormData.city}
+                      value={userFormData.fees}
                       required
                     />
                     <input
                       type="text"
-                      placeholder="State"
-                      name="state"
+                      placeholder="sessionStart"
+                      name="sessionStart"
                       onChange={handleInputChange}
-                      value={userFormData.state}
+                      value={userFormData.sessionStart}
                       required
                     />
                     <input
                       type="text"
-                      placeholder="Postal Code"
-                      name="postalCode"
+                      placeholder="days"
+                      name="days"
                       onChange={handleInputChange}
-                      value={userFormData.postalCode}
+                      value={userFormData.days}
                       required
                     />
                     <input
                       type="text"
-                      placeholder="Country"
-                      name="country"
+                      placeholder="time slots"
+                      name="timeSlot"
                       onChange={handleInputChange}
-                      value={userFormData.country}
+                      value={userFormData.timeSlot}
                       required
                     />
                   </div>
@@ -194,15 +193,15 @@ function Body(props) {
                   <button
                     disabled={
                       !(
-                        userFormData.username &&
-                        userFormData.email &&
-                        userFormData.password &&
-                        userFormData.houseNumber &&
-                        userFormData.streetName &&
-                        userFormData.city &&
-                        userFormData.postalCode &&
-                        userFormData.state &&
-                        userFormData.country
+                        userFormData.description &&
+                        userFormData.image &&
+                        userFormData.sport &&
+                        userFormData.groupSize &&
+                        userFormData.duration &&
+                        userFormData.fees &&
+                        userFormData.sessionStart &&
+                        userFormData.days &&
+                        userFormData.timeSlot
                       )
                     }
                     type="submit"
@@ -212,19 +211,6 @@ function Body(props) {
                   </button>
                 </div>
               </form>
-
-              <p>
-                Let's know more about you.
-                <Link
-                  to={{
-                    pathname: "/CoachSignUp",
-                    //state: true,
-                  }}
-                  className="btn"
-                >
-                  Update Your Profile As A Coach
-                </Link>
-              </p>
             </div>
           </div>
         </div>
@@ -233,4 +219,4 @@ function Body(props) {
   );
 }
 
-export default Body;
+export default CoachSignup;
