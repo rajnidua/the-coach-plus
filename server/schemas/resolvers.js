@@ -43,7 +43,37 @@ const resolvers = {
       return { token, user };
     },
 
-    addCoach: async (parent, { description, image, fees }, context) => {
+    addCoach: async (parent, args, context) => {
+      console.log("context in add coach is ");
+      console.log(context.user);
+      console.log("The args is ");
+      console.log(args);
+      if (context.user) {
+        const coach = await Coach.create({
+          coachname: context.user.username,
+          ...args.input,
+          userProfile: context.user._id,
+        });
+
+        console.log("user coach is: ");
+        console.log(context.user._id);
+        console.log(coach._id);
+        const filter = { _id: context.user._id };
+        const update = { coachProfile: coach._id };
+
+        const result = await User.findOneAndUpdate(filter, update, {
+          returnOriginal: false,
+        });
+        console.log("result is:");
+        console.log(result);
+        console.log("result end");
+
+        return coach;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    /* addCoach: async (parent, { description, image, fees }, context) => {
       console.log("context in add coach is ");
       console.log(context.user);
       if (context.user) {
@@ -71,7 +101,7 @@ const resolvers = {
         return coach;
       }
       throw new AuthenticationError("You need to be logged in!");
-    },
+    }, */
 
     login: async (parent, { email, password }) => {
       console.log(email);

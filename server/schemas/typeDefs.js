@@ -71,7 +71,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(input: userInput!): Auth
-    addCoach(description: String, image: String, fees: Float): Coach
+    addCoach(input: coachInput!): Coach
     login(email: String!, password: String!): Auth
   }
 `;
