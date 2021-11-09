@@ -1,24 +1,20 @@
 import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
-  mutation addUser(
-    $username: String!
-    $password: String!
-    $email: String!
-    $isCoach: Boolean!
-  ) {
-    addUser(
-      username: $username
-      password: $password
-      email: $email
-      isCoach: $isCoach
-    ) {
+  mutation addUser($input: userInput!) {
+    addUser(input: $input) {
       token
       user {
         username
         _id
         email
         isCoach
+        streetName
+        houseNumber
+        postalCode
+        state
+        country
+        city
       }
     }
   }
@@ -35,3 +31,30 @@ export const LOGIN_USER = gql`
     }
   }
 `;
+
+/*  mutation addUser(
+    $username: String!
+    $password: String!
+    $email: String!
+    $isCoach: Boolean!
+    $houseNumber: Int
+    $streetName: String
+    $postalCode: Int
+    $state: String
+    $country: String
+  ) {
+    addUser(
+      username: $username
+      password: $password
+      email: $email
+      isCoach: $isCoach
+    ) {
+      token
+      user {
+        username
+        _id
+        email
+        isCoach
+      }
+    }
+  } */

@@ -4,6 +4,7 @@ const { Schema, model } = mongoose;
 const bcrypt = require("bcrypt");
 //const Student = require("./Student");
 const Coach = require("./Coach");
+const { stripIgnoredCharacters } = require("graphql");
 //const coachSchema = require("./Coach");
 
 const userSchema = new Schema(
@@ -31,7 +32,7 @@ const userSchema = new Schema(
       default: false,
     },
     houseNumber: {
-      type: Number,
+      type: String,
       required: false,
     },
     streetName: {
@@ -39,7 +40,7 @@ const userSchema = new Schema(
       required: false,
     },
     postalCode: {
-      type: Number,
+      type: String,
       required: true,
       default: 5000,
     },
@@ -48,7 +49,7 @@ const userSchema = new Schema(
       type: String,
       required: false,
     },
-    address: {
+    city: {
       type: String,
       required: true,
       default: "Adelaide",

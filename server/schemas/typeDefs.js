@@ -7,12 +7,12 @@ const typeDefs = gql`
     email: String
     password: String
     isCoach: Boolean
-    houseNumber: Int
+    houseNumber: String
     streetName: String
-    postalCode: Int
+    postalCode: String
     state: String
     country: String
-    address: String
+    city: String
     coachProfile: [Coach]
   }
 
@@ -45,12 +45,12 @@ const typeDefs = gql`
     email: String
     password: String
     isCoach: Boolean
-    houseNumber: Int
+    houseNumber: String
     streetName: String
-    postalCode: Int
+    postalCode: String
     state: String
     country: String
-    address: String
+    city: String
     coachProfile: coachInput
   }
 

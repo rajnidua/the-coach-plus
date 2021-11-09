@@ -11,6 +11,12 @@ function Body(props) {
     username: "",
     email: "",
     password: "",
+    houseNumber: "",
+    streetName: "",
+    city: "",
+    postalCode: "",
+    state: "",
+    country: "",
   });
   console.log("value of props.role is: ");
   console.log(props.type);
@@ -25,7 +31,7 @@ function Body(props) {
   // set state for alert
   const [showAlert, setShowAlert] = useState(false);
 
-  //const [addUser, { error }] = useMutation(ADD_USER);
+  const [addUser, { error }] = useMutation(ADD_USER);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -45,13 +51,13 @@ function Body(props) {
     }
 
     try {
-      /*  const { data } = await addUser({
-        variables: { ...userFormData, isCoach },
+      const { data } = await addUser({
+        variables: { input: { ...userFormData, isCoach } },
       });
       console.log(userFormData);
       console.log("signup data is: ");
       console.log(data);
-      Auth.login(data.addUser.token); */
+      Auth.login(data.addUser.token);
     } catch (err) {
       console.error(error);
       setShowAlert(true);
@@ -61,6 +67,12 @@ function Body(props) {
       username: "",
       email: "",
       password: "",
+      houseNumber: "",
+      streetName: "",
+      city: "",
+      postalCode: "",
+      state: "",
+      country: "",
     });
   };
 
@@ -124,13 +136,72 @@ function Body(props) {
                   />
                 </div>
 
+                <div className="field city">
+                  <input
+                    type="text"
+                    placeholder="House Number"
+                    name="houseNumber"
+                    onChange={handleInputChange}
+                    value={userFormData.houseNumber}
+                    required
+                  />
+                  <input
+                    type="text"
+                    placeholder="Street"
+                    name="streetName"
+                    onChange={handleInputChange}
+                    value={userFormData.streetName}
+                    required
+                  />
+                  <div class="city">
+                    <input
+                      type="text"
+                      placeholder="City"
+                      name="city"
+                      onChange={handleInputChange}
+                      value={userFormData.city}
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="State"
+                      name="state"
+                      onChange={handleInputChange}
+                      value={userFormData.state}
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="Postal Code"
+                      name="postalCode"
+                      onChange={handleInputChange}
+                      value={userFormData.postalCode}
+                      required
+                    />
+                    <input
+                      type="text"
+                      placeholder="Country"
+                      name="country"
+                      onChange={handleInputChange}
+                      value={userFormData.country}
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div className="button">
                   <button
                     disabled={
                       !(
                         userFormData.username &&
                         userFormData.email &&
-                        userFormData.password
+                        userFormData.password &&
+                        userFormData.houseNumber &&
+                        userFormData.streetName &&
+                        userFormData.city &&
+                        userFormData.postalCode &&
+                        userFormData.state &&
+                        userFormData.country
                       )
                     }
                     type="submit"
@@ -140,12 +211,6 @@ function Body(props) {
                   </button>
                 </div>
               </form>
-              {/* <p>
-                New to the app?
-                <a href="https://www.google.com" className="sign-up-link">
-                  Create an account
-                </a>
-              </p> */}
             </div>
           </div>
         </div>
