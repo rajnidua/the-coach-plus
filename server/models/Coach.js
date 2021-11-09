@@ -19,28 +19,49 @@ const coachSchema = new Schema({
   image: {
     type: String,
   },
-  fees: {
-    type: Number,
+  sport: {
+    type: String,
     required: false,
-    min: 0.99,
   },
-  /* sessionStart: {
+  groupSize: {
+    type: String,
+    required: false,
+  },
+  duration: {
+    type: String,
+    required: false,
+  },
+
+  fees: {
+    type: String,
+    required: false,
+  },
+  sessionStart: {
     type: Date,
     required: false,
     default: Date.now,
-  }, */
-  classDuration: {
-    type: Number,
+  },
+  days: {
+    type: [String],
     required: false,
   },
-  classFrequency: {
+  timeSlot: {
+    type: [String],
+    required: false,
+  },
+
+  /* classDuration: {
+    type: Number,
+    required: false,
+  }, */
+  /* classFrequency: {
     type: String,
     required: false,
   },
   frequencyNum: {
     type: Number,
     required: false,
-  },
+  }, */
 });
 
 const Coach = mongoose.model("Coach", coachSchema);

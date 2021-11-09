@@ -21,10 +21,13 @@ const typeDefs = gql`
     coachname: String
     description: String
     image: String
-    fees: Float
-    classDuration: Int
-    classFrequency: String
-    frequencyNum: Int
+    sport: String
+    groupSize: String
+    duration: String
+    fees: String
+    sessionStart: String
+    days: [String]
+    timeSlot: [String]
     userProfile: [User]
   }
 
@@ -33,10 +36,13 @@ const typeDefs = gql`
     coachname: String
     description: String
     image: String
-    fees: Float
-    classDuration: Int
-    classFrequency: String
-    frequencyNum: Int
+    sport: String
+    groupSize: String
+    duration: String
+    fees: String
+    sessionStart: String
+    days: [String]
+    timeSlot: [String]
   }
 
   input userInput {
