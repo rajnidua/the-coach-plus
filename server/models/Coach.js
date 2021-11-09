@@ -21,10 +21,10 @@ const coachSchema = new Schema({
   },
   fees: {
     type: Number,
-    required: true,
+    required: false,
     min: 0.99,
   },
-  /* sessionStart: {
+  sessionStart: {
     type: Date,
     required: false,
     default: Date.now,
@@ -40,7 +40,7 @@ const coachSchema = new Schema({
   frequencyNum: {
     type: Number,
     required: false,
-  }, */
+  },
 });
 
 const Coach = mongoose.model("Coach", coachSchema);

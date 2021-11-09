@@ -22,6 +22,10 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
+    sessionStart: String
+    classDuration: Int
+    classFrequency: String
+    frequencyNum: Int
     userProfile: [User]
   }
 
@@ -31,6 +35,10 @@ const typeDefs = gql`
     description: String
     image: String
     fees: Float
+    sessionStart: String
+    classDuration: Int
+    classFrequency: String
+    frequencyNum: Int
     userProfile: userInput
   }
 
@@ -66,7 +74,7 @@ const typeDefs = gql`
 
   type Mutation {
     addUser(input: userInput!): Auth
-    addCoach(description: String, image: String, fees: String): Coach
+    addCoach(input: coachInput!): Coach
 
     login(email: String!, password: String!): Auth
   }
