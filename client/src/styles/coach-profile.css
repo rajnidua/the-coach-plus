@@ -136,3 +136,188 @@
   position: relative;
   bottom: 100px;
 }
+
+/* Responsive Styling */
+@media (max-width: 1425px) {
+  .coach-cards {
+    display: inline-block;
+    justify-content: space-between;
+  }
+
+  .coach-cards .max-width .coach-row .coach-profile-col img {
+    width: 120px;
+    height: 120px;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col .stars {
+    font-size: 15px;
+  }
+
+  .coach-cards .filters-calender {
+    bottom: 130px;
+  }
+}
+
+@media (max-width: 1364px) {
+  .coach-cards .max-width .coach-row .coach-review-col .stars {
+    font-size: 12px;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col .reviews {
+    font-size: 15px;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col .btn {
+    font-size: 12px;
+    font-weight: 400;
+    padding: 10px 25px;
+    margin-top: 8px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .coach-cards .max-width .coach-row .coach-profile-col img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col .reviews {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 1098px) {
+  .coach-cards .max-width .coach-row .coach-description-col {
+    width: 57%;
+  }
+
+  .coach-cards .max-width .coach-row .coach-review-col {
+    width: 18%;
+  }
+
+  .coach-cards .filters-calender {
+    bottom: 180px;
+  }
+}
+
+@media (max-width: 928px) {
+  .coach-cards .max-width {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 888px) {
+  .coach-cards .filters-calender {
+    width: 40%;
+    bottom: 230px;
+  }
+
+  .coach-cards .coach-columns {
+    width: 60%;
+  }
+
+  .coach-cards .coach-columns .coach-row {
+    width: 88%;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-profile-col {
+    width: 30%;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-profile-col img {
+    position: relative;
+    top: 20px;
+    margin-left: 5px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-profile-col p {
+    position: relative;
+    top: 20px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-description-col {
+    width: 40%;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-description-col h4 {
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-description-col p {
+    font-size: 12px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-review-col {
+    width: 30%;
+  }
+}
+
+@media (max-width: 699px) {
+  .coach-cards .filters-calender {
+    bottom: 620px;
+  }
+  .coach-cards .coach-columns .coach-row {
+    display: inline-block;
+    margin: 5px 30px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-profile-col img {
+    margin-left: 120px;
+    margin-right: 90px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-description-col h4 {
+    text-align: center;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-description-col p {
+    text-align: center;
+    padding: 10px;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-review-col {
+    width: 100%;
+    margin: 0;
+    align-items: center;
+  }
+
+  .coach-cards .coach-columns .coach-row .coach-review-col .enroll-btn {
+    float: right;
+    position: relative;
+    top: -25px;
+  }
+}
+
+@media (max-width: 534px) {
+  .btn {
+    font-size: 15px;
+    padding: 5px 12px;
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 478px) {
+  .max-width {
+    margin: 0;
+    padding: 0 40px;
+  }
+
+  .coach-cards .filters-calender {
+    bottom: 650px;
+  }
+}
+
+@media (max-width: 375px) {
+  .max-width {
+    padding: 0 25px;
+  }
+}
+
+@media (max-width: 375px) {
+}

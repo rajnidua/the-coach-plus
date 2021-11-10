@@ -349,16 +349,334 @@ input[type="checkbox"] {
 }
 
 @media (max-width: 1364px) {
+  .section-get-started .max-width .start-col .card-1 {
+    height: 90%;
+    position: relative;
+    top: 25px;
+  }
 }
 
 @media (max-width: 1280px) {
+  .section-get-started .max-width .start-col .card-1 {
+    width: 45%;
+    margin: 2.5%;
+    position: relative;
+    top: 35px;
+    word-wrap: break-word;
+  }
+
+  .section-get-started .max-width .start-col .card-2 {
+    width: 45%;
+    margin: 2.5%;
+    bottom: 95px;
+  }
 }
 
 @media (max-width: 1098px) {
+  .hero-section .max-width h1 {
+    font-size: 60px;
+  }
+
+  .hero-section .max-width p {
+    font-size: 20px;
+  }
+
+  .section-get-started .max-width {
+    display: inline;
+  }
+
+  .section-get-started .max-width .image-col {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .section-get-started .max-width .start-col {
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .section-get-started .max-width .start-col .card-1 {
+    top: 20px;
+  }
+
+  .section-get-started .max-width .start-col .card-2 {
+    bottom: 55px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col p {
+    font-size: 20px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h4,
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    p {
+    bottom: 45px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    hr {
+    bottom: 42px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    img,
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h5 {
+    bottom: 40px;
+  }
 }
 
 @media (max-width: 928px) {
+  .hero-section .max-width h1 {
+    font-size: 50px;
+    font-weight: 400;
+  }
+
+  .how-it-works .how-it-works-content .card {
+    width: calc(25% - 5px);
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    bottom: 45px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .client-testimonial-col {
+    width: 50%;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h4,
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    p {
+    bottom: 30px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    hr {
+    bottom: 25px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    img,
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h5 {
+    bottom: 20px;
+  }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 888px) {
+  .how-it-works .how-it-works-content .card {
+    width: calc(40% - 88px);
+    margin: 10px;
+  }
+
+  .how-it-works .how-it-works-content .card img {
+    height: 100px;
+    width: 100px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 699px) {
+  .how-it-works .how-it-works-content .card {
+    width: calc(50% - 50px);
+    margin: 5px;
+  }
+
+  .testimonial-section .max-width {
+    padding: 0 30px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    width: 40%;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 534px) {
+  .btn {
+    font-size: 15px;
+    padding: 5px 12px;
+    margin-top: 5px;
+  }
+
+  .how-it-works .how-it-works-content .card {
+    width: calc(50% - 10px);
+    margin: 5px;
+    font-size: 20px;
+  }
+
+  .section-get-started {
+    padding: 30px 0;
+  }
+
+  .section-get-started .max-width .start-col {
+    display: inline-block;
+    height: 100%;
+    font-size: 12px;
+  }
+
+  .section-get-started .max-width .start-col .card-1 {
+    width: 90%;
+    height: 60%;
+    margin: 5%;
+    top: 0px;
+  }
+
+  .section-get-started .max-width .start-col .card-2 {
+    width: 90%;
+    height: 40%;
+    margin: 5%;
+    bottom: 0px;
+  }
+
+  .section-get-started .max-width .start-col .card-2 p {
+    padding: 5px;
+  }
+
+  .section-get-started .max-width .start-col .card .btn {
+    top: 35px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    bottom: 30px;
+    width: 45%;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h4 {
+    bottom: 35px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    p {
+    bottom: 25px;
+    font-size: 12px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    hr {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 478px) {
+  .max-width {
+    margin: 0;
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 375px) {
+  .hero-section {
+    width: 100vw;
+  }
+  .max-width {
+    padding: 0 25px;
+  }
+
+  .hero-section .max-width h1 {
+    font-size: 40px;
+    font-weight: 300;
+  }
+
+  .hero-section .max-width p {
+    font-size: 15px;
+  }
+
+  .testimonial-section .max-width {
+    padding: 0 15px;
+    margin: 0;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    bottom: 30px;
+  }
+
+  .testimonial-section .max-width .testimonial-content .heading-col p {
+    padding: 20%;
+    font-size: 18px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h4 {
+    bottom: 35px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    p {
+    bottom: 25px;
+    font-size: 12px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    hr {
+    bottom: 30px;
+  }
+}
+
+@media (max-width: 375px) {
+  .testimonial-section .max-width .testimonial-content .heading-col {
+    bottom: 32px;
+  }
+
+  .testimonial-section
+    .max-width
+    .testimonial-content
+    .client-testimonial-col
+    h4 {
+    bottom: 25px;
+  }
 }

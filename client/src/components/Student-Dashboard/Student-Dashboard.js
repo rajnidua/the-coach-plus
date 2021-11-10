@@ -10,23 +10,29 @@ function StudentDashboard() {
         <div className="max-width">
           <div className="filters-calender">
             <div className="location-container">
-              <input type="text" value="5000" />
-              <a href="#">Change</a>
+              <h4>Your PostCode : </h4>
             </div>
-            <div className="sport-container">
-              <input type="text" value="Swimming" />
-              <a href="#">Change</a>
-            </div>
+
+            {/* <div className="location-container">
+              <label for="postcode">Change Postcode</label>
+              <input type="text" name="postcode" value="5000" {handleOnChange}/>
+              {/* <a href="#">Change</a> 
+            </div> */}
+            {/* <div className="sport-container">
+              <label for="choosenSport">Change Sport</label>
+              <input type="text" name="choosenSport" value="Swimming" />
+              {/* <a href="#">Change</a> 
+            </div> */}
             <div className="slidecontainer">
               <h3>Search Radius</h3>
-              <input
+              {/*  <input
                 type="range"
                 min="0"
                 max="20"
                 value="0"
                 className="slider"
                 id="myRange"
-              />
+              /> */}
               <p>
                 Radius: <span id="demo"></span>
               </p>
