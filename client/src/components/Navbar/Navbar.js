@@ -1,12 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/navbar.css";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+import { useQuery } from "@apollo/client";
+
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth.js";
 
 const NavBar = () => {
   const history = useHistory();
+  const [userIsCoach, setUserIsCoach] = useState(false);
+  const { username: userParam } = useParams();
+
+  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
+
+  const user = data?.me || data?.user || {};
+  console.log("CHECK FOR COACH");
+  console.log(user.isCoach);
+
+  const checkForCoach = () => {
+    // redirect to personal profile page if username is yours
+    if (Auth.loggedIn()) {
+      return setUserIsCoach(user.isCoach);
+    }
+  };
+
   return (
     <div>
       <nav className="navbar">
@@ -47,6 +68,18 @@ const NavBar = () => {
                 Your Coach Account
               </a>
             </li>
+
+            {Auth.loggedIn() && { checkForCoach } ? (
+              <>
+                <li>
+                  <Link to="/CoachProfile" className="menu-btn btn log-in-nav">
+                    Coach Profile
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <></>
+            )}
 
             {Auth.loggedIn() ? (
               <>

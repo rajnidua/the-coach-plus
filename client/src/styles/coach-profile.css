@@ -1,0 +1,138 @@
+:root {
+  --text-color: #333332;
+  --main-color: #fe7c31;
+}
+
+/* General Info Styling */
+.section-gen-info,
+.section-schedule {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.section-gen-info .max-width,
+.section-schedule .max-width {
+  display: flex;
+}
+
+.section-gen-info .max-width .coach-pic {
+  width: 15%;
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-gen-info .max-width .coach-pic img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 5px outset var(--main-color);
+}
+
+.section-gen-info .max-width .coach-pic img:hover {
+  transform: scale(1.05);
+}
+
+.section-gen-info .max-width .coach-pic .coach-name {
+  width: 100%;
+  font-size: 25px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.section-gen-info .max-width .coach-pic p {
+  width: 95%;
+  font-size: 20px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.section-gen-info .max-width .coach-descp {
+  width: 60%;
+  display: inline;
+  margin-left: 0;
+}
+
+.section-gen-info .max-width .coach-descp .selected-sport {
+  width: 20%;
+  font-size: 20px;
+  font-weight: 300;
+  padding: 10px;
+  margin: 10px;
+  background: #fafcf7;
+  border: 2px solid #fafcf7;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.section-gen-info .max-width .coach-descp p {
+  width: 90%;
+  padding: 10px;
+  text-align: justify;
+}
+
+.section-gen-info .max-width .coach-rev {
+  width: 20%;
+  display: inline;
+  float: left;
+}
+
+.section-gen-info .max-width .coach-rev .stars {
+  color: var(--main-color);
+}
+
+.section-gen-info .max-width .coach-rev .coach-sp-sport {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-gen-info .max-width .coach-rev .coach-sp-sport .coach-sport {
+  background: #fafcf7;
+  border: 1px solid #fafcf7;
+  border-radius: 5px;
+  color: var(--text-color);
+}
+
+/* Schedule Section Styling */
+
+.section-schedule {
+  background-color: #f4f4f4;
+}
+.section-schedule .max-width .calender {
+  width: 25%;
+  display: inline;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.section-schedule .max-width .calender h2 {
+  text-align: center;
+}
+
+.section-schedule .max-width .calender iframe {
+  margin: auto 20px;
+  padding: 10px;
+}
+
+.section-schedule .max-width .time-slots {
+  width: 40%;
+  float: left;
+  position: relative;
+  bottom: 120px;
+}
+
+.section-schedule .max-width .time-slots h2 {
+  text-align: center;
+}
+
+.section-schedule .max-width .time-slots select {
+  padding: 20px;
+}
+
+.section-schedule .max-width .buttons {
+  width: 20%;
+  position: relative;
+  bottom: 100px;
+}
