@@ -21,3 +21,18 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const QUERY_COACHES = gql`
+  query coaches {
+    coaches {
+      _id
+      coachname
+      description
+      sport
+      userProfile {
+        email
+        _id
+      }
+    }
+  }
+`;

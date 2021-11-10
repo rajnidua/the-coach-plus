@@ -1,9 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/student-dashboard.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_COACHES } from "../../utils/queries";
 
 function StudentDashboard() {
+  const [checkedSwimming, setCheckedSwimming] = useState(false);
+  const [checkedTennis, setCheckedTennis] = useState(false);
+
+  //const { loading, data } = useQuery(QUERY_COACHES);
+  const answer = useQuery(QUERY_COACHES);
+  console.log(answer);
+  //console.log(data[1]);
+  /* const coachDetail = answer.data.map((coach) => {
+    const coachId = coach._id;
+  }); */
+
+  const handleChangeSwimming = () => {
+    setCheckedSwimming(!checkedSwimming);
+    console.log("checked swimming is ");
+    console.log(checkedSwimming);
+  };
+
+  const handleChangeTennis = () => {
+    setCheckedTennis(!checkedTennis);
+    console.log("checked swimming is ");
+    console.log(checkedTennis);
+  };
+
   return (
     <div>
       <section className="coach-cards" id="coach-cards">
@@ -13,105 +38,34 @@ function StudentDashboard() {
               <h4>Your PostCode : </h4>
             </div>
 
-            {/* <div className="location-container">
-              <label for="postcode">Change Postcode</label>
-              <input type="text" name="postcode" value="5000" {handleOnChange}/>
-              {/* <a href="#">Change</a> 
-            </div> */}
-            {/* <div className="sport-container">
-              <label for="choosenSport">Change Sport</label>
-              <input type="text" name="choosenSport" value="Swimming" />
-              {/* <a href="#">Change</a> 
-            </div> */}
             <div className="slidecontainer">
-              <h3>Search Radius</h3>
-              {/*  <input
-                type="range"
-                min="0"
-                max="20"
-                value="0"
-                className="slider"
-                id="myRange"
-              /> */}
               <p>
                 Radius: <span id="demo"></span>
               </p>
             </div>
             <div className="checkbox-container">
               <h3>Filters</h3>
-              <ul>
-                <li>
-                  <input
-                    type="checkbox"
-                    id="swimming"
-                    name="swimming"
-                    value="Swimming"
-                  />
-                  <label for="swimming">Swimming</label>
-                </li>
-
-                <li>
-                  <input
-                    type="checkbox"
-                    id="karate"
-                    name="karate"
-                    value="Karate"
-                  />
-                  <label for="karate">Karate</label>
-                </li>
-                <li>
-                  <input
-                    type="checkbox"
-                    id="dance"
-                    name="dance"
-                    value="Dance"
-                  />
-                  <label for="dance">Dance</label>
-                </li>
-
-                <li>
-                  <input
-                    type="checkbox"
-                    id="tennis"
-                    name="tennis"
-                    value="Tennis"
-                  />
-                  <label for="tennis">Tennis</label>
-                </li>
-
-                <li>
-                  <input
-                    type="checkbox"
-                    id="basketball"
-                    name="basketball"
-                    value="Basketball"
-                  />
-                  <label for="basketball">Basketball</label>
-                </li>
-
-                <li>
-                  <input
-                    type="checkbox"
-                    id="football"
-                    name="football"
-                    value="Football"
-                  />
-                  <label for="football">Football</label>
-                </li>
-
-                <li>
-                  <input
-                    type="checkbox"
-                    id="soccer"
-                    name="soccer"
-                    value="Soccer"
-                  />
-                  <label for="soccer">Soccer</label>
-                </li>
-              </ul>
+              <div>
+                <label for="Swimming">Swimming</label>
+                <input
+                  type="checkbox"
+                  label="Value 1"
+                  name="Swimming"
+                  value={checkedSwimming}
+                  onChange={handleChangeSwimming}
+                />
+                <label for="Tennis">Tennis</label>
+                <input
+                  type="checkbox"
+                  label="Value 2"
+                  name="Tennis"
+                  value={checkedTennis}
+                  onChange={handleChangeTennis}
+                />
+              </div>
             </div>
           </div>
-          <div className="coach-columns">
+          {/* <div className="coach-columns">
             <div className="coach-row">
               <div className="coach-profile-col">
                 <a href="#">
@@ -204,7 +158,7 @@ function StudentDashboard() {
                 </a>
               </div>
             </div>
-          </div>
+          </div>*/}
         </div>
       </section>
     </div>
