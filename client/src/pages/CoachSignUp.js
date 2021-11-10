@@ -16,4 +16,4 @@ function CoachSignUp() {
   );
 }
 
-export default SignUp;
+export default CoachSignUp;

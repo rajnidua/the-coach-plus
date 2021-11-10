@@ -75,6 +75,13 @@ input[type="checkbox"] {
   display: inline-block;
 }
 
+.coach-cards {
+  width: 100%;
+  padding: 30px 0;
+  font-family: "Ubuntu", sans-serif;
+  transition: all 0.3s ease;
+}
+
 .coach-cards .max-width {
   width: 95%;
   margin: 40px;

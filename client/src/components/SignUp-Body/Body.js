@@ -75,6 +75,20 @@ function Body(props) {
       state: "",
       country: "",
     });
+    {
+      /* <p>
+      Let's know more about you.
+      <Link
+        to={{
+          pathname: "/CoachSignUp",
+          //state: true,
+        }}
+        className="btn"
+      >
+        Update Your Profile As A Coach
+      </Link>
+    </p>; */
+    }
   };
 
   return (
@@ -212,19 +226,6 @@ function Body(props) {
                   </button>
                 </div>
               </form>
-
-              <p>
-                Let's know more about you.
-                <Link
-                  to={{
-                    pathname: "/CoachSignUp",
-                    //state: true,
-                  }}
-                  className="btn"
-                >
-                  Update Your Profile As A Coach
-                </Link>
-              </p>
             </div>
           </div>
         </div>
