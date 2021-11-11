@@ -6,18 +6,41 @@ import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
 
 function StudentDashboard() {
-  const [checkedSwimming, setCheckedSwimming] = useState(false);
-  const [checkedTennis, setCheckedTennis] = useState(false);
+  /* const [checkedSwimming, setCheckedSwimming] = useState(false);
+  const [checkedTennis, setCheckedTennis] = useState(false); */
+  const [formState, setFormState] = useState({
+    swimming: false,
+    basketball: false,
+    tennis: false,
+    soccer: false,
+  });
+  try {
+    const coachesList = useQuery(QUERY_COACHES);
+    console.log(coachesList.data.coaches);
+    console.log(coachesList.data.coaches[0].coachname);
+  } catch (err) {
+    console.error(err);
+  }
 
-  //const { loading, data } = useQuery(QUERY_COACHES);
-  const answer = useQuery(QUERY_COACHES);
-  console.log(answer);
-  //console.log(data[1]);
-  /* const coachDetail = answer.data.map((coach) => {
-    const coachId = coach._id;
-  }); */
+  console.log("value of swimming outside: " + formState.swimming);
+  console.log("value of tennis outside: " + formState.tennis);
+  console.log("value of basketball outside: " + formState.basketball);
+  console.log("value of soccer outside: " + formState.soccer);
+  console.log("===========================================================");
+  const handleClick = (event) => {
+    const name = event.target.name;
+    console.log(name);
+    const checked = event.target.checked;
+    console.log("event target value is " + event.target.checked);
+    console.log("value is" + checked);
 
-  const handleChangeSwimming = () => {
+    setFormState({
+      ...formState,
+      [name]: checked,
+    });
+  };
+
+  /* const handleChangeSwimming = () => {
     setCheckedSwimming(!checkedSwimming);
     console.log("checked swimming is ");
     console.log(checkedSwimming);
@@ -27,7 +50,7 @@ function StudentDashboard() {
     setCheckedTennis(!checkedTennis);
     console.log("checked swimming is ");
     console.log(checkedTennis);
-  };
+  }; */
 
   return (
     <div>
@@ -46,7 +69,72 @@ function StudentDashboard() {
             <div className="checkbox-container">
               <h3>Filters</h3>
               <div>
-                <label for="Swimming">Swimming</label>
+                <div className="feild Swimming">
+                  <label for="swimming">Swimming</label>
+                  <input
+                    type="checkbox"
+                    className="swimming-feild"
+                    name="swimming"
+                    checked={formState.swimming}
+                    onClick={handleClick}
+                  />
+                  <p>{formState.swimming ? "YES" : "NO"}</p>
+                </div>
+                <div className="feild Tennis">
+                  <label for="tennis">Tennis</label>
+                  <input
+                    type="checkbox"
+                    className="tennis-feild"
+                    name="tennis"
+                    checked={formState.tennis}
+                    onClick={handleClick}
+                  />
+                  <p>{formState.tennis ? "YES" : "NO"}</p>
+                </div>
+                <div className="feild Basketball">
+                  <label for="basketball">Basketball</label>
+                  <input
+                    type="checkbox"
+                    className="basketball-feild"
+                    name="basketball"
+                    checked={formState.basketball}
+                    onClick={handleClick}
+                  />
+                  <p>{formState.basketball ? "YES" : "NO"}</p>
+                </div>
+                <div className="feild Soccer">
+                  <label for="soccer">Soccer</label>
+                  <input
+                    type="checkbox"
+                    className="soccer-feild"
+                    name="soccer"
+                    checked={formState.soccer}
+                    onClick={handleClick}
+                  />
+                  <p>{formState.soccer ? "YES" : "NO"}</p>
+                </div>
+                {/* <div className="feild Basketball">
+                  <label for="basketball">Basketball</label>
+                  <input
+                    type="checkbox"
+                    className="basketball-feild"
+                    name="basketball"
+                    value={formState.basketball}
+                    onChange={handleChange}
+                  />
+                </div> */}
+                {/* <div className="feild Soccer">
+                  <label for="soccer">Soccer</label>
+                  <input
+                    type="checkbox"
+                    className="soccer-feild"
+                    name="soccer"
+                    value={formState.soccer}
+                    onChange={handleChange}
+                  />
+                </div> */}
+
+                {/* <label for="Swimming">Swimming</label>
                 <input
                   type="checkbox"
                   label="Value 1"
@@ -54,6 +142,7 @@ function StudentDashboard() {
                   value={checkedSwimming}
                   onChange={handleChangeSwimming}
                 />
+                <h1>value here {checkedSwimming}</h1>
                 <label for="Tennis">Tennis</label>
                 <input
                   type="checkbox"
@@ -61,10 +150,11 @@ function StudentDashboard() {
                   name="Tennis"
                   value={checkedTennis}
                   onChange={handleChangeTennis}
-                />
+                /> */}
               </div>
             </div>
           </div>
+          <div className="coach-columns"></div>
           {/* <div className="coach-columns">
             <div className="coach-row">
               <div className="coach-profile-col">
