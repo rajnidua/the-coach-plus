@@ -10,7 +10,7 @@ import { QUERY_COACHES } from "../../utils/queries";
 function StudentDashboard() {
   const [formState, setFormState] = useState([
     { sportName: "swimming", checkValue: false, id: 0 },
-    { sportName: "basketball", checkValue: false, id: 1 },
+    { sportName: "Basketball", checkValue: false, id: 1 },
 
     { sportName: "tennis", checkValue: false, id: 2 },
     { sportName: "soccer", checkValue: false, id: 3 },
@@ -45,10 +45,10 @@ function StudentDashboard() {
       ]);
     }
 
-    if (name === "basketball") {
+    if (name === "Basketball") {
       setFormState([
         formState[0],
-        { sportName: "basketball", checkValue: checked, id: 1 },
+        { sportName: "Basketball", checkValue: checked, id: 1 },
 
         formState[2],
         formState[3],
@@ -73,20 +73,11 @@ function StudentDashboard() {
         { sportName: "soccer", checkValue: checked, id: 3 },
       ]);
     }
-
-    /*  setFormState([
-      { sportName: "swimming", checkValue: checked, id: 1 },
-
-      formState[1],
-      formState[2],
-      formState[3],
-    ]); */
   };
 
   const { loading, data } = useQuery(QUERY_COACHES);
 
   const coachesList = data?.coaches || [];
-  //console.log(coachesList);
 
   return (
     <div>
@@ -180,41 +171,56 @@ function StudentDashboard() {
                 {coachesList.map((coach) => {
                   return (
                     <div className="coach-row" key={coach._id}>
-                      {/* <h3>{coach.coachname}</h3>
-                      <h3>{coach.sport}</h3>
-                      <h3>{coach.fees}</h3> */}
+                      {formState.map((sport) => {
+                        return (
+                          <div key={sport.id}>
+                            <p>{sport.sportName}</p>
+                            <p>{sport.id}</p>
+                            <p>{coach.sport}</p>
+                            {sport.checkValue &&
+                            sport.sportName === coach.sport ? (
+                              <div>
+                                <p>name is {sport.sportName}</p>
+                                <div className="coach-profile-col">
+                                  <img src={CoachImage} alt="" />
 
-                      <div className="coach-profile-col">
-                        <img src={CoachImage} alt="" />
+                                  <p>Certified</p>
+                                </div>
+                                <div className="coach-description-col">
+                                  <h4>{coach.sport}</h4>
+                                  <h4>{coach.coachname}</h4>
 
-                        <p>Certified</p>
-                      </div>
-                      <div className="coach-description-col">
-                        <h4>{coach.sport}</h4>
-                        <h4>{coach.coachname}</h4>
-
-                        <p>{coach.description}</p>
-                        <ul>
-                          <li>Session starts on : {coach.sessionStart}</li>
-                          <li>Class Size: {coach.groupSize}</li>
-                          <li>Days: {coach.days}</li>
-                          <li>Duration: {coach.duration}</li>
-                          <li>Time slot: {coach.timeSlot}</li>
-                        </ul>
-                      </div>
-                      <div className="coach-review-col">
-                        <div className="stars">
-                          <i className="bx bxs-star"></i>
-                          <i className="bx bxs-star"></i>
-                          <i className="bx bxs-star"></i>
-                          <i className="bx bxs-star"></i>
-                          <i className="bx bxs-star-half"></i>
-                        </div>
-                        <a href="#">45 Reviews</a>
-                        <Link to="" className="enroll-btn btn">
-                          Enroll
-                        </Link>
-                      </div>
+                                  <p>{coach.description}</p>
+                                  <ul>
+                                    <li>
+                                      Session starts on : {coach.sessionStart}
+                                    </li>
+                                    <li>Class Size: {coach.groupSize}</li>
+                                    <li>Days: {coach.days}</li>
+                                    <li>Duration: {coach.duration}</li>
+                                    <li>Time slot: {coach.timeSlot}</li>
+                                  </ul>
+                                </div>
+                                <div className="coach-review-col">
+                                  <div className="stars">
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star-half"></i>
+                                  </div>
+                                  <a href="#">45 Reviews</a>
+                                  <Link to="" className="enroll-btn btn">
+                                    Enroll
+                                  </Link>
+                                </div>
+                              </div>
+                            ) : (
+                              "absent"
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   );
                 })}
