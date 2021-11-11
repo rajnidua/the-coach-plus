@@ -145,24 +145,9 @@ function StudentDashboard() {
               </div>
             </div>
           </div>
-          {/* <div className="coach-columns">
-            {coachesList.map((coach) => (
-              <div key={coach._id}>
-                <h1>{coach.coachname}</h1>
-              </div>
-            ))}
-          </div> */}
 
           <div className="coach-columns">
             <h2>Here is a list of coaches you can enrol with:</h2>
-
-            {/*  {formState.map((selectedSport) => {
-              return (
-                <div>
-                  {selectedSport} ? <p>selectedSport</p> : <p>it is false</p>
-                </div>
-              );
-            })} */}
 
             {loading ? (
               <div>Loading...</div>
@@ -227,101 +212,6 @@ function StudentDashboard() {
               </div>
             )}
           </div>
-
-          {/* <div className="coach-columns">
-            <div className="coach-row">
-              <div className="coach-profile-col">
-                <a href="#">
-                  <img src={CoachImage} alt="" />
-                </a>
-                <p>Certified</p>
-              </div>
-              <div className="coach-description-col">
-                <a href="#">
-                  <h4>John Smith</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam dolorem illum iste magnam, esse voluptas!
-                </p>
-              </div>
-              <div className="coach-review-col">
-                <div className="stars">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                </div>
-                <a href="#">45 Reviews</a>
-                <Link to="" className="enroll-btn btn">
-                  Enroll
-                </Link>
-              </div>
-            </div>
-
-            <div className="coach-row">
-              <div className="coach-profile-col">
-                <a href="#">
-                  <img src={CoachImage} alt="" />
-                </a>
-                <p>Certified</p>
-              </div>
-              <div className="coach-description-col">
-                <a href="#">
-                  <h4>John Smith</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam dolorem illum iste magnam, esse voluptas!
-                </p>
-              </div>
-              <div className="coach-review-col">
-                <div className="stars">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                </div>
-                <a href="#">45 Reviews</a>
-                <a href="#" className="enroll-btn btn">
-                  Enroll
-                </a>
-              </div>
-            </div>
-
-            <div className="coach-row">
-              <div className="coach-profile-col">
-                <a href="#">
-                  <img src={CoachImage} alt="" />
-                </a>
-                <p>Certified</p>
-              </div>
-              <div className="coach-description-col">
-                <a href="#">
-                  <h4>John Smith</h4>
-                </a>
-                <p>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Quisquam dolorem illum iste magnam, esse voluptas!
-                </p>
-              </div>
-              <div className="coach-review-col">
-                <div className="stars">
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star"></i>
-                  <i className="bx bxs-star-half"></i>
-                </div>
-                <a href="#">45 Reviews</a>
-                <a href="#" className="enroll-btn btn">
-                  Enroll
-                </a>
-              </div>
-            </div>
-          </div>*/}
         </div>
       </section>
     </div>
