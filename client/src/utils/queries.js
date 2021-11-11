@@ -18,6 +18,19 @@ export const QUERY_ME = gql`
       username
       email
       isCoach
+      houseNumber
+      streetName
+      postalCode
+      country
+
+      coachProfile {
+        _id
+        coachname
+        description
+        groupSize
+        duration
+        fees
+      }
     }
   }
 `;

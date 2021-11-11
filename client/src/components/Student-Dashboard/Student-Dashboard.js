@@ -8,12 +8,13 @@ import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
 
 function StudentDashboard() {
-  const [formState, setFormState] = useState({
-    swimming: false,
-    basketball: false,
-    tennis: false,
-    soccer: false,
-  });
+  const [formState, setFormState] = useState([
+    { sportName: "swimming", checkValue: false, id: 0 },
+    { sportName: "basketball", checkValue: false, id: 1 },
+
+    { sportName: "tennis", checkValue: false, id: 2 },
+    { sportName: "soccer", checkValue: false, id: 3 },
+  ]);
 
   const { username: userParam } = useParams();
 
@@ -25,30 +26,32 @@ function StudentDashboard() {
       variables: { username: userParam },
     }
   );
-  console.log("userData", userData, userLoading);
 
   const user = userData?.me || userData?.user || {};
-  console.log("user" + user.username);
 
-  console.log("CHECK FOR COACH");
+  console.log("formState", formState);
+  //console.log("value of swimming outside: " + formState[0].checkValue);
 
+  console.log("===========================================================");
   const handleClick = (event) => {
     const name = event.target.name;
-    console.log(name);
+    console.log("name of sport is " + name);
     const checked = event.target.checked;
-    console.log("event target value is " + event.target.checked);
-    console.log("value is" + checked);
+    console.log("value of checkValue is" + checked);
 
-    setFormState({
-      ...formState,
-      [name]: checked,
-    });
+    setFormState([
+      { sportName: "swimming", checkValue: checked, id: 1 },
+
+      formState[1],
+      formState[2],
+      formState[3],
+    ]);
   };
 
   const { loading, data } = useQuery(QUERY_COACHES);
 
   const coachesList = data?.coaches || [];
-  console.log(coachesList);
+  //console.log(coachesList);
 
   return (
     <div>
@@ -56,7 +59,7 @@ function StudentDashboard() {
         <div className="max-width">
           <div className="filters-calender">
             <div className="location-container">
-              <h4>Your PostCode : {user.isCoach}</h4>
+              <h4>Your PostCode : {user.postalCode}</h4>
             </div>
 
             <div className="slidecontainer">
@@ -72,13 +75,13 @@ function StudentDashboard() {
                   <input
                     type="checkbox"
                     className="swimming-feild"
-                    name="swimming"
-                    checked={formState.swimming}
+                    name={formState[0].sportName}
+                    checked={formState[0].checkValue}
                     onClick={handleClick}
                   />
-                  <p>{formState.swimming ? "YES" : "NO"}</p>
+                  <p>{formState[0].checkValue ? "YES" : "NO"}</p>
                 </div>
-                <div className="feild Tennis">
+                {/* <div className="feild Tennis">
                   <label for="tennis">Tennis</label>
                   <input
                     type="checkbox"
@@ -88,8 +91,8 @@ function StudentDashboard() {
                     onClick={handleClick}
                   />
                   <p>{formState.tennis ? "YES" : "NO"}</p>
-                </div>
-                <div className="feild Basketball">
+                </div> */}
+                {/* <div className="feild Basketball">
                   <label for="basketball">Basketball</label>
                   <input
                     type="checkbox"
@@ -99,8 +102,8 @@ function StudentDashboard() {
                     onClick={handleClick}
                   />
                   <p>{formState.basketball ? "YES" : "NO"}</p>
-                </div>
-                <div className="feild Soccer">
+                </div> */}
+                {/* <div className="feild Soccer">
                   <label for="soccer">Soccer</label>
                   <input
                     type="checkbox"
@@ -110,7 +113,7 @@ function StudentDashboard() {
                     onClick={handleClick}
                   />
                   <p>{formState.soccer ? "YES" : "NO"}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -124,6 +127,15 @@ function StudentDashboard() {
 
           <div className="coach-columns">
             <h2>Here is a list of coaches you can enrol with:</h2>
+
+            {/*  {formState.map((selectedSport) => {
+              return (
+                <div>
+                  {selectedSport} ? <p>selectedSport</p> : <p>it is false</p>
+                </div>
+              );
+            })} */}
+
             {loading ? (
               <div>Loading...</div>
             ) : (
@@ -134,6 +146,7 @@ function StudentDashboard() {
                       {/* <h3>{coach.coachname}</h3>
                       <h3>{coach.sport}</h3>
                       <h3>{coach.fees}</h3> */}
+
                       <div className="coach-profile-col">
                         <img src={CoachImage} alt="" />
 
