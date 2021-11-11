@@ -29,8 +29,8 @@ export const QUERY_COACHES = gql`
       coachname
       description
       sport
+      fees
       userProfile {
-        email
         _id
       }
     }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/student-dashboard.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
@@ -6,21 +6,21 @@ import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
 
 function StudentDashboard() {
-  /* const [checkedSwimming, setCheckedSwimming] = useState(false);
-  const [checkedTennis, setCheckedTennis] = useState(false); */
+  //const [coachesList, setCoachesList] = useState([]);
   const [formState, setFormState] = useState({
     swimming: false,
     basketball: false,
     tennis: false,
     soccer: false,
   });
-  try {
+  /* try {
     const coachesList = useQuery(QUERY_COACHES);
     console.log(coachesList.data.coaches);
-    console.log(coachesList.data.coaches[0].coachname);
+    console.log(coachesList.data.coaches);
+    setCoachesList([coachesList.data.coaches]);
   } catch (err) {
     console.error(err);
-  }
+  } */
 
   console.log("value of swimming outside: " + formState.swimming);
   console.log("value of tennis outside: " + formState.tennis);
@@ -40,17 +40,25 @@ function StudentDashboard() {
     });
   };
 
-  /* const handleChangeSwimming = () => {
-    setCheckedSwimming(!checkedSwimming);
-    console.log("checked swimming is ");
-    console.log(checkedSwimming);
-  };
+  /* const { loading, data } = useQuery(QUERY_COACHES);
+  console.log(data);
+  console.log("value of coaches list outside is:  ");
 
-  const handleChangeTennis = () => {
-    setCheckedTennis(!checkedTennis);
-    console.log("checked swimming is ");
-    console.log(checkedTennis);
-  }; */
+  useEffect(() => {
+    try {
+      
+      console.log("useEffect is running");
+      console.log(data);
+      setCoachesList([data.coaches]);
+    } catch (err) {
+      console.error(err);
+    }
+  }, [formState]); */
+
+  const { loading, data } = useQuery(QUERY_COACHES);
+
+  const coachesList = data?.coaches || [];
+  console.log(coachesList);
 
   return (
     <div>
@@ -113,48 +121,36 @@ function StudentDashboard() {
                   />
                   <p>{formState.soccer ? "YES" : "NO"}</p>
                 </div>
-                {/* <div className="feild Basketball">
-                  <label for="basketball">Basketball</label>
-                  <input
-                    type="checkbox"
-                    className="basketball-feild"
-                    name="basketball"
-                    value={formState.basketball}
-                    onChange={handleChange}
-                  />
-                </div> */}
-                {/* <div className="feild Soccer">
-                  <label for="soccer">Soccer</label>
-                  <input
-                    type="checkbox"
-                    className="soccer-feild"
-                    name="soccer"
-                    value={formState.soccer}
-                    onChange={handleChange}
-                  />
-                </div> */}
-
-                {/* <label for="Swimming">Swimming</label>
-                <input
-                  type="checkbox"
-                  label="Value 1"
-                  name="Swimming"
-                  value={checkedSwimming}
-                  onChange={handleChangeSwimming}
-                />
-                <h1>value here {checkedSwimming}</h1>
-                <label for="Tennis">Tennis</label>
-                <input
-                  type="checkbox"
-                  label="Value 2"
-                  name="Tennis"
-                  value={checkedTennis}
-                  onChange={handleChangeTennis}
-                /> */}
               </div>
             </div>
           </div>
-          <div className="coach-columns"></div>
+          {/* <div className="coach-columns">
+            {coachesList.map((coach) => (
+              <div key={coach._id}>
+                <h1>{coach.coachname}</h1>
+              </div>
+            ))}
+          </div> */}
+
+          <div className="coach-columns">
+            <h2>Here is a list of coaches you can enrol with:</h2>
+            {loading ? (
+              <div>Loading...</div>
+            ) : (
+              <div>
+                {coachesList.map((coach) => {
+                  return (
+                    <div className="coach-row" key={coach._id}>
+                      <h3>{coach.coachname}</h3>
+                      <h3>{coach.sport}</h3>
+                      <h3>{coach.fees}</h3>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </div>
+
           {/* <div className="coach-columns">
             <div className="coach-row">
               <div className="coach-profile-col">
