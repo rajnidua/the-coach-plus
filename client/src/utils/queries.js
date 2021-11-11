@@ -28,8 +28,15 @@ export const QUERY_COACHES = gql`
       _id
       coachname
       description
+      image
       sport
+      groupSize
+      duration
       fees
+      sessionStart
+      days
+      timeSlot
+
       userProfile {
         _id
       }

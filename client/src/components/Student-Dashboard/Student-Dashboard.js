@@ -4,23 +4,17 @@ import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
+//import { GET_ME } from "../utils/queries";
 
 function StudentDashboard() {
-  //const [coachesList, setCoachesList] = useState([]);
+  //const [userData, setUserData] = useState({});
+
   const [formState, setFormState] = useState({
     swimming: false,
     basketball: false,
     tennis: false,
     soccer: false,
   });
-  /* try {
-    const coachesList = useQuery(QUERY_COACHES);
-    console.log(coachesList.data.coaches);
-    console.log(coachesList.data.coaches);
-    setCoachesList([coachesList.data.coaches]);
-  } catch (err) {
-    console.error(err);
-  } */
 
   console.log("value of swimming outside: " + formState.swimming);
   console.log("value of tennis outside: " + formState.tennis);
@@ -141,9 +135,40 @@ function StudentDashboard() {
                 {coachesList.map((coach) => {
                   return (
                     <div className="coach-row" key={coach._id}>
-                      <h3>{coach.coachname}</h3>
+                      {/* <h3>{coach.coachname}</h3>
                       <h3>{coach.sport}</h3>
-                      <h3>{coach.fees}</h3>
+                      <h3>{coach.fees}</h3> */}
+                      <div className="coach-profile-col">
+                        <img src={CoachImage} alt="" />
+
+                        <p>Certified</p>
+                      </div>
+                      <div className="coach-description-col">
+                        <h4>{coach.sport}</h4>
+                        <h4>{coach.coachname}</h4>
+
+                        <p>{coach.description}</p>
+                        <ul>
+                          <li>Session starts on : {coach.sessionStart}</li>
+                          <li>Class Size: {coach.groupSize}</li>
+                          <li>Days: {coach.days}</li>
+                          <li>Duration: {coach.duration}</li>
+                          <li>Time slot: {coach.timeSlot}</li>
+                        </ul>
+                      </div>
+                      <div className="coach-review-col">
+                        <div className="stars">
+                          <i className="bx bxs-star"></i>
+                          <i className="bx bxs-star"></i>
+                          <i className="bx bxs-star"></i>
+                          <i className="bx bxs-star"></i>
+                          <i className="bx bxs-star-half"></i>
+                        </div>
+                        <a href="#">45 Reviews</a>
+                        <Link to="" className="enroll-btn btn">
+                          Enroll
+                        </Link>
+                      </div>
                     </div>
                   );
                 })}
