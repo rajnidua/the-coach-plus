@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/student-dashboard.css";
+import { useHistory, useParams } from "react-router-dom";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
-//import { GET_ME } from "../utils/queries";
 
 function StudentDashboard() {
-  //const [userData, setUserData] = useState({});
-
   const [formState, setFormState] = useState({
     swimming: false,
     basketball: false,
@@ -16,11 +15,23 @@ function StudentDashboard() {
     soccer: false,
   });
 
-  console.log("value of swimming outside: " + formState.swimming);
-  console.log("value of tennis outside: " + formState.tennis);
-  console.log("value of basketball outside: " + formState.basketball);
-  console.log("value of soccer outside: " + formState.soccer);
-  console.log("===========================================================");
+  const { username: userParam } = useParams();
+
+  console.log("userParam", userParam);
+
+  const { loading: userLoading, data: userData } = useQuery(
+    userParam ? QUERY_USER : QUERY_ME,
+    {
+      variables: { username: userParam },
+    }
+  );
+  console.log("userData", userData, userLoading);
+
+  const user = userData?.me || userData?.user || {};
+  console.log("user" + user.username);
+
+  console.log("CHECK FOR COACH");
+
   const handleClick = (event) => {
     const name = event.target.name;
     console.log(name);
@@ -34,21 +45,6 @@ function StudentDashboard() {
     });
   };
 
-  /* const { loading, data } = useQuery(QUERY_COACHES);
-  console.log(data);
-  console.log("value of coaches list outside is:  ");
-
-  useEffect(() => {
-    try {
-      
-      console.log("useEffect is running");
-      console.log(data);
-      setCoachesList([data.coaches]);
-    } catch (err) {
-      console.error(err);
-    }
-  }, [formState]); */
-
   const { loading, data } = useQuery(QUERY_COACHES);
 
   const coachesList = data?.coaches || [];
@@ -60,7 +56,7 @@ function StudentDashboard() {
         <div className="max-width">
           <div className="filters-calender">
             <div className="location-container">
-              <h4>Your PostCode : </h4>
+              <h4>Your PostCode : {user.isCoach}</h4>
             </div>
 
             <div className="slidecontainer">
