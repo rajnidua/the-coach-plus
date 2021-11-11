@@ -29,23 +29,58 @@ function StudentDashboard() {
 
   const user = userData?.me || userData?.user || {};
 
-  console.log("formState", formState);
-  //console.log("value of swimming outside: " + formState[0].checkValue);
-
-  console.log("===========================================================");
   const handleClick = (event) => {
     const name = event.target.name;
     console.log("name of sport is " + name);
     const checked = event.target.checked;
     console.log("value of checkValue is" + checked);
 
-    setFormState([
+    if (name === "swimming") {
+      setFormState([
+        { sportName: "swimming", checkValue: checked, id: 0 },
+
+        formState[1],
+        formState[2],
+        formState[3],
+      ]);
+    }
+
+    if (name === "basketball") {
+      setFormState([
+        formState[0],
+        { sportName: "basketball", checkValue: checked, id: 1 },
+
+        formState[2],
+        formState[3],
+      ]);
+    }
+
+    if (name === "tennis") {
+      setFormState([
+        formState[0],
+        formState[1],
+        { sportName: "tennis", checkValue: checked, id: 2 },
+
+        formState[3],
+      ]);
+    }
+
+    if (name === "soccer") {
+      setFormState([
+        formState[0],
+        formState[1],
+        formState[2],
+        { sportName: "soccer", checkValue: checked, id: 3 },
+      ]);
+    }
+
+    /*  setFormState([
       { sportName: "swimming", checkValue: checked, id: 1 },
 
       formState[1],
       formState[2],
       formState[3],
-    ]);
+    ]); */
   };
 
   const { loading, data } = useQuery(QUERY_COACHES);
@@ -81,39 +116,41 @@ function StudentDashboard() {
                   />
                   <p>{formState[0].checkValue ? "YES" : "NO"}</p>
                 </div>
-                {/* <div className="feild Tennis">
-                  <label for="tennis">Tennis</label>
-                  <input
-                    type="checkbox"
-                    className="tennis-feild"
-                    name="tennis"
-                    checked={formState.tennis}
-                    onClick={handleClick}
-                  />
-                  <p>{formState.tennis ? "YES" : "NO"}</p>
-                </div> */}
-                {/* <div className="feild Basketball">
+                <div className="feild Basketball">
                   <label for="basketball">Basketball</label>
                   <input
                     type="checkbox"
                     className="basketball-feild"
-                    name="basketball"
-                    checked={formState.basketball}
+                    name={formState[1].sportName}
+                    checked={formState[1].checkValue}
                     onClick={handleClick}
                   />
-                  <p>{formState.basketball ? "YES" : "NO"}</p>
-                </div> */}
-                {/* <div className="feild Soccer">
+                  <p>{formState[1].checkValue ? "YES" : "NO"}</p>
+                </div>
+
+                <div className="feild Tennis">
+                  <label for="tennis">Tennis</label>
+                  <input
+                    type="checkbox"
+                    className="tennis-feild"
+                    name={formState[2].sportName}
+                    checked={formState[2].checkValue}
+                    onClick={handleClick}
+                  />
+                  <p>{formState[2].checkValue ? "YES" : "NO"}</p>
+                </div>
+
+                <div className="feild Soccer">
                   <label for="soccer">Soccer</label>
                   <input
                     type="checkbox"
                     className="soccer-feild"
-                    name="soccer"
-                    checked={formState.soccer}
+                    name={formState[3].sportName}
+                    checked={formState[3].checkValue}
                     onClick={handleClick}
                   />
-                  <p>{formState.soccer ? "YES" : "NO"}</p>
-                </div> */}
+                  <p>{formState[3].checkValue ? "YES" : "NO"}</p>
+                </div>
               </div>
             </div>
           </div>
