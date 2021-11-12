@@ -6,6 +6,7 @@ import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
+import Closest from "../../utils/nearest.js";
 
 function StudentDashboard() {
   const [formState, setFormState] = useState([
@@ -86,6 +87,10 @@ function StudentDashboard() {
           <div className="filters-calender">
             <div className="location-container">
               <h4>Your PostCode : {user.postalCode}</h4>
+              <Closest
+                val={user.postalCode}
+                myList={[5003, 5020, 5038, 4998]}
+              />
             </div>
 
             <div className="slidecontainer">
