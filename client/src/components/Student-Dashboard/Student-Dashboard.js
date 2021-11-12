@@ -10,11 +10,11 @@ import Closest from "../../utils/nearest.js";
 
 function StudentDashboard() {
   const [formState, setFormState] = useState([
-    { sportName: "swimming", checkValue: false, id: 0 },
+    { sportName: "Swimming", checkValue: false, id: 0 },
     { sportName: "Basketball", checkValue: false, id: 1 },
 
-    { sportName: "tennis", checkValue: false, id: 2 },
-    { sportName: "soccer", checkValue: false, id: 3 },
+    { sportName: "Tennis", checkValue: false, id: 2 },
+    { sportName: "Soccer", checkValue: false, id: 3 },
   ]);
 
   const { username: userParam } = useParams();
@@ -36,9 +36,9 @@ function StudentDashboard() {
     const checked = event.target.checked;
     console.log("value of checkValue is" + checked);
 
-    if (name === "swimming") {
+    if (name === "Swimming") {
       setFormState([
-        { sportName: "swimming", checkValue: checked, id: 0 },
+        { sportName: "Swimming", checkValue: checked, id: 0 },
 
         formState[1],
         formState[2],
@@ -56,22 +56,22 @@ function StudentDashboard() {
       ]);
     }
 
-    if (name === "tennis") {
+    if (name === "Tennis") {
       setFormState([
         formState[0],
         formState[1],
-        { sportName: "tennis", checkValue: checked, id: 2 },
+        { sportName: "Tennis", checkValue: checked, id: 2 },
 
         formState[3],
       ]);
     }
 
-    if (name === "soccer") {
+    if (name === "Soccer") {
       setFormState([
         formState[0],
         formState[1],
         formState[2],
-        { sportName: "soccer", checkValue: checked, id: 3 },
+        { sportName: "Soccer", checkValue: checked, id: 3 },
       ]);
     }
   };
@@ -79,6 +79,7 @@ function StudentDashboard() {
   const { loading, data } = useQuery(QUERY_COACHES);
 
   const coachesList = data?.coaches || [];
+  console.log("coachesList", coachesList);
 
   return (
     <div>
@@ -87,10 +88,10 @@ function StudentDashboard() {
           <div className="filters-calender">
             <div className="location-container">
               <h4>Your PostCode : {user.postalCode}</h4>
-              <Closest
+              {/*  <Closest
                 val={user.postalCode}
                 myList={[5003, 5020, 5038, 4998]}
-              />
+              />*/}
             </div>
 
             <div className="slidecontainer">
@@ -158,25 +159,88 @@ function StudentDashboard() {
               <div>Loading...</div>
             ) : (
               <div>
-                {coachesList.map((coach) => {
-                  return (
-                    <div className="coach-row" key={coach._id}>
-                      {formState.map((sport) => {
-                        return (
-                          <div key={sport.id}>
-                            <p>{sport.sportName}</p>
-                            <p>{sport.id}</p>
-                            <p>{coach.sport}</p>
-                            {sport.checkValue &&
-                            sport.sportName === coach.sport ? (
-                              <div>
-                                <p>name is {sport.sportName}</p>
-                                <div className="coach-profile-col">
+                {formState.map((selectedSport) =>
+                  selectedSport.checkValue ? (
+                    <div>
+                      {coachesList.map((selectedCoach) => (
+                        <div>
+                          {selectedSport.sportName == selectedCoach.sport ? (
+                            <div>
+                              <div className="coach-columns">
+                                <div className="coach-row">
+                                  <div className="coach-profile-col">
+                                    <img src={CoachImage} alt="" />
+
+                                    <p>Certified</p>
+                                  </div>
+                                  <div className="coach-description-col">
+                                    <h4>{selectedCoach.sport}</h4>
+                                    <h4>{selectedCoach.coachname}</h4>
+
+                                    <p>{selectedCoach.description}</p>
+                                    <ul>
+                                      <li>
+                                        Session starts on :{" "}
+                                        {selectedCoach.sessionStart}
+                                      </li>
+                                      <li>
+                                        Class Size: {selectedCoach.groupSize}
+                                      </li>
+                                      <li>Days: {selectedCoach.days}</li>
+                                      <li>
+                                        Duration: {selectedCoach.duration}
+                                      </li>
+                                      <li>
+                                        Time slot: {selectedCoach.timeSlot}
+                                      </li>
+                                    </ul>
+                                  </div>
+                                  <div className="coach-review-col">
+                                    <div className="stars">
+                                      <i className="bx bxs-star"></i>
+                                      <i className="bx bxs-star"></i>
+                                      <i className="bx bxs-star"></i>
+                                      <i className="bx bxs-star"></i>
+                                      <i className="bx bxs-star-half"></i>
+                                    </div>
+                                    <a href="#">45 Reviews</a>
+                                    <Link to="" className="enroll-btn btn">
+                                      Enroll
+                                    </Link>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          ) : (
+                            <div></div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <div></div>
+                  )
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+export default StudentDashboard;
+
+{
+  /* <div className="coach-profile-col">
                                   <img src={CoachImage} alt="" />
 
                                   <p>Certified</p>
-                                </div>
-                                <div className="coach-description-col">
+                                </div> */
+}
+{
+  /* <div className="coach-description-col">
                                   <h4>{coach.sport}</h4>
                                   <h4>{coach.coachname}</h4>
 
@@ -190,8 +254,10 @@ function StudentDashboard() {
                                     <li>Duration: {coach.duration}</li>
                                     <li>Time slot: {coach.timeSlot}</li>
                                   </ul>
-                                </div>
-                                <div className="coach-review-col">
+                                </div> */
+}
+{
+  /* <div className="coach-review-col">
                                   <div className="stars">
                                     <i className="bx bxs-star"></i>
                                     <i className="bx bxs-star"></i>
@@ -203,24 +269,5 @@ function StudentDashboard() {
                                   <Link to="" className="enroll-btn btn">
                                     Enroll
                                   </Link>
-                                </div>
-                              </div>
-                            ) : (
-                              "absent"
-                            )}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  );
-                })}
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
-    </div>
-  );
+                                </div> */
 }
-
-export default StudentDashboard;
