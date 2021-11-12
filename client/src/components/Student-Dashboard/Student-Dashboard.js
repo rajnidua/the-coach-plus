@@ -88,11 +88,10 @@ function StudentDashboard() {
           <div className="filters-calender">
             <div className="location-container">
               <h4>Your PostCode : {user.postalCode}</h4>
-              {/*  <Closest
+              {/* <Closest
                 val={user.postalCode}
                 myList={[5003, 5020, 5038, 4998]}
-              />*/}
-              {/* <Closest val={5010} myList={[coachesList]} /> */}
+              /> */}
             </div>
 
             <div className="slidecontainer">
@@ -204,7 +203,14 @@ function StudentDashboard() {
                                     <i className="bx bxs-star-half"></i>
                                   </div>
                                   <a href="#">45 Reviews</a>
-                                  <Link to="" className="enroll-btn btn">
+
+                                  <Link
+                                    to={{
+                                      pathname: "/CoachProfile",
+                                      state: [selectedCoach],
+                                    }}
+                                    className="btn"
+                                  >
                                     Enroll
                                   </Link>
                                 </div>

@@ -3,7 +3,7 @@ import "../../styles/coach-profile.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 
-function CoachProfile() {
+function CoachProfile(props) {
   return (
     <div>
       <section className="section-gen-info">
@@ -14,7 +14,7 @@ function CoachProfile() {
             <p>Certified</p>
           </div>
           <div className="coach-descp">
-            <div className="selected-sport">Swimming</div>
+            <div className="selected-sport">{props.coach.sport}Swimming</div>
             <p>
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam,
               iste! Minima tempore aperiam alias possimus, repellat a magni
