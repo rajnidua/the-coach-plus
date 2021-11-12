@@ -14,16 +14,9 @@ function CoachProfile(props) {
             <p>Certified</p>
           </div>
           <div className="coach-descp">
-            <div className="selected-sport">{props.coach.sport}Swimming</div>
-            <p>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quam,
-              iste! Minima tempore aperiam alias possimus, repellat a magni
-              rerum, aliquam, incidunt et laborum. Cum, quasi? Temporibus
-              corrupti iure vero quia. Nisi magni perspiciatis eligendi natus
-              doloremque excepturi saepe quae incidunt unde iure eius odio
-              fugit, ipsam harum, animi sunt quo nesciunt. Repellendus at culpa
-              voluptas maiores nihil neque aperiam consequuntur.
-            </p>
+            <div className="selected-sport">{props.coach.sport}</div>
+            <p>{props.coach.description}</p>
+            <p>{props.coach.timeSlot[0]}</p>
           </div>
           <div className="coach-rev">
             <div className="stars">
@@ -67,14 +60,23 @@ function CoachProfile(props) {
           </div>
           <div className="time-slots">
             <h2>Choose Time</h2>
-            <select name="time" id="time">
-              <option value="8am-10am">8AM - 10AM</option>
+            {/*<select name="time" id="time">
+               <option value="8am-10am">8AM - 10AM</option>
               <option value="10am-12am">10AM - 12 Noon</option>
               <option value="12am-2pm">12 Noon - 2PM</option>
               <option value="2pm-4pm">2PM - 4PM</option>
               <option value="4pm-6pm">4PM - 6PM</option>
-              <option value="6pm-8pm">6PM - 8PM</option>
+              <option value="6pm-8pm">6PM - 8PM</option> 
+            </select>*/}
+            {/*  <select name="time" className="form-control">
+              <Options options={props.coach.timeSlot} />
+            </select> */}
+            <select>
+              {props.coach.timeSlot.map((x, y) => (
+                <option key={y}>{x}</option>
+              ))}
             </select>
+            ;
           </div>
           <div className="buttons">
             <a href="#" className="btn">
