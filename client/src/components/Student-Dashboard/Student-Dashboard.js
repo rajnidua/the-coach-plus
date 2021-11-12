@@ -92,6 +92,7 @@ function StudentDashboard() {
                 val={user.postalCode}
                 myList={[5003, 5020, 5038, 4998]}
               />*/}
+              {/* <Closest val={5010} myList={[coachesList]} /> */}
             </div>
 
             <div className="slidecontainer">
@@ -166,48 +167,46 @@ function StudentDashboard() {
                         <div>
                           {selectedSport.sportName == selectedCoach.sport ? (
                             <div>
-                              <div className="coach-columns">
-                                <div className="coach-row">
-                                  <div className="coach-profile-col">
-                                    <img src={CoachImage} alt="" />
+                              <div className="coach-row">
+                                <div className="coach-profile-col">
+                                  <img src={CoachImage} alt="" />
 
-                                    <p>Certified</p>
-                                  </div>
-                                  <div className="coach-description-col">
-                                    <h4>{selectedCoach.sport}</h4>
-                                    <h4>{selectedCoach.coachname}</h4>
+                                  <p>Certified</p>
+                                </div>
+                                <div className="coach-description-col">
+                                  <h4>{selectedCoach.sport}</h4>
+                                  <h4>{selectedCoach.coachname}</h4>
 
-                                    <p>{selectedCoach.description}</p>
-                                    <ul>
-                                      <li>
-                                        Session starts on :{" "}
-                                        {selectedCoach.sessionStart}
-                                      </li>
-                                      <li>
-                                        Class Size: {selectedCoach.groupSize}
-                                      </li>
-                                      <li>Days: {selectedCoach.days}</li>
-                                      <li>
-                                        Duration: {selectedCoach.duration}
-                                      </li>
-                                      <li>
-                                        Time slot: {selectedCoach.timeSlot}
-                                      </li>
-                                    </ul>
+                                  <p>{selectedCoach.description}</p>
+                                  <ul>
+                                    <li>
+                                      Session starts on :
+                                      {selectedCoach.sessionStart}
+                                    </li>
+                                    <li>
+                                      Class Size: {selectedCoach.groupSize}
+                                    </li>
+                                    <li>Days: {selectedCoach.days}</li>
+                                    <li>Duration: {selectedCoach.duration}</li>
+                                    <li>Time slot: {selectedCoach.timeSlot}</li>
+                                    <li>
+                                      Postal Code:{" "}
+                                      {selectedCoach.venuePostalCode}
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div className="coach-review-col">
+                                  <div className="stars">
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star"></i>
+                                    <i className="bx bxs-star-half"></i>
                                   </div>
-                                  <div className="coach-review-col">
-                                    <div className="stars">
-                                      <i className="bx bxs-star"></i>
-                                      <i className="bx bxs-star"></i>
-                                      <i className="bx bxs-star"></i>
-                                      <i className="bx bxs-star"></i>
-                                      <i className="bx bxs-star-half"></i>
-                                    </div>
-                                    <a href="#">45 Reviews</a>
-                                    <Link to="" className="enroll-btn btn">
-                                      Enroll
-                                    </Link>
-                                  </div>
+                                  <a href="#">45 Reviews</a>
+                                  <Link to="" className="enroll-btn btn">
+                                    Enroll
+                                  </Link>
                                 </div>
                               </div>
                             </div>

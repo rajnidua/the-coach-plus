@@ -49,7 +49,7 @@ export const QUERY_COACHES = gql`
       sessionStart
       days
       timeSlot
-
+      venuePostalCode
       userProfile {
         _id
       }
