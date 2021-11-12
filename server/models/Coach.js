@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const User = require("./User");
 const { Schema } = mongoose;
+const dateFormat = require("../utils/dateFormat");
 
 const coachSchema = new Schema({
   userProfile: [
@@ -40,6 +41,7 @@ const coachSchema = new Schema({
     type: Date,
     required: false,
     default: Date.now,
+    get: (timestamp) => dateFormat(timestamp),
   },
   days: {
     type: [String],
