@@ -42,7 +42,7 @@ const userSchema = new Schema(
     postalCode: {
       type: String,
       required: true,
-      default: 5000,
+      default: 4000,
     },
     state: { type: String, required: false },
     country: {

@@ -28,6 +28,7 @@ const typeDefs = gql`
     sessionStart: String
     days: [String]
     timeSlot: [String]
+    venuePostalCode: String
     userProfile: [User]
   }
 
@@ -43,6 +44,7 @@ const typeDefs = gql`
     sessionStart: String
     days: [String]
     timeSlot: [String]
+    venuePostalCode: String
   }
 
   input userInput {

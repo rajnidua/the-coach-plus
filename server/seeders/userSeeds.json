@@ -3,60 +3,120 @@
     "username": "Brian Kernighan",
     "email": "bkernighan@techfriends.dev",
     "password": "password01",
-    "isCoach": "false"
+    "isCoach": "true",
+    "houseNumber": "67",
+    "streetName": "ashford road",
+    "postalCode": "5089",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Brighton"
   },
   {
     "username": "Max Kanat-Alexander",
     "email": "mkanatalexander@techfriends.dev",
     "password": "password02",
-    "isCoach": "false"
+    "isCoach": "true",
+    "houseNumber": "12",
+    "streetName": "birdwood",
+    "postalCode": "5165",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Linden Park"
   },
   {
     "username": "Why The Lucky Stiff",
     "email": "wtls@techfriends.dev",
     "password": "password03",
-    "isCoach": "false"
+    "isCoach": "true",
+    "houseNumber": "90",
+    "streetName": "AllChurch",
+    "postalCode": "5078",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Glandore"
   },
   {
     "username": "Kent Beck",
     "email": "kbeck@techfriends.dev",
     "password": "password04",
-    "isCoach": "true"
+    "isCoach": "true",
+    "houseNumber": "76",
+    "streetName": "Flinders Street",
+    "postalCode": "5043",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Norwood"
   },
   {
     "username": "Edward V. Berard",
     "email": "evberard@techfriends.dev",
     "password": "password05",
-    "isCoach": "true"
+    "isCoach": "true",
+    "houseNumber": "89",
+    "streetName": "surrey",
+    "postalCode": "5112",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Glenunga"
   },
   {
     "username": "Alan Kay",
     "email": "akay@techfriends.dev",
     "password": "password06",
-    "isCoach": "false"
+    "isCoach": "true",
+    "houseNumber": "33",
+    "streetName": "Victor",
+    "postalCode": "5219",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Flagstaff"
   },
   {
     "username": "C.A.R. Hoare",
     "email": "choare@techfriends.dev",
     "password": "password07",
-    "isCoach": "false"
+    "isCoach": "false",
+    "houseNumber": "90",
+    "streetName": "rosehill",
+    "postalCode": "5009",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Thebarton"
   },
   {
     "username": "David Thomas",
     "email": "dthomas@techfriends.dev",
     "password": "password08",
-    "isCoach": "true"
+    "isCoach": "true",
+    "houseNumber": "65",
+    "streetName": "pultney",
+    "postalCode": "5177",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Parkside"
   },
   {
     "username": "Donald Knuth",
     "email": "dknuth@techfriends.dev",
     "password": "password09",
-    "isCoach": "false"
+    "isCoach": "false",
+    "houseNumber": "54",
+    "streetName": "talbot",
+    "postalCode": "5099",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Plympton"
   },
   {
     "username": "Lernantino",
     "email": "lernantino@techfriends.dev",
     "password": "password10",
-    "isCoach": "false"
+    "isCoach": "true",
+    "houseNumber": "88",
+    "streetName": "dudley",
+    "postalCode": "5123",
+    "state": "SA",
+    "country": "Australia",
+    "city": "Netley"
   }
 ]

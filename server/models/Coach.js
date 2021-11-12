@@ -50,6 +50,12 @@ const coachSchema = new Schema({
     required: false,
   },
 
+  venuePostalCode: {
+    type: String,
+    required: true,
+    default: 4000,
+  },
+
   /* classDuration: {
     type: Number,
     required: false,
