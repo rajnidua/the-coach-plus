@@ -1,10 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/coach-profile.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 
 function CoachProfile(props) {
+  const [formState, setFormState] = useState({ value: "" });
   console.log("props is ", props);
+  console.log("props is ", props.coach.days[0]);
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+
+    console.log("event is " + e.target.value);
+
+    setFormState({ value: value });
+  };
+
+  let optionItems = props.coach.timeSlot.map((time) => (
+    <option key={time.slotId}>{time.slotValue}</option>
+  ));
+
   return (
     <div>
       <section className="section-gen-info">
@@ -20,14 +35,14 @@ function CoachProfile(props) {
             <p>{props.coach.description}</p>
           </div>
           <div className="coach-rev">
-            <div className="stars">
+            {/* <div className="stars">
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star-half"></i>
-            </div>
-            <a href="#">45 Reviews</a>
+            </div> */}
+            {/* <a href="#">45 Reviews</a>
             <div className="coach-sp-sport">
               <a href="#">
                 <div className="coach-sport cricket">Cricket</div>
@@ -41,7 +56,7 @@ function CoachProfile(props) {
               <a href="#">
                 <div className="coach-sport football">Football</div>
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -50,34 +65,19 @@ function CoachProfile(props) {
         <div className="max-width">
           <div className="calender">
             <h2>Choose Date</h2>
-            <iframe
-              src="https://calendar.google.com/calendar/embed?height=300&wkst=1&bgcolor=%23fe7c31&ctz=Australia%2FEucla&showPrint=0&showTz=0&showTitle=0&showTabs=0&showNav=1&src=YXRhZGlxcmViY3ZhaTRkOGx2bWJ2NnV1ZWdAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&color=%233F51B5"
-              /*  style="border-width: 0"
-              width="300"
-              height="300"
-              frameborder="0"
-              scrolling="no" */
-            ></iframe>
           </div>
           <div className="time-slots">
             <h2>Choose Time</h2>
-            {/*<select name="time" id="time">
-               <option value="8am-10am">8AM - 10AM</option>
-              <option value="10am-12am">10AM - 12 Noon</option>
-              <option value="12am-2pm">12 Noon - 2PM</option>
-              <option value="2pm-4pm">2PM - 4PM</option>
-              <option value="4pm-6pm">4PM - 6PM</option>
-              <option value="6pm-8pm">6PM - 8PM</option> 
-            </select>*/}
-            {/*  <select name="time" className="form-control">
-              <Options options={props.coach.timeSlot} />
-            </select> */}
-            {/* <select>
-              {props.coach.timeSlot.map((x, y) => (
-                <option key={y}>{x}</option>
+
+            <div>{props.coach.timeSlot.map((number) => number.slotId)}</div>
+
+            <select onChange={handleChange}>
+              {props.coach.timeSlot.map((number) => (
+                <option value={number.slotValue}>{number.slotValue}</option>
               ))}
             </select>
-            ; */}
+
+            <div>Value Selected is : {formState.value}</div>
           </div>
           <div className="buttons">
             <a href="#" className="btn">
