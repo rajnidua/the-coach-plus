@@ -73,35 +73,33 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
-    /* addCoach: async (parent, { description, image, fees }, context) => {
-      console.log("context in add coach is ");
+    addtimeSlot: async (parent, { slotValue, slotId }, context) => {
       console.log(context.user);
       if (context.user) {
-        const coach = await Coach.create({
-          coachname: context.user.username,
-          description,
-          image,
-          fees,
-          userProfile: context.user._id,
-        });
+        const result = await User.findOne({ _id: context.user._id }).populate(
+          "coachProfile"
+        );
+        console.log("coach profile is ", result.coachProfile[0]._id);
+        console.log(
+          "time slot in  profile is ",
+          result.coachProfile[0].timeSlot
+        );
 
-        console.log("user coach is: ");
-        console.log(context.user._id);
-        console.log(coach._id);
-        const filter = { _id: context.user._id };
-        const update = { coachProfile: coach._id };
-
-        const result = await User.findOneAndUpdate(filter, update, {
-          returnOriginal: false,
-        });
-        console.log("result is:");
-        console.log(result);
-        console.log("result end");
-
-        return coach;
+        return Coach.findOneAndUpdate(
+          { _id: result.coachProfile[0]._id },
+          {
+            $addToSet: {
+              timeSlot: { slotValue, slotId },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
       }
       throw new AuthenticationError("You need to be logged in!");
-    }, */
+    },
 
     login: async (parent, { email, password }) => {
       console.log(email);

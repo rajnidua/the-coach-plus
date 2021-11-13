@@ -43,14 +43,28 @@ const coachSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  days: {
-    type: [String],
-    required: false,
-  },
-  timeSlot: {
-    type: [String],
-    required: false,
-  },
+  days: [
+    {
+      type: String,
+      required: false,
+    },
+  ],
+  timeSlot: [
+    {
+      slotValue: { type: String, required: false, default: "4PM - 5PM" },
+      slotId: {
+        type: String,
+        required: false,
+        default: 1,
+      },
+    },
+  ],
+  /* timeSlot: [
+    {
+      type: String,
+      required: false,
+    },
+  ], */
 
   venuePostalCode: {
     type: String,

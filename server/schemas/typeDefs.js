@@ -27,7 +27,7 @@ const typeDefs = gql`
     fees: String
     sessionStart: String
     days: [String]
-    timeSlot: [String]
+    timeSlot: [Time]!
     venuePostalCode: String
     userProfile: [User]
   }
@@ -61,6 +61,11 @@ const typeDefs = gql`
     city: String
     coachProfile: coachInput
   }
+  type Time {
+    _id: ID
+    slotValue: String
+    slotId: String
+  }
 
   type Auth {
     token: ID!
@@ -80,6 +85,7 @@ const typeDefs = gql`
   type Mutation {
     addUser(input: userInput!): Auth
     addCoach(input: coachInput!): Coach
+    addtimeSlot(slotValue: String!, slotId: String!): Coach
     login(email: String!, password: String!): Auth
   }
 `;
