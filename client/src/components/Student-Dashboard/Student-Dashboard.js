@@ -189,7 +189,7 @@ function StudentDashboard() {
                                     <li>Duration: {selectedCoach.duration}</li>
                                     <li>Time slot: </li>
                                     <li>
-                                      Postal Code:{" "}
+                                      Postal Code:
                                       {selectedCoach.venuePostalCode}
                                     </li>
                                   </ul>
@@ -204,7 +204,7 @@ function StudentDashboard() {
                                   </div>
                                   <a href="#">45 Reviews</a>
 
-                                  {/* <Link
+                                  <Link
                                     to={{
                                       pathname: "/CoachProfile",
                                       state: [selectedCoach],
@@ -212,7 +212,7 @@ function StudentDashboard() {
                                     className="btn"
                                   >
                                     Enroll
-                                  </Link> */}
+                                  </Link>
                                 </div>
                               </div>
                             </div>

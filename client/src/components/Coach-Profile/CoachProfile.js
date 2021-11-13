@@ -4,19 +4,20 @@ import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 
 function CoachProfile(props) {
+  console.log("props is ", props);
   return (
     <div>
       <section className="section-gen-info">
         <div className="max-width">
           <div className="coach-pic">
             <img src={CoachImage} alt="" />
-            <div className="coach-name">John Smith</div>
+            <div className="coach-name">{props.coach.coachname}</div>
             <p>Certified</p>
           </div>
           <div className="coach-descp">
             <div className="selected-sport">{props.coach.sport}</div>
+
             <p>{props.coach.description}</p>
-            <p>{props.coach.timeSlot[0]}</p>
           </div>
           <div className="coach-rev">
             <div className="stars">
@@ -71,12 +72,12 @@ function CoachProfile(props) {
             {/*  <select name="time" className="form-control">
               <Options options={props.coach.timeSlot} />
             </select> */}
-            <select>
+            {/* <select>
               {props.coach.timeSlot.map((x, y) => (
                 <option key={y}>{x}</option>
               ))}
             </select>
-            ;
+            ; */}
           </div>
           <div className="buttons">
             <a href="#" className="btn">
