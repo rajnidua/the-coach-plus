@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/coach-profile.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 function CoachProfile(props) {
   const [formState, setFormState] = useState({ value: "" });
   const [formStateDay, setFormStateDay] = useState({ dayValue: "" });
+  const [newProps, setNewProps] = useState([{ props }]);
   console.log("props is ", props);
   console.log("props is ", props.coach.days[0]);
 
@@ -24,6 +25,13 @@ function CoachProfile(props) {
 
     setFormStateDay({ dayValue: value });
   };
+
+  useEffect(() => {
+    console.log("checking the use effect");
+    setNewProps({ ...props, formState, formStateDay });
+  }, [formState, formStateDay]);
+
+  console.log("The value os new props is ", newProps);
 
   return (
     <div>
@@ -86,9 +94,19 @@ function CoachProfile(props) {
             </select>
           </div>
           <div className="buttons">
-            <a href="#" className="btn">
+            <Link
+              to={{
+                pathname: "/EnrollmentConfirmation",
+                state: [newProps],
+              }}
+              className="btn"
+            >
               Enroll
-            </a>
+            </Link>
+
+            {/* <a href="#" className="btn">
+              Enroll
+            </a> */}
           </div>
         </div>
       </section>
