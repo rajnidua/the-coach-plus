@@ -1,4 +1,4 @@
-# Team_Profile_Generator
+# CoachPlus
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
