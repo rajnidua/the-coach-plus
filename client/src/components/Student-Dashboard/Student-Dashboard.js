@@ -86,19 +86,6 @@ function StudentDashboard() {
       <section className="coach-cards" id="coach-cards">
         <div className="max-width">
           <div className="filters-calender">
-            <div className="location-container">
-              <h4>Your PostCode : {user.postalCode}</h4>
-              {/* <Closest
-                val={user.postalCode}
-                myList={[5003, 5020, 5038, 4998]}
-              /> */}
-            </div>
-
-            <div className="slidecontainer">
-              <p>
-                Radius: <span id="demo"></span>
-              </p>
-            </div>
             <div className="checkbox-container">
               <h3>Filters</h3>
               <div>

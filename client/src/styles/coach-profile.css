@@ -139,7 +139,7 @@
 
 /* Responsive Styling */
 @media (max-width: 1425px) {
-  .coach-cards {
+  /* .coach-cards {
     display: inline-block;
     justify-content: space-between;
   }
@@ -155,11 +155,11 @@
 
   .coach-cards .filters-calender {
     bottom: 130px;
-  }
+  } */
 }
 
 @media (max-width: 1364px) {
-  .coach-cards .max-width .coach-row .coach-review-col .stars {
+  /* .coach-cards .max-width .coach-row .coach-review-col .stars {
     font-size: 12px;
   }
 
@@ -172,11 +172,11 @@
     font-weight: 400;
     padding: 10px 25px;
     margin-top: 8px;
-  }
+  } */
 }
 
 @media (max-width: 1280px) {
-  .coach-cards .max-width .coach-row .coach-profile-col img {
+  /* .coach-cards .max-width .coach-row .coach-profile-col img {
     width: 100px;
     height: 100px;
   }
@@ -188,11 +188,11 @@
 
   .coach-cards .max-width .coach-row .coach-review-col .reviews {
     font-size: 12px;
-  }
+  } */
 }
 
 @media (max-width: 1098px) {
-  .coach-cards .max-width .coach-row .coach-description-col {
+  /* .coach-cards .max-width .coach-row .coach-description-col {
     width: 57%;
   }
 
@@ -202,17 +202,17 @@
 
   .coach-cards .filters-calender {
     bottom: 180px;
-  }
+  } */
 }
 
 @media (max-width: 928px) {
-  .coach-cards .max-width {
+  /* .coach-cards .max-width {
     padding-top: 0;
-  }
+  } */
 }
 
 @media (max-width: 888px) {
-  .coach-cards .filters-calender {
+  /* .coach-cards .filters-calender {
     width: 40%;
     bottom: 230px;
   }
@@ -255,11 +255,11 @@
 
   .coach-cards .coach-columns .coach-row .coach-review-col {
     width: 30%;
-  }
+  } */
 }
 
 @media (max-width: 699px) {
-  .coach-cards .filters-calender {
+  /*  .coach-cards .filters-calender {
     bottom: 620px;
   }
   .coach-cards .coach-columns .coach-row {
@@ -291,7 +291,7 @@
     float: right;
     position: relative;
     top: -25px;
-  }
+  } */
 }
 
 @media (max-width: 534px) {
@@ -308,9 +308,9 @@
     padding: 0 40px;
   }
 
-  .coach-cards .filters-calender {
+  /* .coach-cards .filters-calender {
     bottom: 650px;
-  }
+  } */
 }
 
 @media (max-width: 375px) {
