@@ -16,6 +16,7 @@ import StudentDashboardPage from "./pages/StudentDashboard";
 import CoachSignUpPage from "./pages/CoachSignUp";
 import CoachProfile from "./pages/CoachProfile";
 import EnrollmentConfirmation from "./pages/EnrollmentConfirmation";
+import ContactFormPage from "./pages/ContactForm";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -46,6 +47,7 @@ function App() {
             <Route exact path="/" component={Welcome} />
             <Route path="/Login" component={Login} />
             <Route path="/SignUp" component={SignUp} />
+            <Route path="/ContactForm" component={ContactFormPage} />
             <Route path="/StuDashboard" component={StudentDashboardPage} />
             <Route path="/CoachSignUp" component={CoachSignUpPage} />
             <Route path="/CoachProfile" component={CoachProfile} />

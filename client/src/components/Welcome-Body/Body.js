@@ -5,6 +5,7 @@ import coachImage from "../../images/coach.png";
 import trainingImage from "../../images/training.png";
 import homePageImage from "../../images/homePage-bg.jpg";
 import testimonialImage from "../../images/testimonial.jpg";
+import ContactForm from "../../pages/ContactForm";
 
 import "../../styles/welcome-body.css";
 
@@ -218,6 +219,9 @@ function Body() {
             </form>
           </div>
         </div>
+      </section>
+      <section>
+        <ContactForm />
       </section>
     </div>
   );
