@@ -5,10 +5,11 @@ import { Link } from "react-router-dom";
 
 function CoachProfile(props) {
   const [formState, setFormState] = useState({ value: "" });
+  const [formStateDay, setFormStateDay] = useState({ dayValue: "" });
   console.log("props is ", props);
   console.log("props is ", props.coach.days[0]);
 
-  const handleChange = (e) => {
+  const handleChangeTimeSlot = (e) => {
     const value = e.target.value;
 
     console.log("event is " + e.target.value);
@@ -16,9 +17,13 @@ function CoachProfile(props) {
     setFormState({ value: value });
   };
 
-  let optionItems = props.coach.timeSlot.map((time) => (
-    <option key={time.slotId}>{time.slotValue}</option>
-  ));
+  const handleChangeDay = (e) => {
+    const value = e.target.value;
+
+    console.log("event is " + e.target.value);
+
+    setFormStateDay({ dayValue: value });
+  };
 
   return (
     <div>
@@ -35,14 +40,14 @@ function CoachProfile(props) {
             <p>{props.coach.description}</p>
           </div>
           <div className="coach-rev">
-            {/* <div className="stars">
+            <div className="stars">
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star-half"></i>
-            </div> */}
-            {/* <a href="#">45 Reviews</a>
+            </div>
+            <a href="#">45 Reviews</a>
             <div className="coach-sp-sport">
               <a href="#">
                 <div className="coach-sport cricket">Cricket</div>
@@ -56,7 +61,7 @@ function CoachProfile(props) {
               <a href="#">
                 <div className="coach-sport football">Football</div>
               </a>
-            </div> */}
+            </div>
           </div>
         </div>
       </section>
@@ -65,19 +70,20 @@ function CoachProfile(props) {
         <div className="max-width">
           <div className="calender">
             <h2>Choose Date</h2>
+            <select onChange={handleChangeDay}>
+              {props.coach.days.map((dayName) => (
+                <option value={dayName.dayValue}>{dayName.dayValue}</option>
+              ))}
+            </select>
           </div>
           <div className="time-slots">
             <h2>Choose Time</h2>
 
-            <div>{props.coach.timeSlot.map((number) => number.slotId)}</div>
-
-            <select onChange={handleChange}>
+            <select onChange={handleChangeTimeSlot}>
               {props.coach.timeSlot.map((number) => (
                 <option value={number.slotValue}>{number.slotValue}</option>
               ))}
             </select>
-
-            <div>Value Selected is : {formState.value}</div>
           </div>
           <div className="buttons">
             <a href="#" className="btn">
