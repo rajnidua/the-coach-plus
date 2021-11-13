@@ -72,6 +72,20 @@ for database, you can import and export data using Studio 3T
 
 For email
 run cd client >> npm install validator
+
+npm install --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+
+npm install --save @fortawesome/react-fontawesome
+//for social icons
+npm i --save @fortawesome/free-brands-svg-icons
+Import:
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+Use:
+
+<FontAwesomeIcon icon={faBars} />
 ```
 
 ## Contributing
