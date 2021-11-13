@@ -14,7 +14,7 @@
 
 ## Description
 
-Coach+ app bring all sports trainers and students on one plateform. You can find the coach that is best for you.
+Coach+ app bring all sports trainers and students on one platform. You can find the coach that is best for you.
 It also provides the people with skills ,who want to become a coach a digital platform through which they can easily connect to their students.
 
 WHEN I arrive on the website
