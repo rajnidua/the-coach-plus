@@ -96,7 +96,6 @@ function StudentDashboard() {
                 checked={formState[0].checkValue}
                 onClick={handleClick}
               />
-              <p>{formState[0].checkValue ? "YES" : "NO"}</p>
             </div>
             <div className="feild Basketball">
               <label for="basketball">Basketball</label>
@@ -107,7 +106,6 @@ function StudentDashboard() {
                 checked={formState[1].checkValue}
                 onClick={handleClick}
               />
-              <p>{formState[1].checkValue ? "YES" : "NO"}</p>
             </div>
 
             <div className="feild Tennis">
@@ -119,7 +117,6 @@ function StudentDashboard() {
                 checked={formState[2].checkValue}
                 onClick={handleClick}
               />
-              <p>{formState[2].checkValue ? "YES" : "NO"}</p>
             </div>
 
             <div className="feild Soccer">
@@ -131,7 +128,6 @@ function StudentDashboard() {
                 checked={formState[3].checkValue}
                 onClick={handleClick}
               />
-              <p>{formState[3].checkValue ? "YES" : "NO"}</p>
             </div>
           </div>
         </div>

@@ -1,151 +1,91 @@
-# Signup
+# Team_Profile_Generator
 
-# mutation typeDef
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-```md
-mutation AddUser($username: String!, $email: String!, $password: String!,$role: String!) {
-addUser(username:$username,email: $email, password:$password, role:$role){
-user {
-\_id(ignore the \ while writing mutation)
-username
-email
-role
+## Table of contents
 
-    }
+- [Description](#Description)
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Testing](#Testing)
+- [Contributing](#Contributing)
+- [Questions](#Questions)
+- [License](#License)
 
-}
-}
-```
+## Description
 
-# Query Variables:
+Coach+ app bring all sports trainers and students on one plateform. You can find the coach that is best for you.
+It also provides the people with skills ,who want to become a coach a digital platform through which they can easily connect to their students.
 
-{
-"username":"ghgh",
-"email": "ghgh@ghgh.com",
-"password": "password123",
-"role" :"Coach"
-}
+WHEN I arrive on the website
+THEN I am greeted with a welcome page that tells you everything about the app.
+WHEN I click on login button
+THEN I am diverted to a login page where I have option to sign in as well
+WHEN I login with correct credentials
+THEN I am taken to the homepage with an additional option Student Dashboard
+WHEN I click on Student Dashboard button
+THEN I am taken to a new page
+WHEN I select a sport on this page
+THEN I am presented with a list of coaches for that particular coach
+WHEN I select another coach
+THEN I am presented with coaches for that sport as well
+WHEN I unselect a particular sport
+THEN that sport is taken away from the list of coaches
+WHEN I click on Enroll button
+THEN I am taken to a coach detail page, describing about the coach I selected
+WHEN I scroll down this page
+THEN I see two drop down boxes
+WHEN I click the first dropdowm box
+THEN I can select the day I want my lesson on from the list of options available
+WHEN I click on the second checkbox
+THEN I can select the lesson time that suites me
+WHEN I click on the Enrol button
+THEN I am taken to an Enrollment confirmation page.
 
-# Result
+## Video Link
 
-{
-"data": {
-"addUser": {
-"user": {
-"\_id": "618482c77d84653fd7dc0f4d",
-"username": "abcdef",
-"email": "abcdef@abcdef.com",
-"role": "Coach"
-}
-}
-}
-}
+(https://drive.google.com/file/d/1rBJ4OyWYs5vpYH89-ucRC6-W5_WL8nTN/view?usp=sharing)
 
-# Login
+Screenshot
 
-# Mutation
+[![Screenshot](./images/Screenshot1.gif)]
 
-mutation login($email: String!, $password: String!) {
-login(email: $email, password: $password) {
-token
-user {
-\_id
-username
-}
-}
-}
+Screenshot
 
-# Query Variables
+[![Screenshot](./images/Screenshot2.gif)]
 
-{
-"email": "ghgh@ghgh.com",
-"password": "password123"
-}
-
-# Result
-
-{
-"data": {
-"login": {
-"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiZ2hnaCIsImVtYWlsIjoiZ2hnaEBnaGdoLmNvbSIsIl9pZCI6IjYxODQ5NzIwZThhNWI3NDM5ZTc2YzJjNiJ9LCJpYXQiOjE2MzYwNzk1MzAsImV4cCI6MTYzNjA4NjczMH0.Og0YBL_GcmbkgrZ-fY64lpQaWbhgzdo33Q9K6-A-bTs",
-"user": {
-"\_id": "61849720e8a5b7439e76c2c6",
-"username": "ghgh"
-}
-}
-}
-}
-
-# me (Get user information)
-
-# Query
-
-query me {
-me {
-\_id
-username
-email
-role
-}
-}
-
-# HTTP Headers
-
-{
-"Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoiZ2hnaCIsImVtYWlsIjoiZ2hnaEBnaGdoLmNvbSIsIl9pZCI6IjYxODQ5NzIwZThhNWI3NDM5ZTc2YzJjNiJ9LCJpYXQiOjE2MzYwNzk1MzAsImV4cCI6MTYzNjA4NjczMH0.Og0YBL_GcmbkgrZ-fY64lpQaWbhgzdo33Q9K6-A-bTs"
-}
-
-# Result
-
-{
-"data": {
-"me": {
-"\_id": "61849720e8a5b7439e76c2c6",
-"username": "ghgh",
-"email": "ghgh@ghgh.com",
-"role": "Coach"
-}
-}
-}
-
-# Get All Users
-
-Query : users
-This will return details of all users except from the password
+## Installation
 
 ```md
-query users {
-users {
-\_id
-username
-email
-role
-}
-}
+npx create-react-app the-coach-plus
+use the same package.json and run npm install
+in another terminal run mongod
+
+For Mongo shell
+In the command prompt
+run mongosh
+showdbs
+use theCoachPlusSchema
+
+Also, install Studio 3T
+for database, you can import and export data using Studio 3T
 ```
 
-# Get One User (from username)
+## Contributing
 
-Query
+Rajni Dua
 
-```md
-query{
-user(username: "Brian Kernighan"){
-\_id
-email
-username
-}
-}
-```
+## Questions
 
-# Result
+For any further questions, reachout to me at :
 
-{
-"data": {
-"user": {
-"\_id": "6184775495cef53d935b8545",
-"email": "bkernighan@techfriends.dev",
-"username": "Brian Kernighan"
-}
-}
-}
+- Github: [rajnidua](https://github.com/rajnidua)
+- Email: rajni.dua14@gmail.com
+
+## License
+
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+
+&copy; 2021 Rajni Dua
+
+_Licensed under [MIT](./license)_
