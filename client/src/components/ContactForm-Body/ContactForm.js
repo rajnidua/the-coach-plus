@@ -68,8 +68,10 @@ function ContactForm() {
           <div className="column left">
             <div className="text">Get in Touch</div>
             <p>
-              Please reach out for new projects related to Front and Back-end
-              development.
+              If you have skills to coach someone in any sport in the world that
+              exists, We are here to convert your skills into your business. If
+              you are a student looking for the best coach to train you and you
+              have questions , We are here to help you!!
             </p>
             <div className="icons">
               <div className="row">
@@ -151,7 +153,7 @@ function ContactForm() {
                 <textarea
                   cols="30"
                   rows="10"
-                  placeholder="Describe Project.."
+                  placeholder="Message.."
                   value={message}
                   onChange={handleChangeMessage}
                   required
