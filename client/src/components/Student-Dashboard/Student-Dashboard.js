@@ -77,7 +77,7 @@ function StudentDashboard() {
   };
 
   const { loading, data } = useQuery(QUERY_COACHES);
-
+  console.log("data is", data);
   const coachesList = data?.coaches || [];
   console.log("coachesList", coachesList);
 
@@ -185,9 +185,9 @@ function StudentDashboard() {
                                     <li>
                                       Class Size: {selectedCoach.groupSize}
                                     </li>
-                                    <li>Days: {selectedCoach.days}</li>
+                                    <li>Days: </li>
                                     <li>Duration: {selectedCoach.duration}</li>
-                                    <li>Time slot: {selectedCoach.timeSlot}</li>
+                                    <li>Time slot: </li>
                                     <li>
                                       Postal Code:{" "}
                                       {selectedCoach.venuePostalCode}
@@ -204,7 +204,7 @@ function StudentDashboard() {
                                   </div>
                                   <a href="#">45 Reviews</a>
 
-                                  <Link
+                                  {/* <Link
                                     to={{
                                       pathname: "/CoachProfile",
                                       state: [selectedCoach],
@@ -212,7 +212,7 @@ function StudentDashboard() {
                                     className="btn"
                                   >
                                     Enroll
-                                  </Link>
+                                  </Link> */}
                                 </div>
                               </div>
                             </div>

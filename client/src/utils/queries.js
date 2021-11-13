@@ -47,8 +47,14 @@ export const QUERY_COACHES = gql`
       duration
       fees
       sessionStart
-      days
-      timeSlot
+      days {
+        dayId
+        dayValue
+      }
+      timeSlot {
+        slotId
+        slotValue
+      }
       venuePostalCode
       userProfile {
         _id
