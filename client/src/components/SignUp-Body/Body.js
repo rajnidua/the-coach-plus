@@ -141,7 +141,7 @@ function Body(props) {
                 </div>
                 <div className="feild password">
                   <input
-                    type="text"
+                    type="password"
                     className="password-feild"
                     placeholder="password"
                     name="password"
@@ -151,15 +151,18 @@ function Body(props) {
                   />
                 </div>
 
-                <div className="field city">
+                <div className="feild city">
                   <input
                     type="text"
                     placeholder="House Number"
+                    className="username-feild"
                     name="houseNumber"
                     onChange={handleInputChange}
                     value={userFormData.houseNumber}
                     required
                   />
+                </div>
+                <div className="feild city">
                   <input
                     type="text"
                     placeholder="Street"
@@ -168,40 +171,47 @@ function Body(props) {
                     value={userFormData.streetName}
                     required
                   />
-                  <div class="city">
-                    <input
-                      type="text"
-                      placeholder="City"
-                      name="city"
-                      onChange={handleInputChange}
-                      value={userFormData.city}
-                      required
-                    />
-                    <input
-                      type="text"
-                      placeholder="State"
-                      name="state"
-                      onChange={handleInputChange}
-                      value={userFormData.state}
-                      required
-                    />
-                    <input
-                      type="text"
-                      placeholder="Postal Code"
-                      name="postalCode"
-                      onChange={handleInputChange}
-                      value={userFormData.postalCode}
-                      required
-                    />
-                    <input
-                      type="text"
-                      placeholder="Country"
-                      name="country"
-                      onChange={handleInputChange}
-                      value={userFormData.country}
-                      required
-                    />
-                  </div>
+                </div>
+
+                <div className="feild city">
+                  <input
+                    type="text"
+                    placeholder="City"
+                    name="city"
+                    onChange={handleInputChange}
+                    value={userFormData.city}
+                    required
+                  />
+                </div>
+                <div className="feild city">
+                  <input
+                    type="text"
+                    placeholder="State"
+                    name="state"
+                    onChange={handleInputChange}
+                    value={userFormData.state}
+                    required
+                  />
+                </div>
+                <div className="feild city">
+                  <input
+                    type="text"
+                    placeholder="Postal Code"
+                    name="postalCode"
+                    onChange={handleInputChange}
+                    value={userFormData.postalCode}
+                    required
+                  />
+                </div>
+                <div className="feild city">
+                  <input
+                    type="text"
+                    placeholder="Country"
+                    name="country"
+                    onChange={handleInputChange}
+                    value={userFormData.country}
+                    required
+                  />
                 </div>
 
                 <div className="button">
