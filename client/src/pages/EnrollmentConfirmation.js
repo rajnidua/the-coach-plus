@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../components/Navbar/Navbar";
-import CoachProfile from "../components/Coach-Profile/CoachProfile";
+//import CoachProfile from "../components/Coach-Profile/CoachProfile";
 import EnrollmentConfirmation from "../components/Enrollment-Confirmation/EnrollmentBody";
 import Footer from "../components/Footer/Footer";
 

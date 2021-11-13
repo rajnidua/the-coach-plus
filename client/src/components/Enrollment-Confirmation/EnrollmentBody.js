@@ -11,7 +11,7 @@ function EnrollmentConfirmation(props) {
     <section className="main-section">
       <main>
         <aside>
-          <h2></h2>
+          <h4>YOUR ENROLLMENT IS CONFIRMED!</h4>
 
           <div className="sample-img">
             <img src={homePageImage} alt="" />
@@ -20,8 +20,6 @@ function EnrollmentConfirmation(props) {
         </aside>
 
         <section>
-          <h2>YOUR ENROLLMENT IS CONFIRMED!</h2>
-
           <ul>
             <li>Your Coach Name : {props.coach.coach.coachname}</li>
             <li>Session Start Date : {props.coach.coach.sessionStart}</li>

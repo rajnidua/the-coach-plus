@@ -31,13 +31,12 @@ img {
   width: 100%;
   border-radius: 20px;
   box-shadow: black 10px;
-  padding-top: 10px;
 }
 
 ul {
   list-style-type: none;
   padding-left: 200px;
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
 }
 

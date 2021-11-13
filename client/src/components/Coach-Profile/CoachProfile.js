@@ -39,13 +39,17 @@ function CoachProfile(props) {
         <div className="max-width">
           <div className="coach-pic">
             <img src={CoachImage} alt="" />
-            <div className="coach-name">{props.coach.coachname}</div>
+
             <p>Certified</p>
           </div>
           <div className="coach-descp">
             <div className="selected-sport">{props.coach.sport}</div>
 
-            <p>{props.coach.description}</p>
+            <p>
+              Hi, My name is {props.coach.coachname}. I am{" "}
+              {props.coach.description}
+            </p>
+            <p>FEE: {props.coach.fees}</p>
           </div>
           <div className="coach-rev">
             <div className="stars">

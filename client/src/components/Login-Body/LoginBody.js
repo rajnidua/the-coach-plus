@@ -83,7 +83,7 @@ function LoginBody() {
               </form>
               <p>
                 New to the app?
-                <Link
+                {/* <Link
                   to={{
                     pathname: "/SignUp",
                     state: true,
@@ -91,7 +91,7 @@ function LoginBody() {
                   className="btn"
                 >
                   SignUp As a Coach
-                </Link>
+                </Link> */}
                 <Link
                   to={{
                     pathname: "/SignUp",
@@ -99,7 +99,7 @@ function LoginBody() {
                   }}
                   className="btn"
                 >
-                  Signup As a Student
+                  Signup
                 </Link>
               </p>
             </div>
