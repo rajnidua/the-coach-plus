@@ -6,8 +6,8 @@
 
 - [Description](#Description)
 - [Installation](#Installation)
-- [Usage](#Usage)
-- [Testing](#Testing)
+- [Video Link](#Video)
+- [Screenshot](#Screenshot)
 - [Contributing](#Contributing)
 - [Questions](#Questions)
 - [License](#License)
@@ -42,15 +42,15 @@ THEN I can select the lesson time that suites me
 WHEN I click on the Enrol button
 THEN I am taken to an Enrollment confirmation page.
 
-## Video Link
+## Video
 
 (https://drive.google.com/file/d/1N4lFInzLFY2FXaTKx2y4yZFSWmTlrd3G/view?usp=sharing)
 
-Screenshot
+## Screenshot
 
 [![Screenshot](./images/Screenshot1.gif)]
 
-Screenshot
+## Screenshot
 
 [![Screenshot](./images/Screenshot2.gif)]
 
