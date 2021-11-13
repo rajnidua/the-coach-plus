@@ -101,6 +101,31 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    addDay: async (parent, { dayValue, dayId }, context) => {
+      console.log(context.user);
+      if (context.user) {
+        const result = await User.findOne({ _id: context.user._id }).populate(
+          "coachProfile"
+        );
+        console.log("coach profile is ", result.coachProfile[0]._id);
+        console.log("time slot in  profile is ", result.coachProfile[0].days);
+
+        return Coach.findOneAndUpdate(
+          { _id: result.coachProfile[0]._id },
+          {
+            $addToSet: {
+              days: { dayValue, dayId },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     login: async (parent, { email, password }) => {
       console.log(email);
       console.log(password);

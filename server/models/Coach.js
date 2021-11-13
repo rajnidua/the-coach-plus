@@ -43,47 +43,37 @@ const coachSchema = new Schema({
     default: Date.now,
     get: (timestamp) => dateFormat(timestamp),
   },
-  days: [
-    {
-      type: String,
-      required: false,
-    },
-  ],
-  timeSlot: [
-    {
-      slotValue: { type: String, required: false, default: "4PM - 5PM" },
-      slotId: {
-        type: String,
-        required: false,
-        default: 1,
-      },
-    },
-  ],
-  /* timeSlot: [
+  /* days: [
     {
       type: String,
       required: false,
     },
   ], */
 
+  days: [
+    {
+      dayValue: { type: String, required: false },
+      dayId: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
+  timeSlot: [
+    {
+      slotValue: { type: String, required: false },
+      slotId: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
+
   venuePostalCode: {
     type: String,
     required: true,
     default: 4000,
   },
-
-  /* classDuration: {
-    type: Number,
-    required: false,
-  }, */
-  /* classFrequency: {
-    type: String,
-    required: false,
-  },
-  frequencyNum: {
-    type: Number,
-    required: false,
-  }, */
 });
 
 const Coach = mongoose.model("Coach", coachSchema);

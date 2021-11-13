@@ -26,7 +26,7 @@ const typeDefs = gql`
     duration: String
     fees: String
     sessionStart: String
-    days: [String]
+    days: [Day]!
     timeSlot: [Time]!
     venuePostalCode: String
     userProfile: [User]
@@ -66,6 +66,11 @@ const typeDefs = gql`
     slotValue: String
     slotId: String
   }
+  type Day {
+    _id: ID
+    dayValue: String
+    dayId: String
+  }
 
   type Auth {
     token: ID!
@@ -86,6 +91,7 @@ const typeDefs = gql`
     addUser(input: userInput!): Auth
     addCoach(input: coachInput!): Coach
     addtimeSlot(slotValue: String!, slotId: String!): Coach
+    addDay(dayValue: String!, dayId: String!): Coach
     login(email: String!, password: String!): Auth
   }
 `;
