@@ -69,6 +69,9 @@ use theCoachPlusSchema
 
 Also, install Studio 3T
 for database, you can import and export data using Studio 3T
+
+For email
+run cd client >> npm install validator
 ```
 
 ## Contributing
