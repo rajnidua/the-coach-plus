@@ -7,79 +7,33 @@ import "../../styles/enrollment-confirmation.css";
 function EnrollmentConfirmation(props) {
   console.log("FINAL PROPS RECIEVED ", props);
 
-  const theme = createTheme({
-    palette: {
-      type: "light",
-      primary: {
-        main: "#3f51b5",
-      },
-      secondary: {
-        main: "#f50057",
-      },
-      background: {
-        paper: "#ece8e8",
-        default: "#f7f4f4",
-      },
-    },
-  });
   return (
-    <section className="hero">
-      <div className="left-section">
-        <img className="img-class" src={homePageImage} alt="profile pic"></img>
-        {/* <img className="img-class" src={profilePic} alt="profile pic"></img> */}
-      </div>
-      <div className="right-section">
-        <div className="name">
-          <h1>RAJNI DUA</h1>
-        </div>
-        <div className="text-under-name" variant="contained" color="primary">
-          <span className="diff-font">FRONT</span> END DEVELOPER{" "}
-          <span className="diff-font diff-font-color">|</span>
-          <span className="diff-font"> BACK</span> END DEVELOPER
-        </div>
+    <section className="main-section">
+      <main>
+        <aside>
+          <h2></h2>
 
-        {/*   <div className="typing-block">
-            <div className="typing">
-              <Typing />
-            </div>
-          </div> */}
+          <div className="sample-img">
+            <img src={homePageImage} alt="" />
+          </div>
+          <p></p>
+        </aside>
 
-        {/* <TypeWriterEffect
-          textStyle={{
-            fontFamily: "Red Hat Display",
-            color: "#3F3D56",
-            fontWeight: 500,
-            fontSize: "1.8em",
-          }}
-          startDelay={1000}
-          cursorColor="#3F3D56"
-          multiText={[
-            "HTML",
-            "CSS",
-            "BOOTSTRAP",
-            "JAVASCRIPT",
-            "JQUERY",
-            "MYSQL2",
-            "MONGODB",
-            "EXPRESS JS",
-            "NODE JS",
-            "API INTEGRATION",
-            "REACT",
-            "",
-          ]}
-          multiTextDelay={1000}
-          typeSpeed={30}
-          hideCursorAfterText={true}
-        /> */}
+        <section>
+          <h2>YOUR ENROLLMENT IS CONFIRMED!</h2>
 
-        <Button
-          href="mailto:rajni.dua14@gmail.com?subject=REGARDING WORK"
-          color="primary"
-          variant="contained"
-        >
-          GET IN TOUCH
-        </Button>
-      </div>
+          <ul>
+            <li>Your Coach Name : {props.coach.coach.coachname}</li>
+            <li>Session Start Date : {props.coach.coach.sessionStart}</li>
+
+            <li>Session Start Time : {props.coach.formState.value}</li>
+            <li>Day : {props.coach.formStateDay.dayValue}</li>
+            <li>Class Size : {props.coach.coach.groupSize}</li>
+            <li>Session Length : {props.coach.coach.duration}</li>
+            <li>ADDRESS : {props.coach.coach.venuePostalCode}</li>
+          </ul>
+        </section>
+      </main>
     </section>
   );
 }

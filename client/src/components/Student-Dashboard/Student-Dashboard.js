@@ -185,13 +185,6 @@ function StudentDashboard() {
                                     <li>
                                       Class Size: {selectedCoach.groupSize}
                                     </li>
-                                    <li>Days: </li>
-                                    <li>Duration: {selectedCoach.duration}</li>
-                                    <li>Time slot: </li>
-                                    <li>
-                                      Postal Code:
-                                      {selectedCoach.venuePostalCode}
-                                    </li>
                                   </ul>
                                 </div>
                                 <div className="coach-review-col">
