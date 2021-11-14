@@ -336,3 +336,76 @@ email
 
 }
 }
+
+ADD STUDENT ENROLLED
+
+mutation addStudentEnrolled(
+$coachname: String
+    ) {
+   addStudentEnrolled(
+      input:
+      {
+      coachname:$coachname
+
+      }
+    ) {
+
+      coachname
+         description
+    image
+    fees
+      sport
+      duration
+      groupSize
+
+    enrolledStudents{
+      username
+      email
+      _id
+    }
+      }
+
+
+
+      }
+
+
+      QUERY VARIABLES
+
+       {
+
+"coachname": "TennisWorld"
+}
+
+ADD PROGRAMS ENROLLED
+
+mutation addProgramsEnrolled(
+$coachname: String
+    ) {
+  addProgramsEnrolled(
+      input:
+      {
+      coachname:$coachname
+
+      }
+    ) {
+
+     username
+      houseNumber
+      _id
+
+
+
+      }
+
+
+
+      }
+
+
+      QUERY VARIABLES
+
+      {
+
+"coachname": "TennisWorld"
+}

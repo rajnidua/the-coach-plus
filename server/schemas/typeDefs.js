@@ -14,6 +14,7 @@ const typeDefs = gql`
     country: String
     city: String
     coachProfile: [Coach]
+    programsEnrolled: [ProgramsEnrolled]
   }
 
   type Coach {
@@ -30,6 +31,7 @@ const typeDefs = gql`
     timeSlot: [Time]!
     venuePostalCode: String
     userProfile: [User]
+    enrolledStudents: [EnrolledStudents]
   }
 
   input coachInput {
@@ -45,6 +47,7 @@ const typeDefs = gql`
     days: [String]
     timeSlot: [String]
     venuePostalCode: String
+    enrolledStudents: [String]
   }
 
   input userInput {
@@ -59,8 +62,25 @@ const typeDefs = gql`
     state: String
     country: String
     city: String
-    coachProfile: coachInput
+    coachProfile: [coachInput]
+    programsEnrolled: [String]
   }
+
+  input coachnameInput {
+    coachname: String
+  }
+
+  type EnrolledStudents {
+    _id: ID
+    username: String
+    email: String
+  }
+
+  type ProgramsEnrolled {
+    _id: ID
+    coachname: String
+  }
+
   type Time {
     _id: ID
     slotValue: String
@@ -92,6 +112,8 @@ const typeDefs = gql`
     addCoach(input: coachInput!): Coach
     addtimeSlot(slotValue: String!, slotId: String!): Coach
     addDay(dayValue: String!, dayId: String!): Coach
+    addStudentEnrolled(input: coachnameInput!): Coach
+    addProgramsEnrolled(input: coachnameInput!): User
     login(email: String!, password: String!): Auth
   }
 `;
@@ -99,3 +121,5 @@ const typeDefs = gql`
 module.exports = typeDefs;
 
 //addCoach(input: coachInput!): Coach
+//studentsEnrolledArray: [StudentsEnrolledType]!
+//studentsEnrolled: [User];

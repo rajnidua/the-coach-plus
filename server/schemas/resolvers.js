@@ -43,6 +43,95 @@ const resolvers = {
       return { token, user };
     },
 
+    addStudentEnrolled: async (parent, args, context) => {
+      console.log("Value of args in add Student Enrolled is ", args);
+      console.log(args.input.coachname);
+      console.log("value of user object is ================", context.user);
+
+      if (context.user) {
+        console.log("user coach is: ");
+        console.log(context.user._id);
+
+        const result = Coach.findOneAndUpdate(
+          { coachname: args.input.coachname },
+          {
+            $addToSet: {
+              //studentsEnrolledArray: { studentsEnrolled: context.user },
+              //studentsEnrolled: { ...context.user },
+              enrolledStudents: {
+                username: context.user.username,
+                email: context.user.email,
+                _id: context.user._id,
+              },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+        const resultUser = User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: {
+              //studentsEnrolledArray: { studentsEnrolled: context.user },
+              //studentsEnrolled: { ...context.user },
+              programsEnrolled: {
+                coachname: args.input.coachname,
+              },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+        console.log("result is:");
+        console.log(result);
+        console.log("result end");
+
+        return result;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
+    addProgramsEnrolled: async (parent, args, context) => {
+      console.log("Value of args in add Student Enrolled is ", args);
+      console.log(args.input.coachname);
+      console.log("value of user object is ================", context.user);
+
+      if (context.user) {
+        console.log("user coach is: ");
+        console.log(context.user._id);
+
+        const resultUser = User.findOneAndUpdate(
+          { _id: context.user._id },
+          {
+            $addToSet: {
+              //studentsEnrolledArray: { studentsEnrolled: context.user },
+              //studentsEnrolled: { ...context.user },
+              programsEnrolled: {
+                coachname: args.input.coachname,
+              },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+
+        console.log("result is:");
+        console.log(resultUser);
+        console.log("result end");
+
+        return resultUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     addCoach: async (parent, args, context) => {
       console.log("context in add coach is ");
       console.log(context.user);
@@ -70,6 +159,7 @@ const resolvers = {
 
         return coach;
       }
+
       throw new AuthenticationError("You need to be logged in!");
     },
 

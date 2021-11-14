@@ -61,6 +61,11 @@ const userSchema = new Schema(
         ref: "Coach",
       },
     ],
+    programsEnrolled: [
+      {
+        coachname: { type: String, required: false },
+      },
+    ],
   },
   {
     toJSON: {

@@ -10,6 +10,34 @@ const coachSchema = new Schema({
       ref: "User",
     },
   ],
+  /* studentsEnrolledArray: [
+    {
+      studentsEnrolled: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: "User",
+        },
+      ],
+    },
+  ], */
+
+  /* studentsEnrolled: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+    },
+  ], */
+
+  enrolledStudents: [
+    {
+      username: { type: String, required: false },
+      email: {
+        type: String,
+        required: false,
+      },
+    },
+  ],
+
   coachname: {
     type: String,
     required: true,
