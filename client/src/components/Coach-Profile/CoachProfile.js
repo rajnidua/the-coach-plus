@@ -67,7 +67,9 @@ function CoachProfile(props) {
               Hi, My name is {props.coach.coachname}. I am{" "}
               {props.coach.description}
             </p>
-            <p>FEE: {props.coach.fees}</p>
+            <h3 className="imp-info">FEE : {props.coach.fees}</h3>
+            <h3 className="imp-info">Location : {props.coach.fees}</h3>
+            <h3 className="imp-info">Start Date : {props.coach.fees}</h3>
           </div>
           <div className="coach-rev">
             <div className="stars">

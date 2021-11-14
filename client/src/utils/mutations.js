@@ -20,6 +20,21 @@ export const ADD_USER = gql`
   }
 `;
 
+export const PROGRAMS_ENROLLED = gql`
+  mutation addProgramsEnrolled($input: programEnrolledInput!) {
+    addProgramsEnrolled(input: $input) {
+      programsEnrolled {
+        _id
+        coachname
+        sessionStartDate
+        classTime
+        classDay
+        sportName
+      }
+    }
+  }
+`;
+
 export const ADD_COACH = gql`
   mutation addCoach($input: coachInput!) {
     addCoach(input: $input) {

@@ -70,6 +70,14 @@ const typeDefs = gql`
     coachname: String
   }
 
+  input programEnrolledInput {
+    coachname: String
+    sessionStartDate: String
+    classTime: String
+    classDay: String
+    sportName: String
+  }
+
   type EnrolledStudents {
     _id: ID
     username: String
@@ -79,6 +87,10 @@ const typeDefs = gql`
   type ProgramsEnrolled {
     _id: ID
     coachname: String
+    sessionStartDate: String
+    classTime: String
+    classDay: String
+    sportName: String
   }
 
   type Time {
@@ -113,7 +125,7 @@ const typeDefs = gql`
     addtimeSlot(slotValue: String!, slotId: String!): Coach
     addDay(dayValue: String!, dayId: String!): Coach
     addStudentEnrolled(input: coachnameInput!): Coach
-    addProgramsEnrolled(input: coachnameInput!): User
+    addProgramsEnrolled(input: programEnrolledInput!): User
     login(email: String!, password: String!): Auth
   }
 `;

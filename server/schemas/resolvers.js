@@ -44,20 +44,11 @@ const resolvers = {
     },
 
     addStudentEnrolled: async (parent, args, context) => {
-      console.log("Value of args in add Student Enrolled is ", args);
-      console.log(args.input.coachname);
-      console.log("value of user object is ================", context.user);
-
       if (context.user) {
-        console.log("user coach is: ");
-        console.log(context.user._id);
-
         const result = Coach.findOneAndUpdate(
           { coachname: args.input.coachname },
           {
             $addToSet: {
-              //studentsEnrolledArray: { studentsEnrolled: context.user },
-              //studentsEnrolled: { ...context.user },
               enrolledStudents: {
                 username: context.user.username,
                 email: context.user.email,
@@ -71,35 +62,18 @@ const resolvers = {
           }
         );
 
-        const resultUser = User.findOneAndUpdate(
-          { _id: context.user._id },
-          {
-            $addToSet: {
-              //studentsEnrolledArray: { studentsEnrolled: context.user },
-              //studentsEnrolled: { ...context.user },
-              programsEnrolled: {
-                coachname: args.input.coachname,
-              },
-            },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-
-        console.log("result is:");
-        console.log(result);
-        console.log("result end");
-
         return result;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
     addProgramsEnrolled: async (parent, args, context) => {
-      console.log("Value of args in add Student Enrolled is ", args);
+      console.log("Value of args in add Programs Enrolled is ", args);
       console.log(args.input.coachname);
+      console.log(args.input.sessionStartDate);
+      console.log(args.input.classTime);
+      console.log(args.input.classDay);
+      console.log(args.input.sportName);
       console.log("value of user object is ================", context.user);
 
       if (context.user) {
@@ -110,10 +84,12 @@ const resolvers = {
           { _id: context.user._id },
           {
             $addToSet: {
-              //studentsEnrolledArray: { studentsEnrolled: context.user },
-              //studentsEnrolled: { ...context.user },
               programsEnrolled: {
                 coachname: args.input.coachname,
+                sessionStartDate: args.input.sessionStartDate,
+                classTime: args.input.classTime,
+                classDay: args.input.classDay,
+                sportName: args.input.sportName,
               },
             },
           },
@@ -122,6 +98,8 @@ const resolvers = {
             runValidators: true,
           }
         );
+
+        //console.log("****************", context.user.programsEnrolled);
 
         console.log("result is:");
         console.log(resultUser);

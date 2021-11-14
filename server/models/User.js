@@ -64,6 +64,11 @@ const userSchema = new Schema(
     programsEnrolled: [
       {
         coachname: { type: String, required: false },
+        sessionStartDate: { type: String, required: false },
+
+        classDay: { type: String, required: false },
+        sportName: { type: String, required: false },
+        classTime: { type: String, required: false },
       },
     ],
   },

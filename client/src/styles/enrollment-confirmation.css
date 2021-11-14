@@ -2,6 +2,11 @@
   box-sizing: border-box;
 }
 
+:root {
+  --text-color: #333332;
+  --main-color: #fe7c31;
+}
+
 main-section {
   font-family: Arial;
   margin: 0;
@@ -11,7 +16,9 @@ main {
   display: flex;
   flex-wrap: wrap;
 }
-
+h1 {
+  color: var(--main-color);
+}
 aside {
   flex: 1;
   background-color: #b9c6ae;
@@ -25,6 +32,9 @@ section {
 }
 h2 {
   text-align: center;
+}
+.confirm-enrollment {
+  background-color: azure;
 }
 
 img {
