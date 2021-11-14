@@ -9,6 +9,7 @@
 - [Video Link](#Video)
 - [Screenshot](#Screenshot)
 - [Deployment](#Deployment)
+- [Heroku Deployment](#Heroku)
 - [How to Run](#Run)
 - [Contributing](#Contributing)
 - [Questions](#Questions)
@@ -103,6 +104,26 @@ Reference Documents
 set up mongo atlas https://coding-boot-camp.github.io/full-stack/mongodb/how-to-set-up-mongodb-atlas
 
 Deploy with mongodb and atlas https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas
+
+## Heroku
+
+Create heroku app using
+
+```md
+heroku --version
+heroku login
+heroku create
+```
+
+```md
+Push to heroku using(push the updated version to Git before doing this)
+git add -A
+git commit -m 'deploying'
+git push heroku main
+To run the app from CLI
+
+heroku open
+```
 
 ## Contributing
 
