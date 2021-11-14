@@ -8,6 +8,8 @@
 - [Installation](#Installation)
 - [Video Link](#Video)
 - [Screenshot](#Screenshot)
+- [Deployment](#Deployment)
+- [How to Run](#Run)
 - [Contributing](#Contributing)
 - [Questions](#Questions)
 - [License](#License)
@@ -87,6 +89,20 @@ Use:
 
 <FontAwesomeIcon icon={faBars} />
 ```
+
+## Run
+
+On Localhost : npm run develop
+
+On Heroku : using heroku link
+
+## Deployment
+
+Reference Documents
+
+set up mongo atlas https://coding-boot-camp.github.io/full-stack/mongodb/how-to-set-up-mongodb-atlas
+
+Deploy with mongodb and atlas https://coding-boot-camp.github.io/full-stack/mongodb/deploy-with-heroku-and-mongodb-atlas
 
 ## Contributing
 
