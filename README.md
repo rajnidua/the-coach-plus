@@ -47,15 +47,23 @@ THEN I am taken to an Enrollment confirmation page.
 
 ## Video
 
-(https://drive.google.com/file/d/1N4lFInzLFY2FXaTKx2y4yZFSWmTlrd3G/view?usp=sharing)
+(https://drive.google.com/file/d/1GG7sBmBgh2harQmQDDAtRpZn6eoX5CKr/view?usp=sharing)
 
 ## Screenshot
 
-[![Screenshot](./images/Screenshot1.gif)]
+[![Screenshot](./images/CoachPlusScreenshot1.gif)]
 
 ## Screenshot
 
-[![Screenshot](./images/Screenshot2.gif)]
+[![Screenshot](./images/CoachPlusScreenshot2.gif)]
+
+## Screenshot
+
+[![Screenshot](./images/CoachPlusScreenshot3.gif)]
+
+## Screenshot
+
+[![Screenshot](./images/CoachPlusScreenshot4.gif)]
 
 ## Installation
 

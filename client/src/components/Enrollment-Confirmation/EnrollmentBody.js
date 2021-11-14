@@ -55,8 +55,6 @@ function EnrollmentConfirmation(props) {
     <section className="main-section">
       <main>
         <aside>
-          <h4>YOUR ENROLLMENT IS CONFIRMED!</h4>
-
           <div className="sample-img">
             <img src={homePageImage} alt="" />
           </div>

@@ -141,6 +141,11 @@ const NavBar = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link to="/StuDashboard" className="menu-btn">
+                    Student Dashboard
+                  </Link>
+                </li>
+                <li>
                   <Link
                     onClick={Auth.logout}
                     className="menu-btn btn log-in-nav"

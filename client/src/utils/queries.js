@@ -22,6 +22,14 @@ export const QUERY_ME = gql`
       streetName
       postalCode
       country
+      programsEnrolled {
+        _id
+        coachname
+        sessionStartDate
+        classDay
+        sportName
+        classTime
+      }
 
       coachProfile {
         _id
