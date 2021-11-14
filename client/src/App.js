@@ -13,6 +13,7 @@ import Welcome from "./pages/Welcome";
 import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import StudentDashboardPage from "./pages/StudentDashboard";
+import FindCoachPage from "./pages/FindACoach";
 import CoachSignUpPage from "./pages/CoachSignUp";
 import CoachProfile from "./pages/CoachProfile";
 import EnrollmentConfirmation from "./pages/EnrollmentConfirmation";
@@ -49,6 +50,7 @@ function App() {
             <Route path="/SignUp" component={SignUp} />
             <Route path="/ContactForm" component={ContactFormPage} />
             <Route path="/StuDashboard" component={StudentDashboardPage} />
+            <Route path="/FindACoach" component={FindCoachPage} />
             <Route path="/CoachSignUp" component={CoachSignUpPage} />
             <Route path="/CoachProfile" component={CoachProfile} />
             <Route

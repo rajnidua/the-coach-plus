@@ -44,11 +44,31 @@ const NavBar = () => {
             </Link>
           </div>
           <ul className="menu">
-            <li>
-              <a href="#" className="menu-btn">
-                Find-A-Coach
-              </a>
-            </li>
+            {/*  {Auth.loggedIn() ? (
+              <>
+                <li>
+                  <Link to="/FindACoach" className="menu-btn">
+                    Find-A-Coach
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    onClick={Auth.logout}
+                    className="menu-btn btn log-in-nav"
+                  >
+                    Logout
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link to="/Login" className="menu-btn btn log-in-nav">
+                    LogIn
+                  </Link>
+                </li>
+              </>
+            )} */}
             <li>
               <a href="#" className="menu-btn">
                 Sports
@@ -87,7 +107,7 @@ const NavBar = () => {
               <></>
             )}
 
-            {Auth.loggedIn() ? (
+            {/*  {Auth.loggedIn() ? (
               <>
                 <li>
                   <Link to="/StuDashboard" className="menu-btn">
@@ -111,17 +131,22 @@ const NavBar = () => {
                   </Link>
                 </li>
               </>
-            )}
+            )} */}
 
-            {/*  {Auth.loggedIn() ? ( 
+            {Auth.loggedIn() ? (
               <>
                 <li>
-                  <Link to="/StuDashboard" className="menu-btn btn log-in-nav">
-                    Student Dashboard
+                  <Link to="/FindACoach" className="menu-btn">
+                    Find-A-Coach
                   </Link>
                 </li>
                 <li>
-                  <Link onClick={Auth.logout}>Logout</Link>
+                  <Link
+                    onClick={Auth.logout}
+                    className="menu-btn btn log-in-nav"
+                  >
+                    Logout
+                  </Link>
                 </li>
               </>
             ) : (
@@ -132,13 +157,7 @@ const NavBar = () => {
                   </Link>
                 </li>
               </>
-            )} */}
-
-            {/* <li>
-              <Link to="/Login" className="menu-btn btn log-in-nav">
-                LogIn
-              </Link>
-            </li> */}
+            )}
           </ul>
           {/*  <div class="menu-btn">
             <i class="bx bx-menu"></i>
