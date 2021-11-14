@@ -67,9 +67,15 @@ function CoachProfile(props) {
               Hi, My name is {props.coach.coachname}. I am{" "}
               {props.coach.description}
             </p>
-            <h3 className="imp-info">FEE : {props.coach.fees}</h3>
-            <h3 className="imp-info">Location : {props.coach.fees}</h3>
-            <h3 className="imp-info">Start Date : {props.coach.fees}</h3>
+            <div className="imp-info-wrapper">
+              <h3 className="imp-info">FEE : {props.coach.fees}</h3>
+              <h3 className="imp-info">
+                Location : {props.coach.venuePostalCode}
+              </h3>
+              <h3 className="imp-info">
+                Start Date : {props.coach.sessionStart}
+              </h3>
+            </div>
           </div>
           <div className="coach-rev">
             <div className="stars">
@@ -101,14 +107,14 @@ function CoachProfile(props) {
       <section className="section-schedule">
         <div className="max-width">
           <div className="calender">
-            <h2>Choose Date</h2>
+            <h2>Choose Day</h2>
             <select onChange={handleChangeDay}>
               {props.coach.days.map((dayName) => (
                 <option value={dayName.dayValue}>{dayName.dayValue}</option>
               ))}
             </select>
           </div>
-          <div className="time-slots">
+          <div className="calender">
             <h2>Choose Time</h2>
 
             <select onChange={handleChangeTimeSlot}>
@@ -117,7 +123,7 @@ function CoachProfile(props) {
               ))}
             </select>
           </div>
-          <div className="buttons">
+          <div className="buttons ">
             <Link
               to={{
                 pathname: "/EnrollmentConfirmation",
