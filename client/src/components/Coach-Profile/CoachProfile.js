@@ -1,4 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useHistory, useParams } from "react-router-dom";
+import { useQuery } from "@apollo/client";
+import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+
 import "../../styles/coach-profile.css";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
@@ -9,6 +13,20 @@ function CoachProfile(props) {
   const [newProps, setNewProps] = useState([{ props }]);
   console.log("props is ", props);
   console.log("props is ", props.coach.days[0]);
+
+  const { username: userParam } = useParams();
+
+  console.log("userParam", userParam);
+
+  const { loading: userLoading, data: userData } = useQuery(
+    userParam ? QUERY_USER : QUERY_ME,
+    {
+      variables: { username: userParam },
+    }
+  );
+
+  const user = userData?.me || userData?.user || {};
+  console.log("###################" + user.username);
 
   const handleChangeTimeSlot = (e) => {
     const value = e.target.value;
@@ -28,8 +46,8 @@ function CoachProfile(props) {
 
   useEffect(() => {
     console.log("checking the use effect");
-    setNewProps({ ...props, formState, formStateDay });
-  }, [formState, formStateDay]);
+    setNewProps({ ...props, formState, formStateDay, user });
+  }, [formState, formStateDay, user]);
 
   console.log("The value os new props is ", newProps);
 
