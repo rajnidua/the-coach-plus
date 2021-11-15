@@ -6,6 +6,7 @@ import "../../styles/signup.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
 import Auth from "../../utils/auth.js";
 import { Link } from "react-router-dom";
+import Axios from "axios";
 
 function Body(props) {
   const [userFormData, setUserFormData] = useState({
@@ -59,6 +60,25 @@ function Body(props) {
       console.log("signup data is: ");
       console.log(data);
       Auth.login(data.addUser.token);
+      // Send email confirmation
+      const msg = {
+        email: userFormData.email,
+        from: "support@thecoachplus.com",
+        subject: "Welcome to Coach+",
+        message: "This email confirms your registration with CoachPlus.com",
+      };
+
+      const emailresponse = await Axios.post("/send-email", msg)
+        .then((res) => {
+          if (res.data.success) {
+            console.log("Email sent successfully");
+          } else {
+            console.log("Email sent failed");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (err) {
       console.error(error);
       setShowAlert(true);

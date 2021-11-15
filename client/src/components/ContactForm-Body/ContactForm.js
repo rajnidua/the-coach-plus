@@ -7,6 +7,7 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import validator from "validator";
+import Axios from "axios";
 
 function ContactForm() {
   // Here we set two state variables for firstName and lastName using `useState`
@@ -50,7 +51,33 @@ function ContactForm() {
   const handleFormSubmit = (e) => {
     // Preventing the default behavior of the form submit (which is to refresh the page)
     e.preventDefault();
+    // Send email
+    const msg = {
+      email: "support@thecoachplus.com",
+      from: "support@thecoachplus.com",
+      subject,
+      message:
+        "Message from " +
+        firstName +
+        " " +
+        lastName +
+        "message:" +
+        message +
+        " and email is" +
+        email,
+    };
 
+    Axios.post("/send-email", msg)
+      .then((res) => {
+        if (res.data.success) {
+          console.log("Email sent successfully");
+        } else {
+          console.log("Email sent failed");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     // Alert the user their first and last name, clear the inputs
     alert(`Hello ${firstName} ${lastName}`);
     setFirstName("");
