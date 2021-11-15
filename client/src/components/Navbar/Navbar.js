@@ -35,16 +35,15 @@ const NavBar = () => {
   }, [data]);
 
   return (
-    <div>
-      <nav className="navbar">
-        <div className="max-width">
-          <div className="logo">
-            <Link to="/">
-              Coach<span>+</span>
-            </Link>
-          </div>
-          <ul className="menu">
-            {/*  {Auth.loggedIn() ? (
+    <nav className="navbar">
+      <div className="max-width">
+        <div className="logo">
+          <Link to="/">
+            T<span>he</span>Coach<span>+</span>
+          </Link>
+        </div>
+        <ul className={click ? "menu active" : "menu"}>
+          {/*  {Auth.loggedIn() ? (
               <>
                 <li>
                   <Link to="/FindACoach" className="menu-btn">
@@ -69,45 +68,45 @@ const NavBar = () => {
                 </li>
               </>
             )} */}
-            <li>
-              <a href="#" className="menu-btn">
-                Sports
-              </a>
-            </li>
-            <li>
-              <a href="#" className="menu-btn">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#" className="menu-btn">
-                Demos
-              </a>
-            </li>
-            <li>
-              <a href="#" className="menu-btn">
-                Contact
-              </a>
-            </li>
-            {/* <li>
+          <li>
+            <a href="#" className="menu-btn">
+              Sports
+            </a>
+          </li>
+          <li>
+            <a href="#" className="menu-btn">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="#" className="menu-btn">
+              Demos
+            </a>
+          </li>
+          <li>
+            <a href="#" className="menu-btn">
+              Contact
+            </a>
+          </li>
+          {/* <li>
               <a href="#" className="menu-btn">
                 Your Coach Account
               </a>
             </li> */}
 
-            {Auth.loggedIn() && userIsCoach ? (
-              <>
-                <li>
-                  <Link to="/CoachProfile" className="menu-btn">
-                    Coach profile
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <></>
-            )}
+          {Auth.loggedIn() && userIsCoach ? (
+            <>
+              <li>
+                <Link to="/CoachProfile" className="menu-btn">
+                  Coach profile
+                </Link>
+              </li>
+            </>
+          ) : (
+            <></>
+          )}
 
-            {/*  {Auth.loggedIn() ? (
+          {/*  {Auth.loggedIn() ? (
               <>
                 <li>
                   <Link to="/StuDashboard" className="menu-btn">
@@ -133,55 +132,45 @@ const NavBar = () => {
               </>
             )} */}
 
-            {Auth.loggedIn() ? (
-              <>
-                <li>
-                  <Link to="/FindACoach" className="menu-btn">
-                    Find-A-Coach
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/StuDashboard" className="menu-btn">
-                    Student Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={Auth.logout}
-                    className="menu-btn btn log-in-nav"
-                  >
-                    Logout
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link to="/Login" className="menu-btn btn log-in-nav">
-                    LogIn
-                  </Link>
-                </li>
-              </>
-            )}
-          </ul>
-          {/*  <div class="menu-btn">
-            <i class="bx bx-menu"></i>
-          </div> */}
-          <div className="menu-btn">
-            <i className="fas fa-bars"></i>
-          </div>
+          {Auth.loggedIn() ? (
+            <>
+              <li>
+                <Link to="/FindACoach" className="menu-btn">
+                  Find-A-Coach
+                </Link>
+              </li>
+              <li>
+                <Link to="/StuDashboard" className="menu-btn">
+                  Student Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link onClick={Auth.logout} className="menu-btn btn log-in-nav">
+                  Logout
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/Login" className="menu-btn btn log-in-nav">
+                  LogIn
+                </Link>
+              </li>
+            </>
+          )}
+        </ul>
 
-          <div className="menu-btn" onClick={handleClick}>
-            {click ? (
-              <FontAwesomeIcon icon={faWindowClose} className="menu-btn" />
-            ) : (
-              // <MenuIcon className="menu-icon" />
-              <FontAwesomeIcon icon={faBars} className="menu-btn" />
-            )}
-          </div>
+        <div className="menu-btn" onClick={handleClick}>
+          {click ? (
+            <FontAwesomeIcon icon={faWindowClose} className="menu-btn" />
+          ) : (
+            // <MenuIcon className="menu-icon" />
+            <FontAwesomeIcon icon={faBars} className="menu-btn" />
+          )}
         </div>
-      </nav>
-    </div>
+      </div>
+    </nav>
   );
 };
 

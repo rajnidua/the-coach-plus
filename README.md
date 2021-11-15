@@ -10,6 +10,7 @@
 - [Screenshot](#Screenshot)
 - [Deployment](#Deployment)
 - [Heroku Deployment](#Heroku)
+- [API Integration](#API)
 - [How to Run](#Run)
 - [Contributing](#Contributing)
 - [Questions](#Questions)
@@ -103,11 +104,13 @@ Use:
 <FontAwesomeIcon icon={faBars} />
 ```
 
-# API Integration
+# API
 
+```md
 npm install dotenv
 
 npm install --save @sendgrid/mail
+```
 
 ## Run
 

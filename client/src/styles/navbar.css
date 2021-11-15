@@ -129,6 +129,11 @@ html {
     padding: 20px;
   }
 
+  .navbar .max-width {
+    display: flex;
+    align-items: flex-end;
+  }
+
   .navbar .menu {
     position: fixed;
     height: 100vh;
