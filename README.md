@@ -22,12 +22,18 @@ Coach+ app bring all sports trainers and students on one platform. You can find 
 It also provides the people with skills ,who want to become a coach a digital platform through which they can easily connect to their students.
 
 WHEN I arrive on the website
-THEN I am greeted with a welcome page that tells you everything about the app.
+THEN I am greeted with a welcome page that tells me everything about the app.
+WHEN I scroll down the welcome page
+THEN get a contact form
+WHEN I input all the details in the contact form
+THEN an email is sent to TheCoach+ support team
 WHEN I click on login button
 THEN I am diverted to a login page where I have option to sign in as well
+WHEN I sign in as a new user
+THEN an email is sent to TheCoach+ support team
 WHEN I login with correct credentials
 THEN I am taken to the homepage with an additional option Student Dashboard
-WHEN I click on Student Dashboard button
+WHEN I click on Find-A-Coach option in the navbar
 THEN I am taken to a new page
 WHEN I select a sport on this page
 THEN I am presented with a list of coaches for that particular coach
@@ -44,7 +50,11 @@ THEN I can select the day I want my lesson on from the list of options available
 WHEN I click on the second checkbox
 THEN I can select the lesson time that suites me
 WHEN I click on the Enrol button
-THEN I am taken to an Enrollment confirmation page.
+THEN I am taken to an Enrollment confirmation page
+WHEN I click on Confirm Enrollment button
+THEN I a messaage is displayed on then screen, confirming my enrollment
+WHEN I click on the Student Dashboard option on the navbar
+THEN I am routed to a page showing all of my enrollments
 
 ## Deployed App Link
 
