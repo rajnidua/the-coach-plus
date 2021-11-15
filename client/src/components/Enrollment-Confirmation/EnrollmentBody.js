@@ -73,7 +73,10 @@ function EnrollmentConfirmation(props) {
             <li>ADDRESS : {props.coach.coach.venuePostalCode}</li>
             {confirmed ? <h1>Your Enrollment is Confirmed</h1> : ""}
 
-            <button onClick={handleEnrol} className="confirm-enrollment">
+            <button
+              onClick={handleEnrol}
+              className={confirmed ? "enrolBtn not-active" : "enrolBtn"}
+            >
               CONFIRM ENROLMENT
             </button>
           </ul>

@@ -33,9 +33,6 @@ section {
 h2 {
   text-align: center;
 }
-.confirm-enrollment {
-  background-color: azure;
-}
 
 img {
   width: 100%;
@@ -48,6 +45,27 @@ ul {
   padding-left: 200px;
   font-size: 20px;
   text-align: center;
+}
+
+.enrolBtn {
+  background: var(--main-color);
+  color: var(--text-color);
+  font-size: 15px;
+  padding: 12px 36px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 2px solid var(--main-color);
+  transition: all 0.3s ease;
+}
+
+.enrolBtn:hover {
+  background-color: #ffffff;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+
+.not-active {
+  display: none;
 }
 
 /* .img {
