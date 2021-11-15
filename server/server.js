@@ -7,6 +7,12 @@ const { authMiddleware } = require("./utils/auth");
 
 const db = require("./config/connection");
 
+require("dotenv").config();
+
+const cors = require("cors"); //needed to disable sendgrid security
+const sgMail = require("@sendgrid/mail");
+const apiKey = process.env.SENDGRID_API_KEY;
+
 const PORT = process.env.PORT || 3001;
 const app = express();
 

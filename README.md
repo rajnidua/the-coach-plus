@@ -103,6 +103,12 @@ Use:
 <FontAwesomeIcon icon={faBars} />
 ```
 
+# API Integration
+
+npm install dotenv
+
+npm install --save @sendgrid/mail
+
 ## Run
 
 On Localhost : npm run develop
