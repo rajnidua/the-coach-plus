@@ -40,28 +40,28 @@ function Footer() {
         <div className="footer-box">
           <h3>Sports</h3>
           <li>
-            <a href="#">abcd</a>
+            <a href="#">Tennis</a>
           </li>
           <li>
-            <a href="#">efgh</a>
+            <a href="#">Swimming</a>
           </li>
           <li>
-            <a href="#">ijkl</a>
+            <a href="#">Basketball</a>
           </li>
           <li>
-            <a href="#">mnop</a>
+            <a href="#">Soccer</a>
           </li>
           <li>
-            <a href="#">qrst</a>
+            <a href="#">and many more..</a>
           </li>
         </div>
         <div className="footer-box contact-info">
           <h3>Contact</h3>
-          <span>Adelaid, Australia</span>
+          <span>Adelaide,South Australia</span>
           <br />
-          <span>+61 123 456 7890</span>
+          <span>+61 499176910</span>
           <br />
-          <span>info@coachplus.com</span>
+          <span>support@thecoachplus.com</span>
         </div>
       </section>
       <div className="copyright">

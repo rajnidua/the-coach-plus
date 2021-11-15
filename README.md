@@ -1,4 +1,7 @@
-# CoachPlus
+# TheCoach+
+
+TheCoach+ app bring all sports trainers and students on one platform. You can find the coach that is best for you.
+It also provides the people with skills ,who want to become a coach a digital platform through which they can easily connect to their students.
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
@@ -18,9 +21,7 @@
 
 ## Description
 
-Coach+ app bring all sports trainers and students on one platform. You can find the coach that is best for you.
-It also provides the people with skills ,who want to become a coach a digital platform through which they can easily connect to their students.
-
+```md
 WHEN I arrive on the website
 THEN I am greeted with a welcome page that tells me everything about the app.
 WHEN I scroll down the welcome page
@@ -55,10 +56,11 @@ WHEN I click on Confirm Enrollment button
 THEN I a messaage is displayed on then screen, confirming my enrollment
 WHEN I click on the Student Dashboard option on the navbar
 THEN I am routed to a page showing all of my enrollments
+```
 
 ## Deployed App Link
 
-[![Website]](https://boiling-garden-36543.herokuapp.com/)
+[[Website]](https://boiling-garden-36543.herokuapp.com/)
 
 ## Video
 

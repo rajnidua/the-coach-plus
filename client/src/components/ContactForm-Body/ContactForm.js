@@ -61,9 +61,9 @@ function ContactForm() {
         firstName +
         " " +
         lastName +
-        "message:" +
+        "message: " +
         message +
-        " and email is" +
+        " and email is " +
         email,
     };
 
@@ -127,7 +127,7 @@ function ContactForm() {
                 </div>
                 <div className="info">
                   <div className="head">Email</div>
-                  <div className="sub-title">rajni.dua14@gmail.com</div>
+                  <div className="sub-title">support@thecoachplus.com</div>
                 </div>
               </div>
             </div>
