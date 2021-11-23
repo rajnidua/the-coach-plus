@@ -21,7 +21,7 @@ function Body() {
               Choose <span>Who</span> you Train with
             </h1>
             <p>
-              Coach+ is a platform that brings together all the coaches and
+              theCoach+ is a platform that brings together all the coaches and
               athletes under the same roof. Now, you can train in any sport you
               like & Your perfect coach is just a few clicks away.
             </p>
