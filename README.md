@@ -101,6 +101,9 @@ for database, you can import and export data using Studio 3T
 For email
 run cd client >> npm install validator
 
+For Stripe
+npm install stripe --save
+
 npm install --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 
