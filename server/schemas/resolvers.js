@@ -1,8 +1,9 @@
 const { AuthenticationError } = require("apollo-server-express");
 const { Mongoose } = require("mongoose");
-const { User, Coach } = require("../models");
+const { User, Coach, EnrollOrder } = require("../models");
 const coachSchema = require("../models/Coach");
 const { signToken } = require("../utils/auth");
+const stripe = require("stripe");
 
 const resolvers = {
   Query: {
@@ -31,6 +32,17 @@ const resolvers = {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("coachProfile");
       }
+    },
+    enrollOrder: async (parent, { _id }, context) => {
+      if (context.user) {
+        const user = await User.findById(context.user._id).populate({
+          populate: "enrollOrders.coaches",
+        });
+
+        return user.enrollOrders.id(_id);
+      }
+
+      throw new AuthenticationError("Not logged in");
     },
   },
 
