@@ -41,6 +41,10 @@ const typeDefs = gql`
     coaches: [Coach]
   }
 
+  type Checkout {
+    session: ID
+  }
+
   input coachInput {
     _id: ID
     coachname: String
@@ -124,6 +128,8 @@ const typeDefs = gql`
     coach(coachId: ID!): Coach
 
     coachDetail(coachname: String): Coach
+    enrollOrder(_id: ID!): EnrollOrder
+    checkout(coaches: [ID]!): Checkout
   }
 
   type Mutation {
@@ -134,6 +140,7 @@ const typeDefs = gql`
     addStudentEnrolled(input: coachnameInput!): Coach
     addProgramsEnrolled(input: programEnrolledInput!): User
     login(email: String!, password: String!): Auth
+    addEnrollOrder(coaches: [ID]!): EnrollOrder
   }
 `;
 
