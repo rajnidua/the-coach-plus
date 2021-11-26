@@ -15,6 +15,7 @@ const typeDefs = gql`
     city: String
     coachProfile: [Coach]
     programsEnrolled: [ProgramsEnrolled]
+    enrollOrders: [EnrollOrder]
   }
 
   type Coach {
@@ -32,6 +33,12 @@ const typeDefs = gql`
     venuePostalCode: String
     userProfile: [User]
     enrolledStudents: [EnrolledStudents]
+  }
+
+  type EnrollOrder {
+    _id: ID
+    enrollDate: String
+    coaches: [Coach]
   }
 
   input coachInput {
