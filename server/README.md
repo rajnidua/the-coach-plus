@@ -304,13 +304,51 @@ description
 USER(query)
 
 query{
-user(username:"rajni"){
+user(username:"testuser"){
 \_id
 email
 username
-coachProfile{description}
+coachProfile{\_id}
 isCoach
+programsEnrolled{
+coachname
+}
+enrollOrders{
+\_id
+enrollDate
+}
+}
+}
 
+Result
+
+{
+"data": {
+"user": {
+"\_id": "6190f775e2c69744127528f0",
+"email": "testuser@gmail.com",
+"username": "testuser",
+"coachProfile": [],
+"isCoach": false,
+"programsEnrolled": [
+{
+"coachname": "Adeltennis"
+},
+{
+"coachname": "unleyswim"
+}
+],
+"enrollOrders": [
+{
+"_id": "61a0bceada2edf05f2ec5546",
+"enrollDate": "1637924074495"
+},
+{
+"_id": "61a0bd11da2edf05f2ec5549",
+"enrollDate": "1637924113113"
+}
+]
+}
 }
 }
 
@@ -408,4 +446,44 @@ $coachname: String
       {
 
 "coachname": "TennisWorld"
+}
+
+mutation addEnrollOrder($coaches: [ID]!) {
+addEnrollOrder(coaches: $coaches) {
+enrollDate
+coaches {
+\_id
+coachname
+
+        description
+        image
+        fees
+        sport
+    }
+
+}
+}
+
+Query Variables
+{
+"coaches": "618e092da421015e141598e9"
+}
+
+Result
+{
+"data": {
+"addEnrollOrder": {
+"enrollDate": "1637924113113",
+"coaches": [
+{
+"_id": "618e092da421015e141598e9",
+"coachname": null,
+"description": null,
+"image": null,
+"fees": null,
+"sport": null
+}
+]
+}
+}
 }
