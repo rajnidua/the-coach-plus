@@ -26,7 +26,7 @@ const typeDefs = gql`
     sport: String
     groupSize: String
     duration: String
-    fees: String
+    fees: Float
     sessionStart: String
     days: [Day]!
     timeSlot: [Time]!
@@ -53,7 +53,7 @@ const typeDefs = gql`
     sport: String
     groupSize: String
     duration: String
-    fees: String
+    fees: Float
     sessionStart: String
     days: [String]
     timeSlot: [String]

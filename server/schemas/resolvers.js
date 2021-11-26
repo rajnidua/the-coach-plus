@@ -45,6 +45,51 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
+    checkout: async (parent, args, context) => {
+      console.log("value of stripe is ", stripe);
+      const url = new URL(context.headers.referer).origin;
+      const enrollOrder = new EnrollOrder({ coaches: args.coaches });
+      const line_items = [];
+      console.log("enrollOrder is ", enrollOrder);
+
+      const { coaches } = await enrollOrder.populate("coaches").execPopulate();
+      console.log("coaches value ", coaches);
+      console.log("coachname at 0 location" + coaches[0].coachname);
+      console.log("coachname at 0 location" + coaches[0].description);
+
+      for (let i = 0; i < coaches.length; i++) {
+        const coach = await stripe.coaches.create({
+          coachname: coaches[i].coachname,
+          description: coaches[i].description,
+        });
+        console.log("******* value of coach is ", coach);
+
+        /*const price = await stripe.prices.create({
+          coach: coach.id,
+          unit_amount: coaches[i].fees * 100,
+          currency: "usd",
+        });
+        console.log("price is", price);
+
+        line_items.push({
+          price: price.id,
+        }); */
+      }
+
+      /* console.log("line_items", line_items);
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      console.log("session", session);
+      return { session: session.id }; */
+      return coaches;
+    },
   },
 
   Mutation: {

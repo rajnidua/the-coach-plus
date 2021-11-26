@@ -61,9 +61,14 @@ const coachSchema = new Schema({
     required: false,
   },
 
-  fees: {
+  /* fees: {
     type: String,
     required: false,
+  }, */
+  fees: {
+    type: Number,
+    required: true,
+    min: 0.99,
   },
   sessionStart: {
     type: Date,
