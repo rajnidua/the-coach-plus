@@ -3,7 +3,8 @@ const { Mongoose } = require("mongoose");
 const { User, Coach, EnrollOrder } = require("../models");
 const coachSchema = require("../models/Coach");
 const { signToken } = require("../utils/auth");
-const stripe = require("stripe");
+const stripeKey = process.env.STRIPE_SECRET_KEY;
+const stripe = require("stripe")(stripeKey);
 
 const resolvers = {
   Query: {
