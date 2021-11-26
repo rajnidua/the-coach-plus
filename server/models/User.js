@@ -6,6 +6,7 @@ const bcrypt = require("bcrypt");
 const Coach = require("./Coach");
 const { stripIgnoredCharacters } = require("graphql");
 //const coachSchema = require("./Coach");
+const EnrollOrder = require("./EnrollOrder");
 
 const userSchema = new Schema(
   {
@@ -71,7 +72,9 @@ const userSchema = new Schema(
         classTime: { type: String, required: false },
       },
     ],
+    enrollOrders: [EnrollOrder.schema],
   },
+
   {
     toJSON: {
       virtuals: true,
