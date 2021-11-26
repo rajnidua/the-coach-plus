@@ -55,6 +55,21 @@ const resolvers = {
       return { token, user };
     },
 
+    addEnrollOrder: async (parent, { coaches }, context) => {
+      console.log(context);
+      if (context.user) {
+        const enrollOrder = new EnrollOrder({ coaches });
+
+        await User.findByIdAndUpdate(context.user._id, {
+          $push: { enrollOrders: enrollOrder },
+        });
+
+        return enrollOrder;
+      }
+
+      throw new AuthenticationError("Not logged in");
+    },
+
     addStudentEnrolled: async (parent, args, context) => {
       if (context.user) {
         const result = Coach.findOneAndUpdate(
