@@ -126,7 +126,12 @@ npm install --save @sendgrid/mail
 
 ```md
 For Stripe
+
+In Server package.json
 npm install stripe --save
+
+In Client package.json
+npm install --save @stripe/react-stripe-js @stripe/stripe-js
 ```
 
 ```md
