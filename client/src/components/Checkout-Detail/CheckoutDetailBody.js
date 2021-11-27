@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-//import CheckoutForm from "../Checkout-Form/CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
+import CheckoutForm from "../Checkout-Form/CheckoutForm";
 import Cart from "../Cart/Cart.js";
 
 /* const successMessage = () => {
@@ -22,6 +24,16 @@ import Cart from "../Cart/Cart.js";
     </div>
   );
 }; */
+
+const publishableKey =
+  "pk_test_51K02dbHx3vz7LAh8OfUbIJ5miybB4Yu1BR2uhqdEW1TNE8wNdrubwDuIterQYE1YHrK5BBYHj3UPxstOPgU1D3Ms00vcgtL9RJ";
+// We call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+//We pass on Publishable Key here
+//This could be passed here directly
+//secret key need to be hidden in server env
+
+const stripePromise = loadStripe(publishableKey);
 
 function CheckoutDetailBody(props) {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
@@ -49,7 +61,14 @@ function CheckoutDetailBody(props) {
             <div className="col-md-5 order-md-2 mb-4">
               <Cart type={props} />
             </div>
-            <div className="col-md-7 order-md-1">CheckoutForm</div>
+            <div className="col-md-7 order-md-1">
+              <Elements stripe={stripePromise}>
+                <CheckoutForm
+                  amount={2000}
+                  setPaymentCompleted={setPaymentCompleted}
+                />
+              </Elements>
+            </div>
           </React.Fragment>
         )}
       </div>
@@ -58,3 +77,5 @@ function CheckoutDetailBody(props) {
 }
 
 export default CheckoutDetailBody;
+
+//<CheckoutForm type={props} />;

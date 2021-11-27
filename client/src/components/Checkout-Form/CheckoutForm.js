@@ -38,6 +38,7 @@ export default function CheckoutForm(props) {
     // We don't want to let default form submission happen here,
     // which would refresh the page.
     event.preventDefault();
+    return;
 
     if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
