@@ -1,7 +1,8 @@
-Queries and Mutations(for Graphql playground)
+## Queries and Mutations(for Graphql playground)
 
-ADD USER (mutation)
+**_ADD USER (mutation)_**
 
+```javascript
 mutation addUser(
 $username: String!
     $password: String!
@@ -44,12 +45,12 @@ city
 
       }
     }
-
 }
+```
 
-Query Variables
+**_Query Variables_**
 
-```md
+```javascript
 {
 "email": "rajni@techfriends.dev",
 "isCoach": false,
@@ -65,9 +66,13 @@ Query Variables
 }
 ```
 
-LOGIN (mutation)
+---
 
-```md
+---
+
+**_LOGIN (mutation)_**
+
+```javascript
 mutation login($email: String!, $password: String!) {
 login(email: $email, password: $password) {
 token
@@ -97,13 +102,20 @@ isCoach
 
 Query Variables
 
+```javascript
 {
 "email": "rajni@techfriends.dev",
 "password":"12345678"
 }
+```
 
-ADD COACH (mutation)
+---
 
+---
+
+**_ADD COACH (mutation)_**
+
+```javascript
 mutation addCoach(
 $description: String!
 $image: String!
@@ -115,7 +127,7 @@ $sessionStart: String
 $days: [String]
 
 $venuePostalCode:String
-  	
+
   ) {
     addCoach(
       input:
@@ -158,9 +170,11 @@ days: $days
 
       }
     }
+```
 
-    QUERY VARIABLES
+**_QUERY VARIABLES_**
 
+```javascript
     {
     "description":"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. ",
 
@@ -173,19 +187,22 @@ days: $days
 
 "venuePostalCode": "5223"
 }
+```
 
-HTTP Headers(For Authentication)
+**_HTTP Headers(For Authentication)_**
 
+```javascript
 {
 "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoidGVzdGluZ3Rlc3RpbmciLCJlbWFpbCI6InRlc3Rpbmd0ZXN0aW5nQHRlY2hmcmllbmRzLmRldiIsIl9pZCI6IjYxOGY0Zjc5ZTllNDY0MDdhNGMwNDI1NyJ9LCJpYXQiOjE2MzY3ODE5NTcsImV4cCI6MTYzNjc4OTE1N30.t8mLyEYRXYySyiHTzmPOtSWuiYt6Lj6e4EGBshUQajg"
-
 }
+```
 
-ADD TIME SLOT
+**_ADD TIME SLOT_**
 
+```javascript
 mutation addtimeSlot( $slotValue: String!,$slotId:String!) {
 addtimeSlot( slotValue: $slotValue,slotId:$slotId) {
-\_id
+_id
 coachname
 timeSlot{
 slotValue
@@ -197,19 +214,23 @@ dayValue
 }
 }
 }
+```
 
-QUERY VARIABLES
+**_QUERY VARIABLES_**
 
+```javascript
 {
 "slotValue": "7PM-8PM",
 "slotId": "3"
 }
+```
 
-ADD DAY
+**_ADD DAY_**
 
+```javascript
 mutation addDay( $dayValue: String!,$dayId:String!) {
 addDay( dayValue: $dayValue,dayId:$dayId) {
-\_id
+_id
 coachname
 timeSlot{
 slotValue
@@ -221,19 +242,27 @@ dayValue
 }
 }
 }
+```
 
-QUERY VARIABLES
+**_QUERY VARIABLES_**
 
+```javascript
 {
 "dayValue": "Thursday",
 "dayId": "3"
 }
+```
 
-COACHES (query)
+---
 
+---
+
+**_COACHES (query)_**
+
+```javascript
 query coaches {
 coaches {
-\_id
+_id
 coachname
 description
 image
@@ -257,14 +286,19 @@ userProfile{
       }
 
        }
-
 }
+```
 
-COACH DETAIL
+---
 
+---
+
+**_COACH DETAIL_**
+
+```javascript
 query coachDetail {
 coachDetail(coachname:"coco") {
-\_id
+_id
 coachname
 description
 image
@@ -275,37 +309,47 @@ slotValue
 }
 userProfile{
 username
-\_id
+_id
 email
 
     }
 
 }
 }
+```
 
-USERS
+---
 
+---
+
+**_USERS_**
+
+```javascript
 query users {
 users {
-\_id
+_id
 username
 email
 isCoach
 coachProfile{
-\_id
+_id
 coachname
 description
 }
-
-       }
-
 }
+}
+```
 
-USER(query)
+---
 
+---
+
+**_USER(query)_**
+
+```javascript
 query{
 user(username:"testuser"){
-\_id
+_id
 email
 username
 coachProfile{\_id}
@@ -314,14 +358,16 @@ programsEnrolled{
 coachname
 }
 enrollOrders{
-\_id
+_id
 enrollDate
 }
 }
 }
+```
 
-Result
+**_Result_**
 
+```javascript
 {
 "data": {
 "user": {
@@ -351,12 +397,18 @@ Result
 }
 }
 }
+```
 
-COACH DETAIL
+---
 
+---
+
+**_COACH DETAIL_**
+
+```javascript
 query coachDetail {
 coachDetail(coachname:"coco") {
-\_id
+_id
 coachname
 description
 image
@@ -374,9 +426,15 @@ email
 
 }
 }
+```
 
-ADD STUDENT ENROLLED
+---
 
+---
+
+**_ADD STUDENT ENROLLED_**
+
+```javascript
 mutation addStudentEnrolled(
 $coachname: String
     ) {
@@ -402,21 +460,24 @@ $coachname: String
       _id
     }
       }
+}
+```
 
+**_QUERY VARIABLES_**
 
-
-      }
-
-
-      QUERY VARIABLES
-
-       {
-
+```javascript
+{
 "coachname": "TennisWorld"
 }
+```
 
-ADD PROGRAMS ENROLLED
+---
 
+---
+
+**_ADD PROGRAMS ENROLLED_**
+
+```javascript
 mutation addProgramsEnrolled(
 $coachname: String
     ) {
@@ -431,28 +492,28 @@ $coachname: String
      username
       houseNumber
       _id
+}
+}
+```
 
+**_QUERY VARIABLES_**
 
-
-      }
-
-
-
-      }
-
-
-      QUERY VARIABLES
-
-      {
-
+```javascript
+{
 "coachname": "TennisWorld"
 }
+```
 
+---
+
+---
+
+```javascript
 mutation addEnrollOrder($coaches: [ID]!) {
 addEnrollOrder(coaches: $coaches) {
 enrollDate
 coaches {
-\_id
+_id
 coachname
 
         description
@@ -463,13 +524,19 @@ coachname
 
 }
 }
+```
 
-Query Variables
+**_Query Variables_**
+
+```javascript
 {
 "coaches": "618e092da421015e141598e9"
 }
+```
 
-Result
+**_Result_**
+
+```javascript
 {
 "data": {
 "addEnrollOrder": {
@@ -487,6 +554,9 @@ Result
 }
 }
 }
+```
+
+---
 
 ---
 
@@ -499,15 +569,17 @@ query getCheckout($coaches: [ID]!) {
 
 ```
 
-query variables
+**_query variables_**
 
+```javascript
 {
 "Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoidGVzdHVzZXIiLCJlbWFpbCI6InRlc3R1c2VyQGdtYWlsLmNvbSIsIl9pZCI6IjYxOTBmNzc1ZTJjNjk3NDQxMjc1MjhmMCJ9LCJpYXQiOjE2Mzc5ODc0OTQsImV4cCI6MTYzNzk5NDY5NH0.jeNIdlZc8cSt1jSBALsmiB8dOmdDZuGqZ9Po7Q66vBw"
-
 }
+```
 
-Result
+**_Result_**
 
+```javascript
 {
 "data": {
 "checkout": {
@@ -515,3 +587,4 @@ Result
 }
 }
 }
+```
