@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+//import CheckoutForm from "../Checkout-Form/CheckoutForm";
+import Cart from "../Cart/Cart.js";
 
-const successMessage = () => {
+/* const successMessage = () => {
   return (
     <div className="success-msg">
       <svg
@@ -19,56 +21,11 @@ const successMessage = () => {
       <div className="title">Payment Successful</div>
     </div>
   );
-};
+}; */
 
-const cart = () => {
-  return (
-    <React.Fragment>
-      <h4 className="d-flex justify-content-between align-items-center mb-3">
-        <span className="text-muted">Your cart</span>
-        <span className="badge bg-secondary badge-pill">3</span>
-      </h4>
-      <ul className="list-group mb-3">
-        <li className="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 className="my-0">Product name</h6>
-            <small className="text-muted">Brief description</small>
-          </div>
-          <span className="text-muted">AUD1200</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 className="my-0">Second product</h6>
-            <small className="text-muted">Brief description</small>
-          </div>
-          <span className="text-muted">AUD800</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 className="my-0">Third item</h6>
-            <small className="text-muted">Brief description</small>
-          </div>
-          <span className="text-muted">AUD500</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between bg-light">
-          <div className="text-success">
-            <h6 className="my-0">Promo code</h6>
-            <small>EXAMPLECODE</small>
-          </div>
-          <span className="text-success">-AUD500</span>
-        </li>
-        <li className="list-group-item d-flex justify-content-between">
-          <span>Total (AUD)</span>
-          <strong>AUD2000</strong>
-        </li>
-      </ul>
-    </React.Fragment>
-  );
-};
-
-function App() {
+function CheckoutDetailBody(props) {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
-
+  console.log("CKECKOUT %%%%%%%%", props);
   return (
     <div className="container">
       <div className="py-5 text-center">
@@ -86,11 +43,13 @@ function App() {
 
       <div className="row s-box">
         {paymentCompleted ? (
-          successMessage()
+          <p>successMessage</p>
         ) : (
           <React.Fragment>
-            <div className="col-md-5 order-md-2 mb-4">{cart()}</div>
-            <div className="col-md-7 order-md-1">{/* Checkout form */}</div>
+            <div className="col-md-5 order-md-2 mb-4">
+              <Cart type={props} />
+            </div>
+            <div className="col-md-7 order-md-1">CheckoutForm</div>
           </React.Fragment>
         )}
       </div>
@@ -98,4 +57,4 @@ function App() {
   );
 }
 
-export default App;
+export default CheckoutDetailBody;

@@ -78,15 +78,17 @@ function EnrollmentConfirmation(props) {
               onClick={handleEnrol}
               className={confirmed ? "enrolBtn not-active" : "enrolBtn"}
             >
-              <Link
-                to={{
-                  pathname: "/CheckoutDetail",
-                  state: [props],
-                }}
-              >
-                CONFIRM ENROLMENT
-              </Link>
+              Confirm enrollment
             </button>
+            <Link
+              to={{
+                pathname: "/CheckoutDetail",
+
+                state: [props],
+              }}
+            >
+              Go To Checkout
+            </Link>
           </ul>
         </section>
       </main>

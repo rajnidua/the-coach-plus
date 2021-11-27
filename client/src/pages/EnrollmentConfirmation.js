@@ -5,7 +5,7 @@ import EnrollmentConfirmation from "../components/Enrollment-Confirmation/Enroll
 import Footer from "../components/Footer/Footer";
 
 function EnrollmentDashboardPage(props) {
-  //console.log("Props from the coach profile page ", props.location.state[0]);
+  console.log("Props from the coach profile page ", props.location.state[0]);
   return (
     <div>
       <NavBar />
