@@ -101,9 +101,6 @@ for database, you can import and export data using Studio 3T
 For email
 run cd client >> npm install validator
 
-For Stripe
-npm install stripe --save
-
 npm install --save @fortawesome/fontawesome-svg-core
 npm install --save @fortawesome/free-solid-svg-icons
 
@@ -125,6 +122,15 @@ Use:
 npm install dotenv
 
 npm install --save @sendgrid/mail
+```
+
+```md
+For Stripe
+npm install stripe --save
+```
+
+```md
+Check all stripe requests at Stipe Dashboard->Developers->logs
 ```
 
 ## Run
