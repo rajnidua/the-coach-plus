@@ -67,8 +67,8 @@ const resolvers = {
         });
         console.log("******* value of coach is ", product);
 
-        /*const price = await stripe.prices.create({
-          coach: coach.id,
+        const price = await stripe.prices.create({
+          product: product.id,
           unit_amount: coaches[i].fees * 100,
           currency: "usd",
         });
@@ -76,10 +76,12 @@ const resolvers = {
 
         line_items.push({
           price: price.id,
-        }); */
+          quantity: 1,
+        });
       }
+      console.log("line_items", line_items);
 
-      /* console.log("line_items", line_items);
+      //console.log("line_items", line_items);
 
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
@@ -89,9 +91,9 @@ const resolvers = {
         cancel_url: `${url}/`,
       });
 
-      console.log("session", session);
-      return { session: session.id }; */
-      return coaches;
+      console.log("session is ", session);
+      return { session: session.id };
+      //return coaches;
     },
   },
 
