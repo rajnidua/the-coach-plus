@@ -487,3 +487,31 @@ Result
 }
 }
 }
+
+---
+
+```javascript
+query getCheckout($coaches: [ID]!) {
+    checkout(coaches: $coaches) {
+      session
+    }
+  }
+
+```
+
+query variables
+
+{
+"Authorization":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InVzZXJuYW1lIjoidGVzdHVzZXIiLCJlbWFpbCI6InRlc3R1c2VyQGdtYWlsLmNvbSIsIl9pZCI6IjYxOTBmNzc1ZTJjNjk3NDQxMjc1MjhmMCJ9LCJpYXQiOjE2Mzc5ODc0OTQsImV4cCI6MTYzNzk5NDY5NH0.jeNIdlZc8cSt1jSBALsmiB8dOmdDZuGqZ9Po7Q66vBw"
+
+}
+
+Result
+
+{
+"data": {
+"checkout": {
+"session": "cs_test_a1maHKabsNsLuP8bfmAhtjELPWz9kka2DtyWS1GFhR04BGhUXyyh6rWhXG"
+}
+}
+}
