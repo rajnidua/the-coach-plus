@@ -3,7 +3,9 @@ const { Mongoose } = require("mongoose");
 const { User, Coach, EnrollOrder } = require("../models");
 const coachSchema = require("../models/Coach");
 const { signToken } = require("../utils/auth");
+require("dotenv").config();
 const stripeKey = process.env.STRIPE_SECRET_KEY;
+
 const stripe = require("stripe")(stripeKey);
 
 const resolvers = {
@@ -53,16 +55,17 @@ const resolvers = {
       console.log("enrollOrder is ", enrollOrder);
 
       const { coaches } = await enrollOrder.populate("coaches").execPopulate();
+      console.log("stripekey is " + stripeKey);
       console.log("coaches value ", coaches);
       console.log("coachname at 0 location" + coaches[0].coachname);
       console.log("coachname at 0 location" + coaches[0].description);
-
+      console.log(stripe);
       for (let i = 0; i < coaches.length; i++) {
-        const coach = await stripe.coaches.create({
-          coachname: coaches[i].coachname,
+        const product = await stripe.products.create({
+          name: coaches[i].coachname,
           description: coaches[i].description,
         });
-        console.log("******* value of coach is ", coach);
+        console.log("******* value of coach is ", product);
 
         /*const price = await stripe.prices.create({
           coach: coach.id,
