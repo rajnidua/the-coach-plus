@@ -48,40 +48,29 @@ const resolvers = {
       throw new AuthenticationError("Not logged in");
     },
     checkout: async (parent, args, context) => {
-      console.log("value of stripe is ", stripe);
       const url = new URL(context.headers.referer).origin;
       const enrollOrder = new EnrollOrder({ coaches: args.coaches });
       const line_items = [];
-      console.log("enrollOrder is ", enrollOrder);
 
       const { coaches } = await enrollOrder.populate("coaches").execPopulate();
-      console.log("stripekey is " + stripeKey);
-      console.log("coaches value ", coaches);
-      console.log("coachname at 0 location" + coaches[0].coachname);
-      console.log("coachname at 0 location" + coaches[0].description);
-      console.log(stripe);
+
       for (let i = 0; i < coaches.length; i++) {
         const product = await stripe.products.create({
           name: coaches[i].coachname,
           description: coaches[i].description,
         });
-        console.log("******* value of coach is ", product);
 
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: coaches[i].fees * 100,
           currency: "usd",
         });
-        console.log("price is", price);
 
         line_items.push({
           price: price.id,
           quantity: 1,
         });
       }
-      console.log("line_items", line_items);
-
-      //console.log("line_items", line_items);
 
       const session = await stripe.checkout.sessions.create({
         payment_method_types: ["card"],
@@ -91,9 +80,7 @@ const resolvers = {
         cancel_url: `${url}/`,
       });
 
-      console.log("session is ", session);
       return { session: session.id };
-      //return coaches;
     },
   },
 

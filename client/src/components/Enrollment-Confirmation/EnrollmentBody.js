@@ -6,6 +6,7 @@ import "../../styles/enrollment-confirmation.css";
 import { useMutation } from "@apollo/client";
 import { PROGRAMS_ENROLLED } from "../../utils/mutations";
 import Auth from "../../utils/auth.js";
+import { Link } from "react-router-dom";
 
 function EnrollmentConfirmation(props) {
   console.log("FINAL PROPS RECIEVED ", props);
@@ -77,7 +78,14 @@ function EnrollmentConfirmation(props) {
               onClick={handleEnrol}
               className={confirmed ? "enrolBtn not-active" : "enrolBtn"}
             >
-              CONFIRM ENROLMENT
+              <Link
+                to={{
+                  pathname: "/CheckoutDetail",
+                  state: [props],
+                }}
+              >
+                CONFIRM ENROLMENT
+              </Link>
             </button>
           </ul>
         </section>
