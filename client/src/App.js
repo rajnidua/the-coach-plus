@@ -21,6 +21,7 @@ import ContactFormPage from "./pages/ContactForm";
 import CartPage from "./pages/Cart";
 import checkoutDetailPage from "./pages/CheckoutDetail";
 import Cart from "./components/Cart/Cart";
+import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -58,6 +59,7 @@ function App() {
             <Route path="/CoachProfile" component={CoachProfile} />
             <Route path="/Cart" component={CartPage} />
             <Route path="/CheckoutDetail" component={checkoutDetailPage} />
+            <Route exact path="/success" component={Success} />
             <Route
               path="/EnrollmentConfirmation"
               component={EnrollmentConfirmation}

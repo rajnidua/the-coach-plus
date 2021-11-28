@@ -4,7 +4,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import CheckoutForm from "../Checkout-Form/CheckoutForm";
 import Cart from "../Cart/Cart.js";
 
-/* const successMessage = () => {
+const successMessage = () => {
   return (
     <div className="success-msg">
       <svg
@@ -23,7 +23,7 @@ import Cart from "../Cart/Cart.js";
       <div className="title">Payment Successful</div>
     </div>
   );
-}; */
+};
 
 const publishableKey =
   "pk_test_51K02dbHx3vz7LAh8OfUbIJ5miybB4Yu1BR2uhqdEW1TNE8wNdrubwDuIterQYE1YHrK5BBYHj3UPxstOPgU1D3Ms00vcgtL9RJ";
@@ -55,7 +55,7 @@ function CheckoutDetailBody(props) {
 
       <div className="row s-box">
         {paymentCompleted ? (
-          <p>successMessage</p>
+          successMessage()
         ) : (
           <React.Fragment>
             <div className="col-md-5 order-md-2 mb-4">

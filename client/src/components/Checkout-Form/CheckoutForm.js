@@ -41,11 +41,23 @@ export default function CheckoutForm(props) {
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
       });
+    }
+  }, [data]); */
+
+  useEffect(() => {
+    if (data) {
+      stripePromise
+        .then((res) => {
+          res.redirectToCheckout({ sessionId: data.checkout.session });
+        })
+        .then((response) => {
+          props.setPaymentCompleted(response.success ? true : false);
+        });
     }
   }, [data]);
 
@@ -54,6 +66,7 @@ export default function CheckoutForm(props) {
     // which would refresh the page.
     event.preventDefault();
     getCheckout();
+
     return;
 
     /* if (!stripe || !elements) {
@@ -70,7 +83,7 @@ export default function CheckoutForm(props) {
       </h4>
       <form onSubmit={handleSubmit}>
         <div className="row">
-          <div className="col-md-6 mb-3">
+          {/* <div className="col-md-6 mb-3">
             <label htmlFor="cc-name">Name on card</label>
             <input
               id="cc-name"
@@ -79,8 +92,8 @@ export default function CheckoutForm(props) {
               value={name}
               onChange={(e) => setName(e.target.value)}
             />
-          </div>
-          <div className="col-md-6 mb-3">
+          </div> */}
+          {/* <div className="col-md-6 mb-3">
             <label htmlFor="cc-email">Email</label>
             <input
               id="cc-email"
@@ -89,10 +102,10 @@ export default function CheckoutForm(props) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
-          </div>
+          </div> */}
         </div>
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-12 mb-3">
             <label htmlFor="cc-number">Card Number</label>
             <CardNumberElement
@@ -101,9 +114,9 @@ export default function CheckoutForm(props) {
               options={CARD_ELEMENT_OPTIONS}
             />
           </div>
-        </div>
+        </div> */}
 
-        <div className="row">
+        {/* <div className="row">
           <div className="col-md-6 mb-3">
             <label htmlFor="expiry">Expiration Date</label>
             <CardExpiryElement
@@ -120,6 +133,9 @@ export default function CheckoutForm(props) {
               options={CARD_ELEMENT_OPTIONS}
             />
           </div>
+        </div> */}
+        <div className="row">
+          <h2>PROCEED TO SECURE CHECKOUT</h2>
         </div>
 
         <hr className="mb-4" />
@@ -130,7 +146,7 @@ export default function CheckoutForm(props) {
               role="status"
             ></div>
           ) : (
-            `PAY AUD${props.amount}`
+            `PAY AUD ${props.amount}`
           )}
         </button>
         {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
