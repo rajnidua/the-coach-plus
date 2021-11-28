@@ -7,12 +7,13 @@ const enrollOrderSchema = new Schema({
     type: Date,
     default: Date.now,
   },
-  coaches: [
+  enrolledList: [],
+  /* coaches: [
     {
       type: Schema.Types.ObjectId,
       ref: "Coach",
     },
-  ],
+  ], */
 });
 
 const EnrollOrder = mongoose.model("EnrollOrder", enrollOrderSchema);

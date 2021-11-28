@@ -4,7 +4,7 @@ import CheckoutDetail from "../components/Checkout-Detail/CheckoutDetailBody";
 import Footer from "../components/Footer/Footer";
 
 function CheckoutDetailPage(props) {
-  console.log("Props from the coach profile page ", props.location.state[0]);
+  console.log("Props from the coach profile page ", props);
   return (
     <div>
       <NavBar />

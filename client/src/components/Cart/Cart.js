@@ -1,6 +1,9 @@
-import React from "react";
+import { element } from "prop-types";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function Cart(props) {
+  const [newProps, setNewProps] = useState([{ ...props }]);
   console.log(
     "props from Cart ",
     props.cartItems.coach.user.programsEnrolled[0]
@@ -24,6 +27,12 @@ function Cart(props) {
     console.log("Item is added");
     return;
   };
+
+  useEffect(() => {
+    console.log("checking the use effect");
+    setNewProps({ ...props, total });
+  }, [total]);
+
   return (
     <React.Fragment>
       <h4 className="d-flex justify-content-between align-items-center mb-3">
@@ -49,6 +58,16 @@ function Cart(props) {
         <span>Total (AUD)</span>
         <strong>{total}</strong>
       </li>
+
+      <Link
+        to={{
+          pathname: "/CheckoutDetail",
+
+          state: [newProps],
+        }}
+      >
+        Proceed To Checkout
+      </Link>
     </React.Fragment>
   );
 }

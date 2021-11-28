@@ -71,3 +71,11 @@ export const QUERY_COACHES = gql`
     }
   }
 `;
+
+export const QUERY_CHECKOUT = gql`
+  query getCheckout($coaches: [ID]!) {
+    checkout(coaches: $coaches) {
+      session
+    }
+  }
+`;

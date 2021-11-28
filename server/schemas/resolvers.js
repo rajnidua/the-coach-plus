@@ -47,7 +47,60 @@ const resolvers = {
 
       throw new AuthenticationError("Not logged in");
     },
-    checkout: async (parent, args, context) => {
+
+    checkout: async (_, __, context) => {
+      const url = new URL(context.headers.referer).origin;
+
+      const userDetail = await User.findOne({
+        _id: context.user._id,
+      });
+
+      console.log("user Details is ", userDetail);
+
+      const enrollOrder = new EnrollOrder({
+        enrolledList: userDetail.programsEnrolled,
+      });
+      console.log("enrollOrder is ", enrollOrder);
+      const line_items = [];
+      console.log(
+        "enrollOrder enrolledList length is " + enrollOrder.enrolledList.length
+      );
+      for (let i = 0; i < enrollOrder.enrolledList.length; i++) {
+        const product = await stripe.products.create({
+          name: enrollOrder.enrolledList[i].coachname,
+          description: enrollOrder.enrolledList[i].description,
+        });
+
+        console.log("product is " + product);
+
+        const price = await stripe.prices.create({
+          product: product.id,
+          unit_amount: enrollOrder.enrolledList[i].fees * 100,
+          currency: "usd",
+        });
+
+        console.log("price is " + price);
+
+        line_items.push({
+          price: price.id,
+          quantity: 1,
+        });
+
+        console.log("line items is ", line_items);
+      }
+
+      const session = await stripe.checkout.sessions.create({
+        payment_method_types: ["card"],
+        line_items,
+        mode: "payment",
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
+      });
+
+      return { session: session.id };
+    },
+
+    /*  checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
       const enrollOrder = new EnrollOrder({ coaches: args.coaches });
       const line_items = [];
@@ -81,7 +134,7 @@ const resolvers = {
       });
 
       return { session: session.id };
-    },
+    }, */
   },
 
   Mutation: {

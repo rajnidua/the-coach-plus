@@ -59,12 +59,13 @@ function CheckoutDetailBody(props) {
         ) : (
           <React.Fragment>
             <div className="col-md-5 order-md-2 mb-4">
-              <Cart type={props} />
+              Cart
+              {/* <Cart type={props} /> */}
             </div>
             <div className="col-md-7 order-md-1">
               <Elements stripe={stripePromise}>
                 <CheckoutForm
-                  amount={2000}
+                  amount={props.coach.total}
                   setPaymentCompleted={setPaymentCompleted}
                 />
               </Elements>

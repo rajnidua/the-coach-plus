@@ -109,7 +109,7 @@ function EnrollmentConfirmation(props) {
             <element>
               <Cart coach={props} cartItems={cartItems} onAdd={onAdd} />
             </element> */}
-            <Link
+            {/* <Link
               to={{
                 pathname: "/CheckoutDetail",
 
@@ -117,7 +117,7 @@ function EnrollmentConfirmation(props) {
               }}
             >
               Go To Checkout
-            </Link>
+            </Link> */}
           </ul>
         </section>
       </main>

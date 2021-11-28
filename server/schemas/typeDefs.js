@@ -130,7 +130,7 @@ const typeDefs = gql`
     coach(coachId: ID!): Coach
     coachDetail(coachname: String): Coach
     enrollOrder(_id: ID!): EnrollOrder
-    checkout(coaches: [ID]!): Checkout
+    checkout: Checkout
   }
 
   type Mutation {
@@ -150,3 +150,7 @@ module.exports = typeDefs;
 //addCoach(input: coachInput!): Coach
 //studentsEnrolledArray: [StudentsEnrolledType]!
 //studentsEnrolled: [User];
+
+//addEnrollOrder(coaches: [ID]!): EnrollOrder
+
+//checkout(coaches: [ID]!): Checkout
