@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLazyQuery } from "@apollo/client";
+import { QUERY_CHECKOUT } from "../../utils/queries";
 import {
   useStripe,
   useElements,
@@ -6,6 +8,7 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 const CARD_ELEMENT_OPTIONS = {
   style: {
@@ -25,26 +28,39 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 export default function CheckoutForm(props) {
+  const stripe = useStripe();
+  const elements = useElements();
+  const publishableKey =
+    "pk_test_51K02dbHx3vz7LAh8OfUbIJ5miybB4Yu1BR2uhqdEW1TNE8wNdrubwDuIterQYE1YHrK5BBYHj3UPxstOPgU1D3Ms00vcgtL9RJ";
+  const stripePromise = loadStripe(publishableKey);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
 
-  const stripe = useStripe();
-  const elements = useElements();
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
 
   const handleSubmit = async (event) => {
     // We don't want to let default form submission happen here,
     // which would refresh the page.
     event.preventDefault();
+    getCheckout();
     return;
 
-    if (!stripe || !elements) {
+    /* if (!stripe || !elements) {
       // Stripe.js has not yet loaded.
       // Make sure to disable form submission until Stripe.js has loaded.
       return;
-    }
+    } */
   };
 
   return (
@@ -114,7 +130,7 @@ export default function CheckoutForm(props) {
               role="status"
             ></div>
           ) : (
-            `PAY ₹${props.amount}`
+            `PAY AUD${props.amount}`
           )}
         </button>
         {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}

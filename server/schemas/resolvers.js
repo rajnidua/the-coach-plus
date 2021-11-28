@@ -76,7 +76,7 @@ const resolvers = {
         const price = await stripe.prices.create({
           product: product.id,
           unit_amount: enrollOrder.enrolledList[i].fees * 100,
-          currency: "usd",
+          currency: "aud",
         });
 
         console.log("price is " + price);
