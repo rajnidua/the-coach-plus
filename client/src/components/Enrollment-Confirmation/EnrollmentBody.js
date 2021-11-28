@@ -7,11 +7,12 @@ import { useMutation } from "@apollo/client";
 import { PROGRAMS_ENROLLED } from "../../utils/mutations";
 import Auth from "../../utils/auth.js";
 import { Link } from "react-router-dom";
+import Cart from "../Cart/Cart.js";
 
 function EnrollmentConfirmation(props) {
   console.log("FINAL PROPS RECIEVED ", props);
   console.log("FINAL PROPS RECIEVED ", props.coach.coach.coachname);
-
+  const [cartItems, setCartItems] = useState([]);
   const [confirmed, setConfirmed] = useState(false);
 
   const [proEnrolState, setproEnrolState] = useState({
@@ -20,6 +21,7 @@ function EnrollmentConfirmation(props) {
     classTime: props.coach.formState.value,
     classDay: props.coach.formStateDay.dayValue,
     sportName: props.coach.coach.sport,
+    fees: props.coach.coach.fees,
   });
 
   console.log("Enrollment Details%%%%%%", proEnrolState);
@@ -49,8 +51,22 @@ function EnrollmentConfirmation(props) {
       classTime: "",
       classDay: "",
       sportName: "",
+      fees: "",
     });
   };
+
+  /* const onAdd = () => {
+    const exist = cartItems.find((x) => x.id === props.coach.coach._id);
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === props.coach.coach._id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...props.coach.coach._id, qty: 1 }]);
+    }
+  }; */
 
   return (
     <section className="main-section">
@@ -78,8 +94,21 @@ function EnrollmentConfirmation(props) {
               onClick={handleEnrol}
               className={confirmed ? "enrolBtn not-active" : "enrolBtn"}
             >
-              Confirm enrollment
+              Add to Cart
             </button>
+            <Link
+              to={{
+                pathname: "/Cart",
+
+                state: [props],
+              }}
+            >
+              View Cart
+            </Link>
+            {/* <button onClick={onAdd}>Add to Cart</button>
+            <element>
+              <Cart coach={props} cartItems={cartItems} onAdd={onAdd} />
+            </element> */}
             <Link
               to={{
                 pathname: "/CheckoutDetail",

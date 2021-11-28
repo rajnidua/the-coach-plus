@@ -30,6 +30,7 @@ export const PROGRAMS_ENROLLED = gql`
         classTime
         classDay
         sportName
+        fees
       }
     }
   }

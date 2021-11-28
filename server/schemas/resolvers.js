@@ -139,6 +139,7 @@ const resolvers = {
       console.log(args.input.classTime);
       console.log(args.input.classDay);
       console.log(args.input.sportName);
+      console.log("fees is " + args.input.fees);
       console.log("value of user object is ================", context.user);
 
       if (context.user) {
@@ -155,6 +156,7 @@ const resolvers = {
                 classTime: args.input.classTime,
                 classDay: args.input.classDay,
                 sportName: args.input.sportName,
+                fees: args.input.fees,
               },
             },
           },

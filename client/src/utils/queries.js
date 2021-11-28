@@ -29,6 +29,7 @@ export const QUERY_ME = gql`
         classDay
         sportName
         classTime
+        fees
       }
 
       coachProfile {

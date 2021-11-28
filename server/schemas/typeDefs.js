@@ -87,6 +87,7 @@ const typeDefs = gql`
     classTime: String
     classDay: String
     sportName: String
+    fees: Float
   }
 
   type EnrolledStudents {
@@ -102,6 +103,7 @@ const typeDefs = gql`
     classTime: String
     classDay: String
     sportName: String
+    fees: Float
   }
 
   type Time {
@@ -126,7 +128,6 @@ const typeDefs = gql`
     user(username: String!): User
     me: User
     coach(coachId: ID!): Coach
-
     coachDetail(coachname: String): Coach
     enrollOrder(_id: ID!): EnrollOrder
     checkout(coaches: [ID]!): Checkout
