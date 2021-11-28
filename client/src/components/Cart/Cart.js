@@ -1,29 +1,66 @@
 import React from "react";
 
 function Cart(props) {
-  console.log("props from Cart ", props);
-  const { cartItems, onAdd } = props;
-  const itemsPrice = 200;
-  const taxPrice = itemsPrice * 0.14;
-  const shippingPrice = itemsPrice > 2000 ? 0 : 20;
-  const totalPrice = itemsPrice + taxPrice + shippingPrice;
+  console.log(
+    "props from Cart ",
+    props.cartItems.coach.user.programsEnrolled[0]
+  );
+  //const { cartItems, onAdd } = props;
+  //const { userCart } = props.cartItems.coach.user;
+  //console.log("programs enrolled in cart ", userCart);
+  const itemsPrice = 20;
+
+  const total = props.cartItems.coach.user.programsEnrolled.reduce(
+    (sum, item) => sum + item.fees,
+    0
+  );
+
+  const totalPrice = 40;
   const onRemove = (item) => {
     console.log("Item is removed");
     return;
   };
+  const onAdd = (item) => {
+    console.log("Item is added");
+    return;
+  };
   return (
-    <aside className="block col-1">
-      <h2>Cart Items</h2>
-    </aside>
+    <React.Fragment>
+      <h4 className="d-flex justify-content-between align-items-center mb-3">
+        <span className="text-muted">Your cart</span>
+        <span className="badge bg-secondary badge-pill">
+          {props.cartItems.coach.user.programsEnrolled.length}
+        </span>
+      </h4>
+      <ul className="list-group mb-3">
+        {props.cartItems.coach.user.programsEnrolled.map((item) => (
+          <div key={item._id}>
+            <li className="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 className="my-0">{item.coachname}</h6>
+                <small className="text-muted">{item.sportName}</small>
+              </div>
+              <span className="text-muted">{item.fees}</span>
+            </li>
+          </div>
+        ))}
+      </ul>
+      <li className="list-group-item d-flex justify-content-between">
+        <span>Total (AUD)</span>
+        <strong>{total}</strong>
+      </li>
+    </React.Fragment>
   );
 }
 export default Cart;
 
-/*<div>
-        {cartItems.length === 0 && <div>Cart is empty</div>}
-        {cartItems.map((item) => (
-          <div key={item.id} className="row">
-            <div className="col-2">{item.name}</div>
+/*<aside className="block col-1">
+      <h2>Cart Items</h2>
+      <div>
+         {cartItems.length === 0 && <div>Cart is empty</div>} 
+        {props.cartItems.coach.user.programsEnrolled.map((item) => (
+          <div key={item._id} className="row">
+            <div className="col-2">{item.coachname}</div>
             <div className="col-2">
               <button onClick={() => onRemove(item)} className="remove">
                 -
@@ -32,29 +69,16 @@ export default Cart;
                 +
               </button>
             </div>
-
-            <div className="col-2 text-right">
-              {item.qty} x ${item.price.toFixed(2)}
-            </div>
+            <div className="col-2 text-right">{item.fees}</div>
           </div>
         ))}
 
-        {cartItems.length !== 0 && (
+        {props.cartItems.coach.user.programsEnrolled.length !== 0 && (
           <>
             <hr></hr>
             <div className="row">
               <div className="col-2">Items Price</div>
-              <div className="col-1 text-right">${itemsPrice.toFixed(2)}</div>
-            </div>
-            <div className="row">
-              <div className="col-2">Tax Price</div>
-              <div className="col-1 text-right">${taxPrice.toFixed(2)}</div>
-            </div>
-            <div className="row">
-              <div className="col-2">Shipping Price</div>
-              <div className="col-1 text-right">
-                ${shippingPrice.toFixed(2)}
-              </div>
+              <div className="col-1 text-right">{itemsPrice}</div>
             </div>
 
             <div className="row">
@@ -62,7 +86,7 @@ export default Cart;
                 <strong>Total Price</strong>
               </div>
               <div className="col-1 text-right">
-                <strong>${totalPrice.toFixed(2)}</strong>
+                <strong>{totalPrice}</strong>
               </div>
             </div>
             <hr />
@@ -73,7 +97,8 @@ export default Cart;
             </div>
           </>
         )}
-      </div> */
+      </div>
+    </aside> */
 
 /*<React.Fragment>
       <h4 className="d-flex justify-content-between align-items-center mb-3">
