@@ -496,6 +496,44 @@ $coachname: String
 }
 ```
 
+```javascript
+mutation addProgramsEnrolled(
+    $coachname: String
+
+        $sessionStartDate:String
+        $classTime:String
+        $classDay:String
+        $sportName:String
+  $fees:Float
+
+    ) {
+  addProgramsEnrolled(
+      input:
+      {
+      coachname:$coachname
+        sessionStartDate:$sessionStartDate
+        classTime:$classTime
+        classDay:$classDay
+        sportName:$sportName
+        fees:$fees
+
+        }
+    ) {
+
+     username
+      programsEnrolled{
+        coachname
+        classTime
+        classDay
+        sportName
+        fees
+
+        }
+         }
+      }
+
+```
+
 **_QUERY VARIABLES_**
 
 ```javascript
