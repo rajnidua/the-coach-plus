@@ -11,6 +11,7 @@ It also provides the people with skills ,who want to become a coach a digital pl
 - [Installation](#Installation)
 - [Video Link](#Video)
 - [Screenshot](#Screenshot)
+- [Stripe Integration](#Checkout)
 - [Deployment](#Deployment)
 - [Heroku Deployment](#Heroku)
 - [API Integration](#API)
@@ -81,6 +82,18 @@ THEN I am routed to a page showing all of my enrollments
 ## Screenshot
 
 [![Screenshot](./images/CoachPlusScreenshot4.gif)]
+
+## Checkout
+
+[![Screenshot](./images/Stripe_Checkout_Page.png)]
+
+---
+
+[![Screenshot](./images/Stripe_Developer_Log_Success.png)]
+
+---
+
+[![Screenshot](./images/SuccessPage.png)]
 
 ## Installation
 
