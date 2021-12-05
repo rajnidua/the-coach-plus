@@ -65,6 +65,11 @@ function NavCart() {
     0
   ); */
   const total = 50;
+  const total1 = Object.entries(user).map(
+    ([key, programsEnrolled]) =>
+      key == "programsEnrolled" &&
+      user.programsEnrolled.reduce((sum, item) => sum + item.fees, 0)
+  );
 
   const totalPrice = 40;
   const onRemove = (item) => {
@@ -111,6 +116,23 @@ function NavCart() {
         )}
       </div>
 
+      <div>
+        {Object.entries(user).map(
+          ([key, programsEnrolled]) =>
+            key == "programsEnrolled" &&
+            user.programsEnrolled.reduce((sum, item) => sum + item.fees, 0)
+        )}
+      </div>
+
+      {/* <div>
+        {Object.entries(user).map(
+          ([key, programsEnrolled]) =>
+            key == "programsEnrolled" &&
+            user.programsEnrolled.reduce((sum, item) => sum + item.fees, 0)
+        )}
+      </div> */}
+      <div>Total1 is : {total1}</div>
+
       {/* <div>
         {Object.entries(user).map(([key, programsEnrolled]) =>
           user.programsEnrolled.map((el) => (
@@ -127,19 +149,6 @@ function NavCart() {
         )}
       </div> */}
 
-      {/* <ul className="list-group mb-3">
-        {user.programsEnrolled.map((item) => (
-          <div key={item._id}>
-            <li className="list-group-item d-flex justify-content-between lh-condensed">
-              <div>
-                <h6 className="my-0">{item.coachname}</h6>
-                <small className="text-muted">{item.sportName}</small>
-              </div>
-              <span className="text-muted">{item.fees}</span>
-            </li>
-          </div>
-        ))}
-      </ul> */}
       <li className="list-group-item d-flex justify-content-between">
         <span>Total (AUD)</span>
         <strong>{total}</strong>
