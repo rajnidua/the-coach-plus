@@ -64,8 +64,8 @@ function NavCart() {
     (sum, item) => sum + item.fees,
     0
   ); */
-  const total = 50;
-  const total1 = Object.entries(user).map(
+  const total1 = 50;
+  const total = Object.entries(user).map(
     ([key, programsEnrolled]) =>
       key == "programsEnrolled" &&
       user.programsEnrolled.reduce((sum, item) => sum + item.fees, 0)
@@ -81,10 +81,10 @@ function NavCart() {
     return;
   };
 
-  useEffect(() => {
+  /* useEffect(() => {
     console.log("checking the use effect");
     setNewProps({ ...user, total });
-  }, [total]);
+  }, [total]); */
 
   return (
     <React.Fragment>
@@ -158,7 +158,7 @@ function NavCart() {
         to={{
           pathname: "/CheckoutDetail",
 
-          state: [newProps],
+          state: [total],
         }}
       >
         Proceed To Checkout

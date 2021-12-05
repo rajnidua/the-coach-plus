@@ -8,10 +8,21 @@ function CheckoutDetailPage(props) {
   return (
     <div>
       <NavBar />
-      <CheckoutDetail coach={props.location.state[0]} />
+      <CheckoutDetail checkoutTotal={props.location.state[0]} />
       <Footer />
     </div>
   );
 }
 
 export default CheckoutDetailPage;
+
+/* function CheckoutDetailPage(props) {
+  console.log("Props from the coach profile page ", props);
+  return (
+    <div>
+      <NavBar />
+      <CheckoutDetail coach={props.location.state[0]} />
+      <Footer />
+    </div>
+  );
+} */

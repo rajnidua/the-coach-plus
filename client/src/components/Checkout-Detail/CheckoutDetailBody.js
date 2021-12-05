@@ -65,7 +65,7 @@ function CheckoutDetailBody(props) {
             <div className="col-md-7 order-md-1">
               <Elements stripe={stripePromise}>
                 <CheckoutForm
-                  amount={props.coach.total}
+                  amount={props.checkoutTotal}
                   setPaymentCompleted={setPaymentCompleted}
                 />
               </Elements>
@@ -79,4 +79,19 @@ function CheckoutDetailBody(props) {
 
 export default CheckoutDetailBody;
 
-//<CheckoutForm type={props} />;
+{
+  /* <React.Fragment>
+   <div className="col-md-5 order-md-2 mb-4">
+     Cart
+     {/* <Cart type={props} /> 
+   </div>
+   <div className="col-md-7 order-md-1">
+     <Elements stripe={stripePromise}>
+       <CheckoutForm
+         amount={props.coach.total}
+         setPaymentCompleted={setPaymentCompleted}
+       />
+     </Elements>
+   </div>
+ </React.Fragment>; */
+}
