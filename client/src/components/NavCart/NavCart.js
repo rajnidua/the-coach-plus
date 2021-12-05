@@ -91,18 +91,20 @@ function NavCart() {
       </h4>
 
       <div>
-        {Object.entries(user).map(([key, programsEnrolled]) =>
-          user.programsEnrolled.map((el) => (
-            <ul>
-              <li className="list-group-item d-flex justify-content-between lh-condensed">
-                <div>
-                  <h6 className="my-0">{el.coachname}</h6>
-                  <small className="text-muted">{el.sportName}</small>
-                </div>
-                <span className="text-muted">{el.fees}</span>
-              </li>
-            </ul>
-          ))
+        {Object.entries(user).map(
+          ([key, programsEnrolled]) =>
+            key == "programsEnrolled" &&
+            user.programsEnrolled.map((el) => (
+              <ul>
+                <li className="list-group-item d-flex justify-content-between lh-condensed">
+                  <div>
+                    <h6 className="my-0">{el.coachname}</h6>
+                    <small className="text-muted">{el.sportName}</small>
+                  </div>
+                  <span className="text-muted">{el.fees}</span>
+                </li>
+              </ul>
+            ))
         )}
       </div>
 
