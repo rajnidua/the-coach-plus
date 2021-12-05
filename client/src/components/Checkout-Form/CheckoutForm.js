@@ -42,14 +42,6 @@ export default function CheckoutForm(props) {
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
-  /* useEffect(() => {
-    if (data) {
-      stripePromise.then((res) => {
-        res.redirectToCheckout({ sessionId: data.checkout.session });
-      });
-    }
-  }, [data]); */
-
   useEffect(() => {
     if (data) {
       stripePromise
@@ -69,12 +61,6 @@ export default function CheckoutForm(props) {
     getCheckout();
 
     return;
-
-    /* if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
-      return;
-    } */
   };
 
   return (

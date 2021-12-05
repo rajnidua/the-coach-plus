@@ -28,9 +28,6 @@ function NavCart() {
   const newValue = program[0][1];
   console.log(newValue);
 
-  /* for (const [_id, value] of newValue) {
-    console.log(`${_id}'s chart position is ${value}`);
-  } */
   console.log(Object.keys(program));
   console.log(Object.entries(program));
   console.log(Object.values(program));
