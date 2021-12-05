@@ -86,7 +86,10 @@ function NavCart() {
       <h4 className="d-flex justify-content-between align-items-center mb-3">
         <span className="text-muted">Your cart</span>
         <span className="badge bg-secondary badge-pill">
-          user.programsEnrolled.length
+          {Object.entries(user).map(
+            ([key, programsEnrolled]) =>
+              key == "programsEnrolled" && user.programsEnrolled.length
+          )}
         </span>
       </h4>
 
