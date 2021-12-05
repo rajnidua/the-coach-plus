@@ -145,6 +145,12 @@ const NavBar = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/NavCart" className="menu-btn">
+                  Cart
+                </Link>
+              </li>
+
+              <li>
                 <Link onClick={Auth.logout} className="menu-btn btn log-in-nav">
                   Logout
                 </Link>
