@@ -45,7 +45,6 @@ function NavCart() {
 
   const [newProps, setNewProps] = useState([]);
 
-  const total1 = 50;
   const total = Object.entries(user).map(
     ([key, programsEnrolled]) =>
       key == "programsEnrolled" &&

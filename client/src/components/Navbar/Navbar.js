@@ -9,7 +9,12 @@ import { Link } from "react-router-dom";
 import Auth from "../../utils/auth.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faShoppingBasket,
+  faShoppingCart,
+  faWindowClose,
+} from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
   const [userIsCoach, setUserIsCoach] = useState(false);
@@ -146,7 +151,7 @@ const NavBar = () => {
               </li>
               <li>
                 <Link to="/NavCart" className="menu-btn">
-                  Cart
+                  <FontAwesomeIcon icon={faShoppingCart} className="cartIcon" />
                 </Link>
               </li>
 
