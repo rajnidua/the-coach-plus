@@ -17,6 +17,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
+  const circleClasses = "inline-block p-7 rounded-full w-20 mx-auto";
+  const iconStyles = { color: "Red", fontSize: "1.5em" };
+
   const [userIsCoach, setUserIsCoach] = useState(false);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
@@ -151,7 +154,9 @@ const NavBar = () => {
               </li>
               <li>
                 <Link to="/NavCart" className="menu-btn">
-                  <FontAwesomeIcon icon={faShoppingCart} className="cartIcon" />
+                  <span className="cart-icon">
+                    <FontAwesomeIcon icon={faShoppingCart} />
+                  </span>
                 </Link>
               </li>
 

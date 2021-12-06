@@ -97,6 +97,11 @@ html {
   color: var(--main-color);
 }
 
+.cart-icon {
+  font-size: 35px;
+  /*color: var(--main-color);  */
+}
+
 *:focus {
   outline: none;
 }
