@@ -50,7 +50,8 @@ const resolvers = {
 
     checkout: async (_, __, context) => {
       const url = new URL(context.headers.referer).origin;
-
+      console.log("context headers referer is: " + context.headers.referer);
+      console.log("new url object : " + url);
       const userDetail = await User.findOne({
         _id: context.user._id,
       });

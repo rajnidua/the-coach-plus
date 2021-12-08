@@ -88,7 +88,13 @@ function EnrollmentConfirmation(props) {
             <li>Class Size : {props.coach.coach.groupSize}</li>
             <li>Session Length : {props.coach.coach.duration}</li>
             <li>ADDRESS : {props.coach.coach.venuePostalCode}</li>
-            {confirmed ? <h1>Your Enrollment is Confirmed</h1> : ""}
+            {confirmed ? (
+              <h1>
+                This Program has been added to the Cart and your Dashboard
+              </h1>
+            ) : (
+              ""
+            )}
 
             <button
               onClick={handleEnrol}
