@@ -11,12 +11,8 @@ function CoachProfile(props) {
   const [formState, setFormState] = useState({ value: "" });
   const [formStateDay, setFormStateDay] = useState({ dayValue: "" });
   const [newProps, setNewProps] = useState([{ props }]);
-  console.log("props is ", props);
-  console.log("props is ", props.coach.days[0]);
 
   const { username: userParam } = useParams();
-
-  console.log("userParam", userParam);
 
   const { loading: userLoading, data: userData } = useQuery(
     userParam ? QUERY_USER : QUERY_ME,
@@ -26,12 +22,9 @@ function CoachProfile(props) {
   );
 
   const user = userData?.me || userData?.user || {};
-  console.log("###################" + user.username);
 
   const handleChangeTimeSlot = (e) => {
     const value = e.target.value;
-
-    console.log("event is " + e.target.value);
 
     setFormState({ value: value });
   };
@@ -39,17 +32,12 @@ function CoachProfile(props) {
   const handleChangeDay = (e) => {
     const value = e.target.value;
 
-    console.log("event is " + e.target.value);
-
     setFormStateDay({ dayValue: value });
   };
 
   useEffect(() => {
-    console.log("checking the use effect");
     setNewProps({ ...props, formState, formStateDay, user });
   }, [formState, formStateDay, user]);
-
-  console.log("The value os new props is ", newProps);
 
   return (
     <div>

@@ -1,5 +1,4 @@
-import { element } from "prop-types";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
@@ -7,8 +6,6 @@ import { useParams } from "react-router-dom";
 
 function NavCart() {
   const { username: userParam } = useParams();
-
-  console.log("userParam", userParam);
 
   const { loading: userLoading, data: userData } = useQuery(
     userParam ? QUERY_USER : QUERY_ME,
@@ -18,48 +15,42 @@ function NavCart() {
   );
 
   const user = userData?.me || userData?.user || {};
-  console.log("###################" + user.username);
 
-  console.log("************", user.programsEnrolled);
-  const { programsEnrolled } = user;
-  const program = [{ ...programsEnrolled }];
-  console.log(program[0][1]);
-  console.log(program[0][0]);
-  const newValue = program[0][1];
-  console.log(newValue);
+  //const { programsEnrolled } = user;
+  //const program = [{ ...programsEnrolled }];
 
-  console.log(Object.keys(program));
-  console.log(Object.entries(program));
-  console.log(Object.values(program));
-  console.log(Object.keys(user));
-  console.log(Object.values(user));
-  console.log(Object.entries(user));
+  //const newValue = program[0][1];
 
-  Object.entries(user).map(([key, programsEnrolled]) => {
-    console.log("key name = ", key);
+  // console.log(Object.keys(program));
+  // console.log(Object.entries(program));
+  // console.log(Object.values(program));
+  // console.log(Object.keys(user));
+  // console.log(Object.values(user));
+  // console.log(Object.entries(user));
 
-    user.programsEnrolled.map((el) => {
-      console.log(el.fees);
-    });
-  });
+  // Object.entries(user).map(([key, programsEnrolled]) => {
+  //   user.programsEnrolled.map((el) => {
+  //     console.log(el.fees);
+  //   });
+  // });
 
-  const [newProps, setNewProps] = useState([]);
+  //const [newProps, setNewProps] = useState([]);
 
   const total = Object.entries(user).map(
     ([key, programsEnrolled]) =>
-      key == "programsEnrolled" &&
+      key === "programsEnrolled" &&
       user.programsEnrolled.reduce((sum, item) => sum + item.fees, 0)
   );
 
-  const totalPrice = 40;
-  const onRemove = (item) => {
-    console.log("Item is removed");
-    return;
-  };
-  const onAdd = (item) => {
-    console.log("Item is added");
-    return;
-  };
+  // const totalPrice = 40;
+  // const onRemove = (item) => {
+  //   console.log("Item is removed");
+  //   return;
+  // };
+  // const onAdd = (item) => {
+  //   console.log("Item is added");
+  //   return;
+  // };
 
   /* useEffect(() => {
     console.log("checking the use effect");
@@ -73,7 +64,7 @@ function NavCart() {
         <span className="badge bg-secondary badge-pill">
           {Object.entries(user).map(
             ([key, programsEnrolled]) =>
-              key == "programsEnrolled" && user.programsEnrolled.length
+              key === "programsEnrolled" && user.programsEnrolled.length
           )}
         </span>
       </h4>
@@ -81,7 +72,7 @@ function NavCart() {
       <div>
         {Object.entries(user).map(
           ([key, programsEnrolled]) =>
-            key == "programsEnrolled" &&
+            key === "programsEnrolled" &&
             user.programsEnrolled.map((el) => (
               <ul>
                 <li className="list-group-item d-flex justify-content-between lh-condensed">

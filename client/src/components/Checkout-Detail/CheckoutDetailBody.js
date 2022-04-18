@@ -37,7 +37,7 @@ const stripePromise = loadStripe(publishableKey);
 
 function CheckoutDetailBody(props) {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
-  console.log("CKECKOUT %%%%%%%%", props);
+
   return (
     <div className="container">
       <div className="py-5 text-center">

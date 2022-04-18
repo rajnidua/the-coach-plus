@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "../../styles/student-dashboard.css";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_COACHES } from "../../utils/queries";
-import Closest from "../../utils/nearest.js";
 
 function FindCoachBody() {
   const [formState, setFormState] = useState([
@@ -19,8 +18,6 @@ function FindCoachBody() {
 
   const { username: userParam } = useParams();
 
-  console.log("userParam", userParam);
-
   const { loading: userLoading, data: userData } = useQuery(
     userParam ? QUERY_USER : QUERY_ME,
     {
@@ -29,13 +26,11 @@ function FindCoachBody() {
   );
 
   const user = userData?.me || userData?.user || {};
-  console.log("###################" + user.username);
 
   const handleClick = (event) => {
     const name = event.target.name;
-    console.log("name of sport is " + name);
+
     const checked = event.target.checked;
-    console.log("value of checkValue is" + checked);
 
     if (name === "Swimming") {
       setFormState([
@@ -78,9 +73,8 @@ function FindCoachBody() {
   };
 
   const { loading, data } = useQuery(QUERY_COACHES);
-  console.log("data is", data);
+
   const coachesList = data?.coaches || [];
-  console.log("coachesList", coachesList);
 
   return (
     <section className="coach-cards" id="coach-cards">
@@ -142,7 +136,7 @@ function FindCoachBody() {
                   <div>
                     {coachesList.map((selectedCoach) => (
                       <div>
-                        {selectedSport.sportName == selectedCoach.sport ? (
+                        {selectedSport.sportName === selectedCoach.sport ? (
                           <div>
                             <div className="coach-row">
                               <div className="coach-profile-col">

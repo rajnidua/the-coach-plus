@@ -1,18 +1,17 @@
 import React, { useState } from "react";
-import { createTheme, ThemeProvider, Button } from "@material-ui/core";
+
 import homePageImage from "../../images/homePage-bg.jpg";
 //import TypeWriterEffect from "react-typewriter-effect";
 import "../../styles/enrollment-confirmation.css";
 import { useMutation } from "@apollo/client";
 import { PROGRAMS_ENROLLED } from "../../utils/mutations";
-import Auth from "../../utils/auth.js";
+
 import { Link } from "react-router-dom";
-import Cart from "../Cart/Cart.js";
 
 function EnrollmentConfirmation(props) {
   console.log("FINAL PROPS RECIEVED ", props);
   console.log("FINAL PROPS RECIEVED ", props.coach.coach.coachname);
-  const [cartItems, setCartItems] = useState([]);
+
   const [confirmed, setConfirmed] = useState(false);
 
   const [proEnrolState, setproEnrolState] = useState({
@@ -24,8 +23,8 @@ function EnrollmentConfirmation(props) {
     fees: props.coach.coach.fees,
   });
 
-  console.log("Enrollment Details%%%%%%", proEnrolState);
-  const [addProgramsEnrolled, { error, data }] = useMutation(PROGRAMS_ENROLLED);
+  //const [addProgramsEnrolled, { error, data }] = useMutation(PROGRAMS_ENROLLED);
+  const [addProgramsEnrolled] = useMutation(PROGRAMS_ENROLLED);
 
   const handleEnrol = async (event) => {
     event.preventDefault();
@@ -36,7 +35,6 @@ function EnrollmentConfirmation(props) {
         variables: { input: { ...proEnrolState } },
       });
 
-      console.log("VALUE OF ENROLMENT DATA ", data);
       setConfirmed(true);
 
       //Auth.login(data.login.token);

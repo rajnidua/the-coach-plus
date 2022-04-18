@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import "../../styles/student-dashboard-page.css";
@@ -7,8 +7,6 @@ import DashboardImage from "../../images/logIn-bg.jpg";
 
 function StudentDashboard() {
   const { username: userParam } = useParams();
-
-  console.log("userParam", userParam);
 
   const { loading: userLoading, data: userData } = useQuery(
     userParam ? QUERY_USER : QUERY_ME,
@@ -18,8 +16,6 @@ function StudentDashboard() {
   );
 
   const user = userData?.me || userData?.user || {};
-  console.log("###################" + user.username);
-  console.log("Whole User is ", user);
 
   return (
     <section className="coach-cards">

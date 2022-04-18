@@ -4,14 +4,12 @@ import { useHistory, useParams } from "react-router-dom";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Auth from "../../utils/auth.js";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBars,
-  faShoppingBasket,
   faShoppingCart,
   faWindowClose,
 } from "@fortawesome/free-solid-svg-icons";
@@ -20,7 +18,6 @@ const NavBar = () => {
   const [userIsCoach, setUserIsCoach] = useState(false);
   const [click, setClick] = useState(false);
   const handleClick = () => setClick(!click);
-  const history = useHistory();
 
   const { username: userParam } = useParams();
 
@@ -28,13 +25,7 @@ const NavBar = () => {
     variables: { username: userParam },
   });
 
-  console.log("CHECK FOR COACH");
-
-  console.log("The value of userIsCoach is ");
-  console.log(userIsCoach);
-
   useEffect(() => {
-    console.log("running the use effect");
     const user = data?.me || data?.user || {};
     setUserIsCoach(user.isCoach);
   }, [data]);

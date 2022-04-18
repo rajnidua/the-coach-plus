@@ -28,7 +28,6 @@ const CARD_ELEMENT_OPTIONS = {
 };
 
 export default function CheckoutForm(props) {
-  console.log("checkout form props: ", props);
   const stripe = useStripe();
   const elements = useElements();
   const publishableKey =

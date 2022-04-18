@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../../utils/mutations";
 import "../../styles/signup.css";
 import loginBgImage from "../../images/logIn-bg.jpg";
 import Auth from "../../utils/auth.js";
-import { Link } from "react-router-dom";
+
 import Axios from "axios";
 
 function Body(props) {
@@ -20,12 +20,8 @@ function Body(props) {
     state: "",
     country: "",
   });
-  console.log("value of props.role is: ");
-  console.log(props.type);
 
   const [isCoach, setIsCoach] = useState(props.type);
-
-  console.log("value of isCoach is " + isCoach);
 
   // set state for form validation
   const [validated] = useState(false);
@@ -38,7 +34,6 @@ function Body(props) {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-    console.log(userFormData);
   };
 
   const handleFormSubmit = async (event) => {
@@ -47,7 +42,6 @@ function Body(props) {
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      console.log("form check validity has failed");
       event.preventDefault();
       event.stopPropagation();
     }
@@ -56,9 +50,7 @@ function Body(props) {
       const { data } = await addUser({
         variables: { input: { ...userFormData, isCoach } },
       });
-      console.log(userFormData);
-      console.log("signup data is: ");
-      console.log(data);
+
       Auth.login(data.addUser.token);
       // Send email confirmation
       const msg = {

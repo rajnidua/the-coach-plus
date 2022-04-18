@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useMutation } from "@apollo/client";
+import React from "react";
+
 import "../styles/success.css";
 import { Link } from "react-router-dom";
 //import Jumbotron from "../components/Jumbotron";

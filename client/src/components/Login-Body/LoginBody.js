@@ -7,11 +7,9 @@ import Auth from "../../utils/auth.js";
 import { Link } from "react-router-dom";
 
 function LoginBody() {
-  const signupCoach = "coach";
-  const signupStudent = "student";
-
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+  // const [login, { error, data }] = useMutation(LOGIN_USER);
+  const [login] = useMutation(LOGIN_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -26,7 +24,7 @@ function LoginBody() {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
     try {
       const { data } = await login({
         variables: { ...formState },

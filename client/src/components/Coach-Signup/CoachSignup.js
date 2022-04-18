@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Alert } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { ADD_COACH } from "../../utils/mutations";
@@ -18,12 +18,6 @@ function CoachSignup(props) {
     days: [],
     timeSlot: [],
   });
-  console.log("value of props.role is: ");
-  console.log(props.type);
-
-  //const [isCoach, setIsCoach] = useState(props.type);
-
-  //console.log("value of isCoach is " + isCoach);
 
   // set state for form validation
   const [validated] = useState(false);
@@ -36,7 +30,6 @@ function CoachSignup(props) {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-    console.log(userFormData);
   };
 
   const handleFormSubmit = async (event) => {
@@ -45,7 +38,6 @@ function CoachSignup(props) {
     // check if form has everything (as per react-bootstrap docs)
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
-      console.log("form check validity has failed");
       event.preventDefault();
       event.stopPropagation();
     }
@@ -54,9 +46,7 @@ function CoachSignup(props) {
       const { data } = await addCoach({
         variables: { input: { ...userFormData } },
       });
-      console.log(userFormData);
-      console.log("add Coach data is: ");
-      console.log(data);
+
       Auth.login(data.addCoach.token);
     } catch (err) {
       console.error(error);
