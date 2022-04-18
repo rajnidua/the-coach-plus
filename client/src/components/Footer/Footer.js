@@ -11,13 +11,13 @@ function Footer() {
           </h2>
           <p>Contact us to Enroll.</p>
           <div className="social">
-            <a href="#">
+            <a href="/">
               <i className="bx bxl-facebook"></i>
             </a>
-            <a href="#">
+            <a href="/">
               <i className="bx bxl-twitter"></i>
             </a>
-            <a href="#">
+            <a href="/">
               <i className="bx bxl-instagram"></i>
             </a>
           </div>
@@ -25,34 +25,34 @@ function Footer() {
         <div className="footer-box">
           <h3>Find-A-Coach</h3>
           <li>
-            <a href="#">Enroll</a>
+            <a href="/">Enroll</a>
           </li>
           <li>
-            <a href="#">Help & Support</a>
+            <a href="/">Help & Support</a>
           </li>
           <li>
-            <a href="#">Pricing</a>
+            <a href="/">Pricing</a>
           </li>
           <li>
-            <a href="#">FAQ</a>
+            <a href="/">FAQ</a>
           </li>
         </div>
         <div className="footer-box">
           <h3>Sports</h3>
           <li>
-            <a href="#">Tennis</a>
+            <a href="/">Tennis</a>
           </li>
           <li>
-            <a href="#">Swimming</a>
+            <a href="/">Swimming</a>
           </li>
           <li>
-            <a href="#">Basketball</a>
+            <a href="/">Basketball</a>
           </li>
           <li>
-            <a href="#">Soccer</a>
+            <a href="/">Soccer</a>
           </li>
           <li>
-            <a href="#">and many more..</a>
+            <a href="/">and many more..</a>
           </li>
         </div>
         <div className="footer-box contact-info">

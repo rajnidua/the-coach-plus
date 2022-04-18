@@ -164,7 +164,7 @@ function FindCoachBody() {
                                   <i className="bx bxs-star"></i>
                                   <i className="bx bxs-star-half"></i>
                                 </div>
-                                <a href="#">45 Reviews</a>
+                                <a href="/">45 Reviews</a>
 
                                 <Link
                                   to={{
