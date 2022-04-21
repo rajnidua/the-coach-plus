@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 function Cart(props) {
   const [newProps, setNewProps] = useState([{ ...props }]);
+  console.log(props);
 
   const total = props.cartItems.coach.user.programsEnrolled.reduce(
     (sum, item) => sum + item.fees,

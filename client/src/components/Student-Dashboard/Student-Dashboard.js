@@ -16,6 +16,7 @@ function StudentDashboard() {
   );
 
   const user = userData?.me || userData?.user || {};
+  console.log(user);
 
   return (
     <section className="coach-cards">

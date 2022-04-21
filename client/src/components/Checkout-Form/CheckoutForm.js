@@ -1,43 +1,45 @@
 import React, { useState, useEffect } from "react";
 import { useLazyQuery } from "@apollo/client";
 import { QUERY_CHECKOUT } from "../../utils/queries";
-import {
-  useStripe,
-  useElements,
-  CardNumberElement,
-  CardExpiryElement,
-  CardCvcElement,
-} from "@stripe/react-stripe-js";
+// import {
+//   useStripe,
+//   useElements,
+//   CardNumberElement,
+//   CardExpiryElement,
+//   CardCvcElement,
+// } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 
-const CARD_ELEMENT_OPTIONS = {
-  style: {
-    base: {
-      lineHeight: "27px",
-      color: "#212529",
-      fontSize: "1.1rem",
-      "::placeholder": {
-        color: "#aab7c4",
-      },
-    },
-    invalid: {
-      color: "#fa755a",
-      iconColor: "#fa755a",
-    },
-  },
-};
+// const CARD_ELEMENT_OPTIONS = {
+//   style: {
+//     base: {
+//       lineHeight: "27px",
+//       color: "#212529",
+//       fontSize: "1.1rem",
+//       "::placeholder": {
+//         color: "#aab7c4",
+//       },
+//     },
+//     invalid: {
+//       color: "#fa755a",
+//       iconColor: "#fa755a",
+//     },
+//   },
+// };
 
 export default function CheckoutForm(props) {
-  const stripe = useStripe();
-  const elements = useElements();
+  // const stripe = useStripe();
+  // const elements = useElements();
   const publishableKey =
     "pk_test_51K02dbHx3vz7LAh8OfUbIJ5miybB4Yu1BR2uhqdEW1TNE8wNdrubwDuIterQYE1YHrK5BBYHj3UPxstOPgU1D3Ms00vcgtL9RJ";
   const stripePromise = loadStripe(publishableKey);
-  const [loading, setLoading] = useState(false);
-  const [errorMsg, setErrorMsg] = useState("");
+  // const [loading, setLoading] = useState(false);
+  // const [errorMsg, setErrorMsg] = useState("");
+  const [loading] = useState(false);
+  const [errorMsg] = useState("");
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -51,7 +53,7 @@ export default function CheckoutForm(props) {
           props.setPaymentCompleted(response.success ? true : false);
         });
     }
-  }, [data]);
+  }, [data, props, stripePromise]);
 
   const handleSubmit = async (event) => {
     // We don't want to let default form submission happen here,

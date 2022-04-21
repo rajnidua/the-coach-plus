@@ -21,7 +21,8 @@ function Body(props) {
     country: "",
   });
 
-  const [isCoach, setIsCoach] = useState(props.type);
+  //const [isCoach, setIsCoach] = useState(props.type);
+  const isCoach = props.type;
 
   // set state for form validation
   const [validated] = useState(false);
@@ -60,7 +61,7 @@ function Body(props) {
         message: "This email confirms your registration with CoachPlus.com",
       };
 
-      const emailresponse = await Axios.post("/send-email", msg)
+      await Axios.post("/send-email", msg)
         .then((res) => {
           if (res.data.success) {
             console.log("Email sent successfully");
@@ -87,20 +88,6 @@ function Body(props) {
       state: "",
       country: "",
     });
-    {
-      /* <p>
-      Let's know more about you.
-      <Link
-        to={{
-          pathname: "/CoachSignUp",
-          //state: true,
-        }}
-        className="btn"
-      >
-        Update Your Profile As A Coach
-      </Link>
-    </p>; */
-    }
   };
 
   return (

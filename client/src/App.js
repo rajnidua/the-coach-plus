@@ -20,7 +20,7 @@ import EnrollmentConfirmation from "./pages/EnrollmentConfirmation";
 import ContactFormPage from "./pages/ContactForm";
 import CartPage from "./pages/Cart";
 import checkoutDetailPage from "./pages/CheckoutDetail";
-import Cart from "./components/Cart/Cart";
+
 import Success from "./pages/Success";
 import NavCartPage from "./pages/NavCart";
 

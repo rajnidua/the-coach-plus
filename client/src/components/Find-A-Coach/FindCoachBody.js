@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../styles/student-dashboard.css";
-import { useParams } from "react-router-dom";
-import { QUERY_USER, QUERY_ME } from "../../utils/queries";
+
 import CoachImage from "../../images/1.jpg";
 import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
@@ -16,16 +15,19 @@ function FindCoachBody() {
     { sportName: "Soccer", checkValue: false, id: 3 },
   ]);
 
-  const { username: userParam } = useParams();
+  //const { username: userParam } = useParams();
 
-  const { loading: userLoading, data: userData } = useQuery(
-    userParam ? QUERY_USER : QUERY_ME,
-    {
-      variables: { username: userParam },
-    }
-  );
+  // const { loading: userLoading, data: userData } = useQuery(
+  //   userParam ? QUERY_USER : QUERY_ME,
+  //   {
+  //     variables: { username: userParam },
+  //   }
+  // );
+  // const { data: userData } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  //   variables: { username: userParam },
+  // });
 
-  const user = userData?.me || userData?.user || {};
+  //const user = userData?.me || userData?.user || {};
 
   const handleClick = (event) => {
     const name = event.target.name;

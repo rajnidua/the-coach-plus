@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../../styles/navbar.css";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 
@@ -21,7 +21,11 @@ const NavBar = () => {
 
   const { username: userParam } = useParams();
 
-  const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  // const { loading, data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+  //   variables: { username: userParam },
+  // });
+
+  const { data } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
     variables: { username: userParam },
   });
 
@@ -65,22 +69,22 @@ const NavBar = () => {
               </>
             )} */}
           <li>
-            <a href="#" className="menu-btn">
+            <a href="/" className="menu-btn">
               Sports
             </a>
           </li>
           <li>
-            <a href="#" className="menu-btn">
+            <a href="/" className="menu-btn">
               About
             </a>
           </li>
           <li>
-            <a href="#" className="menu-btn">
+            <a href="/" className="menu-btn">
               Demos
             </a>
           </li>
           <li>
-            <a href="#" className="menu-btn">
+            <a href="/" className="menu-btn">
               Contact
             </a>
           </li>
@@ -101,32 +105,6 @@ const NavBar = () => {
           ) : (
             <></>
           )}
-
-          {/*  {Auth.loggedIn() ? (
-              <>
-                <li>
-                  <Link to="/StuDashboard" className="menu-btn">
-                    Student Dashboard
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    onClick={Auth.logout}
-                    className="menu-btn btn log-in-nav"
-                  >
-                    Logout
-                  </Link>
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <Link to="/Login" className="menu-btn btn log-in-nav">
-                    LogIn
-                  </Link>
-                </li>
-              </>
-            )} */}
 
           {Auth.loggedIn() ? (
             <>

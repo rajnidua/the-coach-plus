@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useHistory, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER, QUERY_ME } from "../../utils/queries";
 
@@ -14,12 +14,16 @@ function CoachProfile(props) {
 
   const { username: userParam } = useParams();
 
-  const { loading: userLoading, data: userData } = useQuery(
-    userParam ? QUERY_USER : QUERY_ME,
-    {
-      variables: { username: userParam },
-    }
-  );
+  // const { loading: userLoading, data: userData } = useQuery(
+  //   userParam ? QUERY_USER : QUERY_ME,
+  //   {
+  //     variables: { username: userParam },
+  //   }
+  // );
+
+  const { data: userData } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
 
   const user = userData?.me || userData?.user || {};
 
@@ -37,7 +41,7 @@ function CoachProfile(props) {
 
   useEffect(() => {
     setNewProps({ ...props, formState, formStateDay, user });
-  }, [formState, formStateDay, user]);
+  }, [formState, formStateDay, user, props]);
 
   return (
     <div>
@@ -73,18 +77,18 @@ function CoachProfile(props) {
               <i className="bx bxs-star"></i>
               <i className="bx bxs-star-half"></i>
             </div>
-            <a href="#">45 Reviews</a>
+            <a href="/">45 Reviews</a>
             <div className="coach-sp-sport">
-              <a href="#">
+              <a href="/">
                 <div className="coach-sport cricket">Cricket</div>
               </a>
-              <a href="#">
+              <a href="/">
                 <div className="coach-sport baseball">Baseball</div>
               </a>
-              <a href="#">
+              <a href="/">
                 <div className="coach-sport soccer">Soccer</div>
               </a>
-              <a href="#">
+              <a href="/">
                 <div className="coach-sport football">Football</div>
               </a>
             </div>

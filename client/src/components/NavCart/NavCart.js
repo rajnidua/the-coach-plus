@@ -7,12 +7,16 @@ import { useParams } from "react-router-dom";
 function NavCart() {
   const { username: userParam } = useParams();
 
-  const { loading: userLoading, data: userData } = useQuery(
-    userParam ? QUERY_USER : QUERY_ME,
-    {
-      variables: { username: userParam },
-    }
-  );
+  // const { loading: userLoading, data: userData } = useQuery(
+  //   userParam ? QUERY_USER : QUERY_ME,
+  //   {
+  //     variables: { username: userParam },
+  //   }
+  // );
+
+  const { data: userData } = useQuery(userParam ? QUERY_USER : QUERY_ME, {
+    variables: { username: userParam },
+  });
 
   const user = userData?.me || userData?.user || {};
 

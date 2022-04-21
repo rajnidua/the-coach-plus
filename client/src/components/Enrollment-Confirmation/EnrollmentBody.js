@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import homePageImage from "../../images/homePage-bg.jpg";
-//import TypeWriterEffect from "react-typewriter-effect";
+
 import "../../styles/enrollment-confirmation.css";
 import { useMutation } from "@apollo/client";
 import { PROGRAMS_ENROLLED } from "../../utils/mutations";
@@ -53,19 +53,6 @@ function EnrollmentConfirmation(props) {
     });
   };
 
-  /* const onAdd = () => {
-    const exist = cartItems.find((x) => x.id === props.coach.coach._id);
-    if (exist) {
-      setCartItems(
-        cartItems.map((x) =>
-          x.id === props.coach.coach._id ? { ...exist, qty: exist.qty + 1 } : x
-        )
-      );
-    } else {
-      setCartItems([...cartItems, { ...props.coach.coach._id, qty: 1 }]);
-    }
-  }; */
-
   return (
     <section className="main-section">
       <main>
@@ -109,19 +96,6 @@ function EnrollmentConfirmation(props) {
             >
               View Cart
             </Link>
-            {/* <button onClick={onAdd}>Add to Cart</button>
-            <element>
-              <Cart coach={props} cartItems={cartItems} onAdd={onAdd} />
-            </element> */}
-            {/* <Link
-              to={{
-                pathname: "/CheckoutDetail",
-
-                state: [props],
-              }}
-            >
-              Go To Checkout
-            </Link> */}
           </ul>
         </section>
       </main>
