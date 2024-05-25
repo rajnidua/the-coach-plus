@@ -187,19 +187,7 @@ const resolvers = {
     },
 
     addProgramsEnrolled: async (parent, args, context) => {
-      console.log("Value of args in add Programs Enrolled is ", args);
-      console.log(args.input.coachname);
-      console.log(args.input.sessionStartDate);
-      console.log(args.input.classTime);
-      console.log(args.input.classDay);
-      console.log(args.input.sportName);
-      console.log("fees is " + args.input.fees);
-      console.log("value of user object is ================", context.user);
-
       if (context.user) {
-        console.log("user coach is: ");
-        console.log(context.user._id);
-
         const resultUser = User.findOneAndUpdate(
           { _id: context.user._id },
           {
@@ -220,22 +208,12 @@ const resolvers = {
           }
         );
 
-        //console.log("****************", context.user.programsEnrolled);
-
-        console.log("result is:");
-        console.log(resultUser);
-        console.log("result end");
-
         return resultUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
 
     addCoach: async (parent, args, context) => {
-      console.log("context in add coach is ");
-      console.log(context.user);
-      console.log("The args is ");
-      console.log(args);
       if (context.user) {
         const coach = await Coach.create({
           coachname: context.user.username,
@@ -243,18 +221,12 @@ const resolvers = {
           userProfile: context.user._id,
         });
 
-        console.log("user coach is: ");
-        console.log(context.user._id);
-        console.log(coach._id);
         const filter = { _id: context.user._id };
         const update = { coachProfile: coach._id };
 
         const result = await User.findOneAndUpdate(filter, update, {
           returnOriginal: false,
         });
-        console.log("result is:");
-        console.log(result);
-        console.log("result end");
 
         return coach;
       }
@@ -263,15 +235,9 @@ const resolvers = {
     },
 
     addtimeSlot: async (parent, { slotValue, slotId }, context) => {
-      console.log(context.user);
       if (context.user) {
         const result = await User.findOne({ _id: context.user._id }).populate(
           "coachProfile"
-        );
-        console.log("coach profile is ", result.coachProfile[0]._id);
-        console.log(
-          "time slot in  profile is ",
-          result.coachProfile[0].timeSlot
         );
 
         return Coach.findOneAndUpdate(
@@ -315,11 +281,22 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
 
+    addCoachReviews: async (parent, args, context) => {
+      console.log(args);
+      if (context.user) {
+        const coachReviews = await CoachReviews.create({
+          ...args.input,
+          userProfile: context.user._id,
+        });
+        return coachReviews;
+      }
+
+      throw new AuthenticationError("You need to be logged in!");
+    },
+
     login: async (parent, { email, password }) => {
-      console.log(email);
-      console.log(password);
       const user = await User.findOne({ email });
-      //console.log(user);
+
       if (!user) {
         throw new AuthenticationError("Incorrect credentials");
       }

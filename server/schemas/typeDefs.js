@@ -35,6 +35,13 @@ const typeDefs = gql`
     enrolledStudents: [EnrolledStudents]
   }
 
+  type CoachReviews {
+    _id: ID
+    userProfile: [User]
+    coachProfile: [Coach]
+    stars: Int
+  }
+
   type EnrollOrder {
     _id: ID
     enrollDate: String
@@ -140,6 +147,7 @@ const typeDefs = gql`
     addDay(dayValue: String!, dayId: String!): Coach
     addStudentEnrolled(input: coachnameInput!): Coach
     addProgramsEnrolled(input: programEnrolledInput!): User
+    addCoachReviews(coachId: ID!, stars: Int!): CoachReviews
     login(email: String!, password: String!): Auth
     addEnrollOrder(coaches: [ID]!): EnrollOrder
   }
